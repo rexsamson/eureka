@@ -1,0 +1,29 @@
+<% if @header.errors.any? %>
+<h3> Error, Cannot save to database </h3>
+<ul>
+   <% @header.errors.full_messages.each do |msg| %>
+   <li><%= msg %></li>
+   <% end %>
+</ul>
+<% end %>
+
+<h1></h1>
+<%= form_for @header do |f|  %>
+<p> <%= f.label :title %><br>
+<%= f.text_field :title %></p>
+
+<p> <%= f.label :header %><br>
+<%= f.text_field :header %></p>
+
+<p> <%= f.label :content %><br>
+<%= f.text_area :content %></p>
+
+<p> <%= f.label :footer %><br>
+<%= f.text_field :footer %></p>
+
+<p> <%= f.label :note %><br>
+<%= f.text_area :note %></p>
+
+<p><%= f.submit %></p>
+
+<% end %> 
