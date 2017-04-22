@@ -10,7 +10,7 @@ Navigate to todoapp, if you are in rails_projects directory:
 To start the server:
 ```rails s -b $IP -p $PORT```
 
-# STRUCTURE
+# Structure
 
 To display hello world at root route, open the config/routes.rb file and enter in the following route:
 ```root "application#hello"```
@@ -42,7 +42,7 @@ within this pages folder under views, create a new file called home.html.erb the
 To shut down the server:
 ``` ctrl-c ```
 
-# ROUTES
+# Routes
 
 To create an about page, first create the route in the routes file:
 
@@ -55,7 +55,7 @@ end
 Create a new file called about.html.erb in the views/pages folder and fill it in:
 ``` <h1>This is the about page</h1> ```
 
-# MIGRATE
+# Migrate
 
 Create a migration file to create todos table:
 ``` rails generate migration create_todos ```
@@ -67,7 +67,7 @@ t.text :description
 Save this file and then run the migration:
 ``` rails db:migrate ```
 
-# CONSOLE
+# Console
 
 To start the rails console:
 ``` rails console ```
@@ -111,8 +111,8 @@ git commit -m "Add edit and update feature"
 then
 git push 
 
-# NEW / CREATE
-####Fill in the new.html.erb form:
+# New / Create
+###Fill in the new.html.erb form:
 
 ```<h1>Create a new Todo</h1>```
 
@@ -134,7 +134,7 @@ git push
 
 <% end %>
 
-####Fill in the create action and todo_params methods in the todos_controller.rb file:
+###Fill in the create action and todo_params methods in the todos_controller.rb file:
 
 def create
   @todo = Todo.create(todo_params)
@@ -145,7 +145,7 @@ def create
   end    
 end 
 
-####Then add in a private below all other methods and above the last end of file, then create the todo_params method under it:
+###Then add in a private below all other methods and above the last end of file, then create the todo_params method under it:
 
 private
 
@@ -153,7 +153,7 @@ def todo_params
   params.require(:todo).permit(:name, :description)
 end
 
-####To display errors, add in the following code to the top of the new.html.erb form:
+###To display errors, add in the following code to the top of the new.html.erb form:
 ```<% if @todo.errors.any? %>```
 ```<h2>The following errors prevented the todo from being saved</h2>```
 <ul>
@@ -166,7 +166,7 @@ end
 
 
 
-# EDIT / UPDATE
+# Edit / Update
 
 First fill in the edit action in the todos_controller.rb file
 
@@ -174,7 +174,7 @@ def edit
   @todo = Todo.find(params[:id])
 end
 
-####Create an edit.html.erb file under the views/todos folder and fill it in with the contents of the new.html.erb except the heading (first line) which should be:
+###Create an edit.html.erb file under the views/todos folder and fill it in with the contents of the new.html.erb except the heading (first line) which should be:
 ```<h1>Edit an existing todo</h1>```
 
 The rest should be identical to the new.html.erb file
