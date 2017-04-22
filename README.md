@@ -112,7 +112,7 @@ then
 git push 
 
 # New / Create
-###Fill in the new.html.erb form:
+Fill in the new.html.erb form:
 
 ```<h1>Create a new Todo</h1>```
 
@@ -134,7 +134,7 @@ git push
 
 <% end %>
 
-###Fill in the create action and todo_params methods in the todos_controller.rb file:
+Fill in the create action and todo_params methods in the todos_controller.rb file:
 
 def create
   @todo = Todo.create(todo_params)
@@ -145,7 +145,7 @@ def create
   end    
 end 
 
-###Then add in a private below all other methods and above the last end of file, then create the todo_params method under it:
+Then add in a private below all other methods and above the last end of file, then create the todo_params method under it:
 
 private
 
@@ -153,7 +153,7 @@ def todo_params
   params.require(:todo).permit(:name, :description)
 end
 
-###To display errors, add in the following code to the top of the new.html.erb form:
+To display errors, add in the following code to the top of the new.html.erb form:
 ```<% if @todo.errors.any? %>```
 ```<h2>The following errors prevented the todo from being saved</h2>```
 <ul>
@@ -170,11 +170,11 @@ end
 
 First fill in the edit action in the todos_controller.rb file
 
-def edit
+```def edit```
   @todo = Todo.find(params[:id])
 end
 
-###Create an edit.html.erb file under the views/todos folder and fill it in with the contents of the new.html.erb except the heading (first line) which should be:
+Create an edit.html.erb file under the views/todos folder and fill it in with the contents of the new.html.erb except the heading (first line) which should be:
 ```<h1>Edit an existing todo</h1>```
 
 The rest should be identical to the new.html.erb file
