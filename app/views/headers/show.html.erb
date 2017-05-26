@@ -1,6 +1,13 @@
+<% flash.each do |name, msg| %>
+    <div class="alert alert-success alert-dismissible" id="success-alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Success</h4>
+        <ul><li><%= msg %></li></ul>
+     </div>
+    <% end %>
 <h1>Show data</h1>
 <p> name = <%= @header.title %></p>
 <p> header = <%= @header.header %></p>
 <p> content = <%= @header.content %></p>
 <p> footer = <%= @header.footer %></p>
-<p> note = <%= @header.note %></p>
+<p> note = </p><%= @header.note.html_safe %>

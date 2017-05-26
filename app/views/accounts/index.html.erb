@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<section class="content-header">
+		<h1>Chart of Accounts <small>List</small></h1>
+		<ol class="breadcrumb">
+			<li>
+				<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+			</li>
+			<li>
+				<a href="#">Chart of Accounts</a>
+			</li>
+			<li class="active">Index page</li>
+		</ol>
+	</section><!-- Main content -->
+	<section class="content">
+		<!-- ========================================== -->
+		<%= link_to "Create a Account", new_account_path, :class => "btn btn-primary btn-sm" %>
+		<div class="box">
+			<!-- /.box-header -->
+			<div class="box-body no-padding">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th style="width: 80px">#</th>
+							<th>Accounts</th>
+							<th style="width: 10px">D/K</th>
+							<th style="width: 80px">D/U</th>
+							<th style="width: 80px">Header</th>
+							<th>Description</th>
+							<th style="width: 250px">Updated at</th>
+							<th style="width: 150px">Action</th>
+						</tr><%@accounts.each do |account| %>
+						<tr>
+							<td><%= account.code %></td>
+							<td><%= account.label %></td>
+							<td><%= account.dk %></td>
+							<td><%= account.du %></td>
+							<td><%= account.header %></td>
+							<td><%= account.description %></td>
+							<td><%= account.updated_at %></td>
+							<td><%= link_to "Show", account_path(account), :class => "btn btn-success btn-xs" %> 
+							<%= link_to "Edit", edit_account_path(account), :class => "btn btn-warning btn-xs" %> 
+							<%= link_to "Delete", account_path(account), :class => "btn btn-danger btn-xs" %></td>
+						</tr><%end %>
+					</tbody>
+				</table>
+			</div><!-- /.box-body -->
+		</div><!-- /.box-end -->
+		<!-- ========================================== -->
+	</section>
+</body>
+</html>

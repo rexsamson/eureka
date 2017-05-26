@@ -1,0 +1,35 @@
+<section class="content-header">
+	<h1>Chart of Accounts <small>New</small></h1>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+		</li>
+		<li>
+			<a href="#">Chart of Accounts</a>
+		</li>
+		<li class="active">New Account</li>
+	</ol>
+</section><!-- Main content -->
+<section class="content">
+	<%if @account.errors.any? %>
+	<h3>Error, Cannot save to database</h3>
+	<ul>
+		<%@account.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li><%end %>
+	</ul><%end %><%= form_for @account do |f|  %>
+	<p><%= f.label :code %><br>
+	<%= f.text_field :code %></p>
+	<p><%= f.label :label %><br>
+	<%= f.text_field :label %></p>
+	<p><%= f.label :du %><br>
+	<%= f.text_field :du %></p>
+	<p><%= f.label :dk %><br>
+	<%= f.text_field :dk %></p>
+	<p><%= f.label :description %><br>
+	<%= f.text_area :description %></p>
+	<p><%= f.label :header %><br>
+	<%= f.text_field :header %></p>
+	<p><%= f.label :id_branch %><br>
+	<%= f.text_field :id_branch %></p>
+	<p><%= f.submit %></p><%= link_to "Back", accounts_path , :class => "btn btn-warning btn-sm" %><%end %>
+</section>

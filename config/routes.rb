@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/main', to: 'pages#main'
   
   resources :headers
+  resources :accounts
 end

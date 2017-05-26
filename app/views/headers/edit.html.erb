@@ -1,29 +1,76 @@
-<% if @header.errors.any? %>
-<h3> Error, Cannot save to database </h3>
-<ul>
-   <% @header.errors.full_messages.each do |msg| %>
-   <li><%= msg %></li>
-   <% end %>
-</ul>
-<% end %>
-
-<h1></h1>
-<%= form_for @header do |f|  %>
-<p> <%= f.label :title %><br>
-<%= f.text_field :title %></p>
-
-<p> <%= f.label :header %><br>
-<%= f.text_field :header %></p>
-
-<p> <%= f.label :content %><br>
-<%= f.text_area :content %></p>
-
-<p> <%= f.label :footer %><br>
-<%= f.text_field :footer %></p>
-
-<p> <%= f.label :note %><br>
-<%= f.text_area :note %></p>
-
-<p><%= f.submit %></p>
-
-<% end %> 
+<section class="content-header">
+	<h1>Company Profile <small>Edit</small></h1>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+		</li>
+		<li>
+			<a href="#">Examples</a>
+		</li>
+		<li class="active">Blank page</li>
+	</ol>
+</section><!-- Main content -->
+<section class="content">
+	<!-- Default box -->
+	<%flash.each do |name, msg| %>
+	<div class="alert alert-success alert-dismissible" id="success-alert">
+		<button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
+		<h4><i class="icon fa fa-check"></i> Success</h4>
+		<ul>
+			<li><%= msg %></li>
+		</ul>
+	</div><%end %>
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Edit header</h3>
+		</div><!--content-->
+		<div class="box-body">
+			<%if @header.errors.any? %>
+			<div class="alert alert-danger alert-dismissible">
+				<button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
+				<h4><i class="icon fa fa-warning"></i> Error, Cannot save to database</h4>
+				<ul>
+					<%@header.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li><%end %>
+				</ul>
+			</div><%end %><%= form_for @header do |f|  %>
+			<div class="row">
+				<form role="form">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<%= f.label :title %><%= f.text_field :title, :id => "fdate", :class => "form-control"  %>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<%= f.label :header%><%= f.text_field :header, :class => "form-control" %>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<%= f.label :footer %><%= f.text_field :footer, :class => "form-control"  %>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<%= f.label :content %><%= f.text_area :content, :class => "form-control"  %>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="form-group">
+							<%= f.label :note %><%= f.text_area :note, :class => "form-control" %>
+						</div>
+					</div><br>
+					<div class="col-sm-2">
+						<%= f.submit "Save Header", :class => "btn btn-primary btn-md" %>
+					</div><%end %>
+				</form>
+			</div>
+		</div><!-- /.box-body -->
+		<!--<div class="box-footer">
+Footer
+</div>-->
+		<!-- /.box-footer-->
+		<!--/content-->
+	</div><!-- /.box -->
+</section>

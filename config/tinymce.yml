@@ -1,0 +1,8 @@
+menubar: false
+statusbar: false
+branding: false
+toolbar:
+  - styleselect | bold italic | undo redo | image | link | unlink
+plugins:
+  - image
+  - link
