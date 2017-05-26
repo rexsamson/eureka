@@ -154,14 +154,14 @@ def todo_params
 end
 
 To display errors, add in the following code to the top of the new.html.erb form:
-```<% if @todo.errors.any? %>```
-```<h2>The following errors prevented the todo from being saved</h2>```
-```<ul>```
-<% @todo.errors.full_messages.each do |msg| %>
-```<li>```<%= msg %>```</li>```
-<% end %>
-```</ul>```
-<% end %>
+<% if @todo.errors.any? %>
+<p>```<h2>The following errors prevented the todo from being saved</h2>```</p>
+<p>```<ul>```<p>
+<p><% @todo.errors.full_messages.each do |msg| %><p>
+<p>```<li>``` <%= msg %> ```</li>```<p>
+<p><% end %><p>
+<p>```</ul>```<p>
+<p><% end %><p>
 
 
 
