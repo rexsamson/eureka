@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
-
+    
+    before_action :find_account, only:[:edit, :destroy, :show, :update]
+    
     def show
         @account = Account.find(params[:id])
     end
@@ -41,6 +43,12 @@ class AccountsController < ApplicationController
     
     def index
         @accounts= Account.all
+    end
+    
+    private
+    
+    def find_account
+        @account = Account.find(params[:id])
     end
     
     def account_params

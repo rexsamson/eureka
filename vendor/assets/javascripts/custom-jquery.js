@@ -47,8 +47,3 @@ $(document).ready(function() {
 window.addEventListener('load', function() {
     new FastClick(document.body);
 }, false);
-//fades in page on load 
-$(document).ready(function(){
-	$('body').css('display', 'none');
-	$('body').fadeIn(100);
-});

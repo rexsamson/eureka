@@ -177,5 +177,4 @@ Create an edit.html.erb file under the views/todos folder and fill it in with th
 
 The rest should be identical to the new.html.erb file
 
-
-
+# Destroy & Refactor
