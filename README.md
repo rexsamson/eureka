@@ -178,3 +178,84 @@ Create an edit.html.erb file under the views/todos folder and fill it in with th
 The rest should be identical to the new.html.erb file
 
 # Destroy & Refactor
+Add the delete link to the index.html.erb page under the links for edit and show:
+
+<td><%= link_to 'delete', todo_path(todo), method: :delete, 
+                                 data: { confirm: "Are you sure?"} %></td>
+
+Add the destroy action in the todos_controller.rb file:
+
+def destroy
+  @todo = Todo.find(params[:id])
+  @todo.destroy
+  flash[:notice] = "Todo was deleted successfully"
+  redirect_to todos_path
+end
+
+Try a short form of the destroy action and see if it works:
+
+def destroy
+  Todo.find(params[:id]).destroy
+end
+
+Update application.html.erb and change the code for the flash messages block to read:
+<%= render 'layouts/messages' %>
+
+Refactor code:
+<%= render 'form' %>
+
+Add a before action to remove some common code in the todos_controller
+
+class TodosController < ApplicationController
+  before_action :set_todo, only: [:edit, :update, :show, :destroy]
+  
+  def new
+    @todo = Todo.new
+  end
+  
+  def create
+    @todo = Todo.new(todo_params)
+    if @todo.save
+      flash[:notice] = "Todo was created successfully!"
+      redirect_to todo_path(@todo)
+    else
+      render 'new'
+    end
+  end
+  
+  def show
+  end
+  
+  def edit
+  end
+  
+  def update
+    if @todo.update(todo_params)
+      flash[:notice] = "Todo was successfully updated"
+      redirect_to todo_path(@todo)
+    else
+      render 'edit'
+    end
+  end
+  
+  def index
+    @todos = Todo.all
+  end
+  
+  def destroy
+    @todo.destroy
+    flash[:notice] = "Todo was deleted successfully"
+    redirect_to todos_path
+  end
+  
+  private
+  
+    def set_todo
+      @todo = Todo.find(params[:id])
+    end
+  
+    def todo_params
+      params.require(:todo).permit(:name, :description)
+    end
+
+end
