@@ -135,3 +135,17 @@
 textarea {
     resize: none;
 }
+tr td {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+
+}
+th {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+
+}

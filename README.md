@@ -153,7 +153,8 @@ def todo_params
   params.require(:todo).permit(:name, :description)
 end
 
-To display errors, add in the following code to the top of the new.html.erb form:<br />
+To display errors, add in the following code to the top of the new.html.erb form:
+<br />
 <% if @todo.errors.any? %><br />
 ```<h2>The following errors prevented the todo from being saved</h2>```<br />
 ```<ul>```<br />

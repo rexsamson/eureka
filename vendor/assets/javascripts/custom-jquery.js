@@ -25,3 +25,30 @@ $(window).bind('mousewheel DOMMouseScroll', function (event) {
 $(document).ready(function(){
 	flatpickr('#fdate');
 });
+/*
+//Ajax Load Container Contents
+$(document).ready(function(){
+	$("a[rel='tab']").click(function(e){
+		e.preventDefault();
+		$("#content").load($(this).attr('href'));
+	});
+});
+//current page ajax
+$(document).ready(function() {
+    $('#menu li').click(function(){
+        $('#menu li').each(function(){
+            $(this).removeClass('active'); 
+        });
+        $(this).addClass('active');
+    });
+});*/
+
+//fastclick
+window.addEventListener('load', function() {
+    new FastClick(document.body);
+}, false);
+//fades in page on load 
+$(document).ready(function(){
+	$('body').css('display', 'none');
+	$('body').fadeIn(100);
+});

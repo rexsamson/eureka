@@ -17,11 +17,9 @@
 			</div>
 		</form><!-- /.search form -->
 		<!-- Sidebar Menu -->
-		<ul class="sidebar-menu" style="font-size:14px !important">
-			<li class="header">HEADER</li><!-- Optionally, you can add icons to the links -->
-			<li class="active">
-				<a href="#"><i class="fa fa-link"></i> <span>Link</span></a>
-			</li>
+		<ul class="sidebar-menu" id="menu" style="font-size:14px !important">
+			<li class="<%= 'active' if current_page?(pages_path) %>"><%= link_to "<i class='fa fa-dashboard text-white'></i> <span>Dashboard</span>".html_safe, pages_path , :rel => "tab" %></li>
+			<li class="<%= 'active' if current_page?(accounts_path) %>"><%= link_to "<i class='fa fa-book text-white'></i> <span>Chart of Accounts</span>".html_safe, accounts_path, :rel => "tab" %></li>
 			<li>
 				<a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a>
 			</li>
