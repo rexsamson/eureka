@@ -1,0 +1,21 @@
+<section class="content">
+<% flash.each do |name, msg| %>
+    <div class="alert alert-success alert-dismissible" id="success-alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Success</h4>
+        <ul><li><%= msg %></li></ul>
+     </div>
+    <% end %>
+<h1>Show data</h1>
+<p> code = <%= @branch.code %></p>
+<p> name = <%= @branch.name %></p>
+<p> region = <%= @branch.region %></p>
+<p> city = <%= @branch.city %></p>
+<p> address = <%= @branch.address %></p>
+<p> telp = <%= @branch.telp %></p>
+<p> cp = <%= @branch.cp %></p>
+<p> description = <%= @branch.description %></p>
+<p> updated_at = <%= @branch.updated_at %></p>
+<p> created_at = <%= @branch.created_at %></p>
+<%= link_to raw("<i class=\"fa fa-undo\" aria-hidden=\"true\"></i> Back"), branches_path , :class => "btn btn-warning btn-flat" %> 
+</section>

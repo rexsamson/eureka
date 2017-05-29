@@ -1,0 +1,2 @@
+//custom link
+<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel</i>"), branches_path , :class => "btn btn-danger btn-sm", :rel => "tabs" %>

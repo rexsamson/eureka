@@ -7,7 +7,6 @@ class CreateAccounts < ActiveRecord::Migration[5.1]
       t.string :dk
       t.string :header
       t.string :description
-      t.integer :id_branch
       t.timestamps
     end
   end

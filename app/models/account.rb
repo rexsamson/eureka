@@ -5,5 +5,6 @@ class Account < ApplicationRecord
     validates :dk, presence: true
     validates :header, presence: true
     validates :description, presence: true
-    validates :id_branch, presence: true
+    validates :branch_id, presence: true
+    belongs_to :branch
 end

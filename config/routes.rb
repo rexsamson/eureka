@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   
   resources :headers
   resources :accounts
+  resources :branches
 end

@@ -52,7 +52,7 @@ class AccountsController < ApplicationController
     end
     
     def account_params
-      params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :id_branch )
+      params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :branch_id )
     end
    
 end
