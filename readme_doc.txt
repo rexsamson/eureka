@@ -144,3 +144,91 @@
     
     end
 --------------------------------------------------------------------------------
+# TDD - validations for model
+    To correct a prior migration, it's a good idea to create a new migration file. In the prior video we demo how to correct the recipes table by using the following methods:
+    
+    rename_column :recipes, :email, :description
+    
+    basically first the table name, then the column name as it stands now (that you want to change) then the new column name
+    
+    Then we use change_column to change the column type, notice how we refer to it as description here even though we're changing it in the line before in the same migration file
+    
+    Then we ran the migration using rails db:migrate
+    
+    Create a new test file for recipe model tests. Under test/models folder create a file named recipe_test.rb
+    
+    Within it fill it in with the tests:
+    
+    require 'test_helper'
+    
+    class RecipeTest < ActiveSupport::TestCase
+      
+      def setup
+        @recipe = Recipe.new(name: "vegetable", description: "great vegetable recipe")  
+      end
+      
+      test "recipe should be valid" do
+        assert @recipe.valid?
+      end  
+      
+      test "name should be present" do
+        @recipe.name = " "
+        assert_not @recipe.valid?
+      end
+      
+      test "description should be present" do
+        @recipe.description = " "
+        assert_not @recipe.valid?
+      end
+      
+      test "description shouldn't be less than 5 characters" do
+        @recipe.description = "a" * 3
+        assert_not @recipe.valid?
+      end
+      
+      test "description shouldn't be more than 500 characters" do
+        @recipe.description = "a" * 501
+        assert_not @recipe.valid?
+      end
+    end
+    
+    Fill in the validations in the recipe model:
+    
+    validates :name, presence: true
+    validates :description, presence: true, length: { minimum: 5, maximum: 500 }
+--------------------------------------------------------------------------------
+# One-to-many 
+
+  Create a new migration file by issuing the following command:
+  
+  rails generate migration add_chef_id_to_recipes
+  
+  Pull up the new migration file that is created and fill in within the change method:
+  
+  add_column :recipes, :chef_id, :integer
+  
+  Run the migration: rails db:migrate
+  
+  Test it out in the console
+  
+  Pull up the chef.rb model file and add in the following line:
+  has_many :recipes
+  
+  Pull up the recipe.rb model file and add in the following line:
+  belongs_to :chef
+  
+  Refer to the video to look for methods, getters setters etc that are available now with this association and how they are used for both chefs and recipes
+  
+  Update the recipe_test.rb file under test/models folder, change the setup method to look like below and also add a new test that checks for chef_id:
+  def setup
+    @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com")
+    @recipe = @chef.recipes.build(name: "vegetable", description: "great vegetable recipe")  
+  end
+  
+  test "recipe without chef should be invalid" do
+    @recipe.chef_id = nil
+    assert_not @recipe.valid?
+  end
+  
+  Add the validation to your recipe.rb model file:
+  validates :chef_id, presence: true

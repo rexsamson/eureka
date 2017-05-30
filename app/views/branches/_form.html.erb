@@ -1,13 +1,4 @@
-<%if @branch.errors.any? %>
-<div class="alert alert-danger alert-dismissible">
-	<button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
-	<h4><i class="icon fa fa-warning"></i> Error, Please make sure all required fields are filled out correctly!</h4>
-	<ul>
-		<%@branch.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li><%end %>
-	</ul>
-</div>
-<%end %>
+<%= render 'shared/errors', obj: @branch %>
 <div class="row">
     <%= form_for @branch do |f|  %>
     <form role="form">

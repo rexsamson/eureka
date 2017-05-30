@@ -1,6 +1,6 @@
 class Account < ApplicationRecord
     validates :code, presence: true
-    validates :label, presence: true
+    validates :label, presence: true, length: {minimim: 1, maximum: 10}
     validates :du, presence: true
     validates :dk, presence: true
     validates :header, presence: true

@@ -20,6 +20,7 @@ class SalesmenController < ApplicationController
     
     def create
         @salesman = Salesman.new(salesman_params)
+        @salesman.branch = Branch.first
         if @salesman.save
             flash[:notice] = "Salesman data created successfully!"
             redirect_to salesmen_path
@@ -44,7 +45,7 @@ class SalesmenController < ApplicationController
         @salesman = Salesman.find(params[:id])
     end
     
-    def branch_params
+    def salesman_params
       params.require(:salesman).permit(:code, :name, :dbirth, :identity, :status )
     end
 end

@@ -1,19 +1,10 @@
-<%if @salesman.errors.any? %>
-<div class="alert alert-danger alert-dismissible">
-	<button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
-	<h4><i class="icon fa fa-warning"></i> Error, Please make sure all required fields are filled out correctly!</h4>
-	<ul>
-		<%@salesman.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li><%end %>
-	</ul>
-</div>
-<%end %>
+<%= render 'shared/errors', obj: @salesman %>
 <div class="row">
     <%= form_for @salesman do |f|  %>
     <form role="form">
         <div class="col-sm-12">
     		<div class="form-group">
-    			<%= f.label :code %><%= f.text_field :code, :class => "form-control" %>
+    			<%= f.label :code, "kode" %><%= f.text_field :code, :class => "form-control" %>
     		</div>
     	</div>
     	<div class="col-sm-12">
@@ -37,11 +28,7 @@
     			<%= f.label :status %><%= f.text_field :status, :class => "form-control"  %>
     		</div>
     	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :branch_id %><%= f.text_field :branch_id, :class => "form-control" %>
-    		</div>
-    	</div>
+    	
     	<br>
     	<div class="col-sm-12">
     		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), salesmen_path , :class => "btn btn-danger btn-flat" %> 

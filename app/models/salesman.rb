@@ -4,6 +4,6 @@ class Salesman < ApplicationRecord
     validates :dbirth, presence: true
     validates :identity, presence: true
     validates :status, presence: true
-    validates :branch_id, presence: true
+
     belongs_to :branch
 end

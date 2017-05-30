@@ -1,13 +1,4 @@
-<%if @account.errors.any? %>
-<div class="alert alert-danger alert-dismissible">
-	<button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
-	<h4><i class="icon fa fa-warning"></i> Error, Please make sure all required fields are filled out correctly!</h4>
-	<ul>
-		<%@account.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li><%end %>
-	</ul>
-</div>
-<%end %>
+<%= render 'shared/errors', obj: @account %>
 <div class="row">
     <%= form_for @account do |f|  %>
     <form role="form">
@@ -41,11 +32,7 @@
     			<%= f.label :description %><%= f.text_area :description, :class => "form-control" %>
     		</div>
     	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :branch_id %><%= f.text_field :branch_id, :class => "form-control" %>
-    		</div>
-    	</div><br>
+    	<br>
     	<div class="col-sm-12">
     		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), accounts_path , :class => "btn btn-danger btn-flat" %> 
     		<%= button_tag( :class => "btn btn-success btn-flat") do %>

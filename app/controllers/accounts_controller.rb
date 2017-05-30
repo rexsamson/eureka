@@ -16,6 +16,7 @@ class AccountsController < ApplicationController
     
     def create
       @account = Account.new(account_params)
+      @account.branch = Branch.first
       if @account.save
          flash[:notice] = "Account data created successfully!"
          redirect_to accounts_path
