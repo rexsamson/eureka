@@ -3,11 +3,11 @@ class AccountsController < ApplicationController
     before_action :find_account, only:[:edit, :destroy, :show, :update]
     
     def show
-        @account = Account.find(params[:id])
+       
     end
     
     def edit
-        @account = Account.find(params[:id])
+       
     end
     
     def new
@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
     def create
       @account = Account.new(account_params)
       if @account.save
-         flash[:notice] = "Account created successfully!"
+         flash[:notice] = "Account data created successfully!"
          redirect_to accounts_path
       else
          render 'new'
@@ -25,16 +25,16 @@ class AccountsController < ApplicationController
     end
     
     def destroy
-        @account = Account.find(params[:id])
+        
         @account.destroy
-        flash[:notice] = "Account deleted successfully!"
+        flash[:notice] = "Account data deleted successfully!"
         redirect_to accounts_path
     end
     
     def update
-      @account = Account.find(params[:id])
+     
       if @account.update(account_params)
-         flash[:notice] = "Account updated successfully!"
+         flash[:notice] = "Account data updated successfully!"
          redirect_to accounts_path
       else
          render 'edit'

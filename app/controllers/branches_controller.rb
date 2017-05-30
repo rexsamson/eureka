@@ -3,11 +3,11 @@ class BranchesController < ApplicationController
     before_action :find_branch, only:[:edit, :destroy, :show, :update]
     
     def show
-        @branch = Branch.find(params[:id])
+       
     end
     
     def edit
-        @branch = Branch.find(params[:id])
+        
     end
     
     def new
@@ -15,26 +15,24 @@ class BranchesController < ApplicationController
     end
     
     def create
-      @branch = Branch.new(branch_params)
-      if @branch.save
-         flash[:notice] = "Branch created successfully!"
+        @branch = Branch.new(branch_params)
+        if @branch.save
+         flash[:notice] = "Branch data created successfully!"
          redirect_to branches_path
-      else
+        else
          render 'new'
-      end
+        end
     end
     
     def destroy
-        @branch = Branch.find(params[:id])
         @branch.destroy
-        flash[:notice] = "Branch deleted successfully!"
+        flash[:notice] = "Branch data deleted successfully!"
         redirect_to branches_path
     end
     
     def update
-      @branch = Branch.find(params[:id])
       if @branch.update(branch_params)
-         flash[:notice] = "Branch updated successfully!"
+         flash[:notice] = "Branch data updated successfully!"
          redirect_to branches_path
       else
          render 'edit'

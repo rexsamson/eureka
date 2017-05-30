@@ -13,8 +13,8 @@
 <p> du = <%= @account.du %></p>
 <p> description = </p><%= @account.description.html_safe %>
 <p> header = <%= @account.header %></p>
-<p> id_branch = <%= @account.id_branch %></p>
+<p> branch_id = <%= @account.branch_id %></p>
 <p> updated_at = <%= @account.updated_at %></p>
 <p> created_at = <%= @account.created_at %></p>
-<%= link_to "Back", accounts_path , :class => "btn btn-warning btn-sm" %>
+<%= link_to raw("<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Back"), accounts_path , :class => "btn btn-danger btn-flat" %> 
 </section>
