@@ -45,9 +45,10 @@
 							</tr><%end %>
 						</tbody>
 					</table>
+					
 				</div><!-- /.box-body -->
-				<div class="box-footer no-padding">
-					<p></p>
+				<div class="box-footer ">
+					<%= will_paginate @salesmmen, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-sm no-margin pull-right' %>
 				</div>
 			</div><!-- /.box-end -->
 			<!-- ========================================== -->

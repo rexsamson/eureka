@@ -36,7 +36,7 @@ class SalesmenController < ApplicationController
     end
     
     def index
-        @salesmen = Salesman.all
+        @salesmen = Salesman.paginate(page: params[:page], per_page: 20)
     end
     
     private

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <%= render 'layouts/partials/head' %>
-
 <body>
     <style>
     * {
@@ -96,7 +95,7 @@
       background-color: #220072;
     }
     .login--form {
-      margin-top:30%;
+      margin-top:40%;
     }
     .login--username-container, .login--password-container {
       float: left;
@@ -133,7 +132,7 @@
           return function() {
             return $(".login--container").toggleClass("login--active");
           };
-        })(this), 2000);
+        })(this), 2500);
         return $(".js-toggle-login").click((function(_this) {
           return function() {
             window.clearTimeout(_this.timer);
@@ -144,26 +143,29 @@
       });
     }).call(this);
     </script>
-  <div class='preload login--container'>
-  <div class='login--form'>
-    <div class='login--username-container'>
-      <label>Username</label>
-      <input autofocus placeholder='Username' type='text'>
+    
+    <div class='preload login--container'>
+      
+      <div class='login--form'>
+        <div style="margin-left:170px"><%= render 'shared/notif' %></div>
+        <div class='login--username-container'>
+          <label>Username</label>
+          <input autofocus placeholder='Username' type='text'>
+        </div>
+        <div class='login--password-container'>
+          <label>Password</label>
+          <input placeholder='Password' type='password'>
+          <%= link_to " Login Acura ", signup_path, :class => "btn btn-success btn-md ", :rel => "tabs" %> 
+          <%= link_to "Register User", signup_path, :class => "btn btn-primary btn-md", :rel => "tabs" %> 
+          <button class='js-toggle-login btn btn-default btn-xs pull-right'><i class="fa fa-refresh  fa-spin fa-fw"></i></button>
+        </div>
+      </div>
+      <div class='login--toggle-container'>
+        <small>Login</small>
+        <div class='js-toggle-login'><span class="logo-lg"><%= image_tag 'logo-min.png',width: '100px' %><b>ACURA</b></span></a></div>
+        <small>Copyright © 2017. All rights reserved.</small>
+      </div>
     </div>
-    <div class='login--password-container'>
-      <label>Password</label>
-      <input placeholder='Password' type='password'>
-      <%= link_to "Log-in", signup_path, :class => "btn btn-success btn-md ", :rel => "tabs" %> 
-      <%= link_to "Register", signup_path, :class => "btn btn-danger btn-md", :rel => "tabs" %> 
-      <button class='js-toggle-login btn btn-primary btn-md pull-right'><i class="fa fa-times"></i></button>
-    </div>
-  </div>
-  <div class='login--toggle-container'>
-    <small>Login</small>
-    <div class='js-toggle-login'><span class="logo-lg"><%= image_tag 'logo-min.png',width: '100px' %><b>ACURA</b></span></a></div>
-    <small>Copyright © 2017. All rights reserved.</small>
-  </div>
-</div>
 
  </body>
 </html>

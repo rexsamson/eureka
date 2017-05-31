@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         @user.branch = Branch.first
         if @user.save
-            flash[:notice] = "User created successfully, please login acura!"
+            flash[:notice] = "User created successfully, please login!"
         redirect_to login_path, :layout => false
         else
             render 'new', :layout => false
