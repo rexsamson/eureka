@@ -1,0 +1,46 @@
+		<section class="content-header">
+			<h1>Users <small>List</small></h1>
+			<ol class="breadcrumb">
+				<li>
+					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">Users</a>
+				</li>
+				<li class="active">Index page</li>
+			</ol>
+		</section><!-- Main content -->
+		<section class="content">
+			<%= render 'shared/flash' %>
+			<!-- ========================================== -->
+			<div class="box box-danger">
+				<!-- /.box-header -->
+				<div class="box-header">
+		         <%= link_to "Create a User", signup_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
+		        </div>
+				<div class="box-body no-padding">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th style="width: 190px">Name</th>
+								<th>Fullname</th>
+								<th style="width: 170px">Email</th>
+								<th style="width: 170px">Action</th>
+							</tr>
+							<tr><%@users.each do |user| %>
+								<td><%= user.name %></td>
+								<td><%= user.fullname %></td>
+								<td><%= user.email %></td>
+								<td><%= link_to "Show", user_path(user), :class => "btn btn-success btn-sm btn-flat", :rel => "tabs" %>
+								<%= link_to "Edit", edit_user_path(user), :class => "btn btn-warning btn-sm btn-flat", :rel => "tabs" %> 
+								<%= link_to "Delete",user_path(user), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm btn-flat", :rel => "tabs" %></td>
+							</tr><%end %>
+						</tbody>
+					</table>
+				</div><!-- /.box-body -->
+				<div class="box-footer no-padding">
+					<p></p>
+				</div>
+			</div><!-- /.box-end -->
+			<!-- ========================================== -->
+		</section>

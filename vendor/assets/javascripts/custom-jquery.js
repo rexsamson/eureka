@@ -43,7 +43,3 @@ $(document).ready(function() {
     });
 });*/
 
-//fastclick
-window.addEventListener('load', function() {
-    new FastClick(document.body);
-}, false);

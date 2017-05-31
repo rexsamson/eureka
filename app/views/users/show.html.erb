@@ -1,0 +1,9 @@
+        <section class="content">
+        <%= render 'shared/flash' %>
+        <h1>Show data</h1>
+        <p> name = <%= @user.name %></p>
+        <p> fullname = <%= @user.fullname %></p>
+        <p> email = <%= @user.email %></p>
+        
+        <%= link_to raw("<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Back"), users_path , :class => "btn btn-primary btn-flat" %> 
+        </section>

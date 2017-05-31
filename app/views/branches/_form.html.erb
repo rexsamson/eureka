@@ -1,53 +1,53 @@
-<%= render 'shared/errors', obj: @branch %>
-<div class="row">
-    <%= form_for @branch do |f|  %>
-    <form role="form">
-        <div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :code %><%= f.text_field :code, :class => "form-control" %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :name %><%= f.text_field :name, :class => "form-control" %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :region %><%= f.text_field :region, :class => "form-control"  %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :city %><%= f.text_field :city, :class => "form-control"  %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :address %><%= f.text_field :address, :class => "form-control"  %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :telp %><%= f.text_field :telp, :class => "form-control"  %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :cp %><%= f.text_field :cp, :class => "form-control" %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :description %><%= f.text_area :description, :class => "form-control" %>
-    		</div>
-    	</div>
-    	<br>
-    	<div class="col-sm-12">
-    		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), branches_path , :class => "btn btn-danger btn-flat" %> 
-    		<%= button_tag( :class => "btn btn-success btn-flat") do %>
-			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
-			<% end %>
-    	</div>
-    </form><%end %>
-</div>
+        <%= render 'shared/errors', obj: @branch %>
+        <div class="row">
+            <%= form_for @branch do |f|  %>
+            
+                <div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :code %><%= f.text_field :code, :class => "form-control" %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :name %><%= f.text_field :name, :class => "form-control" %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :region %><%= f.text_field :region, :class => "form-control"  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :city %><%= f.text_field :city, :class => "form-control"  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :address %><%= f.text_field :address, :class => "form-control"  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :telp %><%= f.text_field :telp, :class => "form-control"  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :cp %><%= f.text_field :cp, :class => "form-control" %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :description %><%= f.text_area :description, :class => "form-control" %>
+            		</div>
+            	</div>
+            	<br>
+            	<div class="col-sm-12">
+            		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), branches_path , :class => "btn btn-danger btn-flat" %> 
+            		<%= button_tag( :class => "btn btn-success btn-flat") do %>
+        			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
+        			<% end %>
+            	</div>
+            <%end %>
+        </div>

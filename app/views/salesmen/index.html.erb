@@ -1,54 +1,54 @@
-<section class="content-header">
-	<h1>Salesmen <small>List</small></h1>
-	<ol class="breadcrumb">
-		<li>
-			<a href="#"><i class="fa fa-dashboard"></i> Home</a>
-		</li>
-		<li>
-			<a href="#">Salesmen</a>
-		</li>
-		<li class="active">Index page</li>
-	</ol>
-</section><!-- Main content -->
-<section class="content">
-	<%= render 'shared/flash' %>
-	<!-- ========================================== -->
-	<div class="box box-danger">
-		<!-- /.box-header -->
-		<div class="box-header">
-         <%= link_to "Create a Salesman", new_salesman_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
-        </div>
-		<div class="box-body no-padding">
-			<table class="table table-bordered">
-				<tbody>
-					<tr>
-						<th style="width: 100px">Code</th>
-						<th>Name</th>
-						<th style="width: 100px">Birthdate</th>
-						<th style="width: 120px">Identity</th>
-						<th style="width: 120px">Status</th>
-						<th style="width: 120px">Branch</th>
-						<th style="width: 170px">Update</th>
-						<th style="width: 170px">Action</th>
-					</tr>
-					<tr><%@salesmen.each do |salesman| %>
-						<td><%= salesman.code %></td>
-						<td><%= salesman.name %></td>
-						<td><%= salesman.dbirth %></td>
-						<td><%= salesman.identity %></td>
-						<td><%= salesman.status %></td>
-						<td><%= salesman.branch.name %></td>
-						<td><%= salesman.updated_at %></td>
-						<td><%= link_to "Show", salesman_path(salesman), :class => "btn btn-success btn-sm btn-flat", :rel => "tabs" %>
-						<%= link_to "Edit", edit_salesman_path(salesman), :class => "btn btn-warning btn-sm btn-flat", :rel => "tabs" %> 
-						<%= link_to "Delete",salesman_path(salesman), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm btn-flat", :rel => "tabs" %></td>
-					</tr><%end %>
-				</tbody>
-			</table>
-		</div><!-- /.box-body -->
-		<div class="box-footer no-padding">
-			<p></p>
-		</div>
-	</div><!-- /.box-end -->
-	<!-- ========================================== -->
-</section>
+		<section class="content-header">
+			<h1>Salesmen <small>List</small></h1>
+			<ol class="breadcrumb">
+				<li>
+					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">Salesmen</a>
+				</li>
+				<li class="active">Index page</li>
+			</ol>
+		</section><!-- Main content -->
+		<section class="content">
+			<%= render 'shared/flash' %>
+			<!-- ========================================== -->
+			<div class="box box-danger">
+				<!-- /.box-header -->
+				<div class="box-header">
+		         <%= link_to "Create a Salesman", new_salesman_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
+		        </div>
+				<div class="box-body no-padding">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<th style="width: 100px">Code</th>
+								<th>Name</th>
+								<th style="width: 100px">Birthdate</th>
+								<th style="width: 120px">Identity</th>
+								<th style="width: 120px">Status</th>
+								<th style="width: 120px">Branch</th>
+								<th style="width: 170px">Update</th>
+								<th style="width: 170px">Action</th>
+							</tr>
+							<tr><%@salesmen.each do |salesman| %>
+								<td><%= salesman.code %></td>
+								<td><%= salesman.name %></td>
+								<td><%= salesman.dbirth %></td>
+								<td><%= salesman.identity %></td>
+								<td><%= salesman.status %></td>
+								<td><%= salesman.branch.name %></td>
+								<td><%= salesman.updated_at %></td>
+								<td><%= link_to "Show", salesman_path(salesman), :class => "btn btn-success btn-sm btn-flat", :rel => "tabs" %>
+								<%= link_to "Edit", edit_salesman_path(salesman), :class => "btn btn-warning btn-sm btn-flat", :rel => "tabs" %> 
+								<%= link_to "Delete",salesman_path(salesman), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm btn-flat", :rel => "tabs" %></td>
+							</tr><%end %>
+						</tbody>
+					</table>
+				</div><!-- /.box-body -->
+				<div class="box-footer no-padding">
+					<p></p>
+				</div>
+			</div><!-- /.box-end -->
+			<!-- ========================================== -->
+		</section>

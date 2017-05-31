@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'layouts/partials/head' %>
+  <body class="hold-transition register-pages" >
+    <style>
+      .login-page, .register-pages {
+        background-color: #605ca8;
+      }
+    </style>
+    <div class="register-box">
+      <div class="register-box-body">
+        <div class="register-logo">
+            <a><b>Acura </b>Sign-up</a>
+          </div>
+          <%= render 'shared/errors', obj: @user %>
+          <%= form_for @user do |f|  %>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-address-book-o fa-fw"></i></span>
+              <%= f.text_field :fullname, :class => "form-control", :placeholder => "Fullname" %>
+            </div>
+            </br>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-address-card-o fa-fw"></i></span>
+              <%= f.text_field :name, :class => "form-control", :placeholder => "Username" %>
+            </div>
+            </br>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+              <%= f.text_field :email, :class => "form-control", :placeholder => "Email Address" %>
+            </div>
+            </br>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+              <%= f.password_field :password, :class => "form-control", :placeholder => "Type Password" %>
+            </div>
+            </br>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+              <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %>
+            </div>
+            </br>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-user-secret fa-fw"></i></span>
+              <%= f.text_field :branch, :class => "form-control", :placeholder => "Branch" %>
+            </div>
+            </br>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-building-o fa-fw"></i></span>
+              <%= f.text_field :branch, :class => "form-control", :placeholder => "Branch" %>
+            </div>
+            </br>
+            <div class="row">
+              <!-- /.col -->
+              <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary btn-block btn-flat center">Register User</button>
+              </div>
+              <!-- /.col -->
+            </div>
+          <% end %>
+        </br>
+        <center><a href="login.html" class="btn btn-success btn-block btn-flat center" >Login Acura</a></center>
+      </div>
+      <!-- /.form-box -->
+    </div>
+ </body>
+</html>
+    
