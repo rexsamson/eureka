@@ -12,7 +12,7 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require custom-jquery
+//= require custom
 //= require adminlte
 //= require flatpickr
 //= require_tree .

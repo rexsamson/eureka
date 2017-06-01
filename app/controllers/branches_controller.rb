@@ -17,7 +17,7 @@ class BranchesController < ApplicationController
     def create
         @branch = Branch.new(branch_params)
         if @branch.save
-         flash[:notice] = "Branch data created successfully!"
+         flash[:success] = "Branch data created successfully!"
          redirect_to branches_path
         else
          render 'new'
@@ -26,13 +26,13 @@ class BranchesController < ApplicationController
     
     def destroy
         @branch.destroy
-        flash[:notice] = "Branch data deleted successfully!"
+        flash[:warning] = "Branch data deleted successfully!"
         redirect_to branches_path
     end
     
     def update
       if @branch.update(branch_params)
-         flash[:notice] = "Branch data updated successfully!"
+         flash[:success] = "Branch data updated successfully!"
          redirect_to branches_path
       else
          render 'edit'

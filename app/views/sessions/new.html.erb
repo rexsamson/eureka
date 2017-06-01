@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/partials/head' %>
+<body class="hold-transition login-pages">
+<div class="login-box">
+  <div class="login-logo">
+    <span class="logo-lg"><%= image_tag 'logo-min.png',width: '100px' %><b>ACURA</b> - Login </span></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+    <%= form_for(:session, :html => { role: "form"}, url: login_path) do |f| %>
+    <%= render 'shared/loginflash' %>
+      <div class="form-group has-feedback">
+        <%= f.text_field :name, class: "form-control", 
+            placeholder: "Enter your Username", autofocus: true %>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <%= f.password_field :password, class: "form-control", 
+            placeholder: "Enter your password", autofocus: true %>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+
+        <!-- /.col --></br>
+        <div class="col-xs-12">
+          <%= f.submit " Login Acura ", class: 'btn btn-success btn-block btn-flat' %>
+        </div>
+        <!-- /.col -->
+      </div>
+    <% end %>
+    <br>
+    <%= link_to "Register User", signup_path, :class => "btn btn-primary btn-block btn-flat", :rel => "tabs" %>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+</body>
+</html>

@@ -1,22 +1,17 @@
 class PagesController < ApplicationController
 
-def home
+    def home
+        if logged_in?
+            redirect_to pages_path 
+        else
+            redirect_to login_path 
+        end
+    end
     
-end
+    def main
+       
+    end
 
-def main
-   
-end
-
-def login
-   render :layout => false
-end
-
-private
-def user_params
-    params.require(:user).permit(:name, :fullname, :email, :password, :password_digest, :branch_id )
- 
-end
      
 
 end

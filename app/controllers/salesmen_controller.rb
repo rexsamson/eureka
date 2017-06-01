@@ -10,7 +10,7 @@ class SalesmenController < ApplicationController
     
     def update
         @salesman.update(salesman_params)
-        flash[:notice] = "Salesman data updated successfully"
+        flash[:success] = "Salesman data updated successfully"
         redirect_to salesmen_path
     end
     
@@ -22,7 +22,7 @@ class SalesmenController < ApplicationController
         @salesman = Salesman.new(salesman_params)
         @salesman.branch = Branch.first
         if @salesman.save
-            flash[:notice] = "Salesman data created successfully!"
+            flash[:success] = "Salesman data created successfully!"
             redirect_to salesmen_path
         else
             render 'new'
@@ -31,7 +31,7 @@ class SalesmenController < ApplicationController
     
     def destroy
         @salesman.destroy
-        flash[:notice] = "Salesman data deleted successfully"
+        flash[:warning] = "Salesman data deleted successfully"
         redirect_to salesmen_path
     end
     

@@ -18,7 +18,7 @@ class AccountsController < ApplicationController
       @account = Account.new(account_params)
       @account.branch = Branch.first
       if @account.save
-         flash[:notice] = "Account data created successfully!"
+         flash[:success] = "Account data created successfully!"
          redirect_to accounts_path
       else
          render 'new'
@@ -28,14 +28,14 @@ class AccountsController < ApplicationController
     def destroy
         
         @account.destroy
-        flash[:notice] = "Account data deleted successfully!"
+        flash[:warning] = "Account data deleted successfully!"
         redirect_to accounts_path
     end
     
     def update
      
       if @account.update(account_params)
-         flash[:notice] = "Account data updated successfully!"
+         flash[:success] = "Account data updated successfully!"
          redirect_to accounts_path
       else
          render 'edit'

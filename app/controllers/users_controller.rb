@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     
     def update
         @user.update(user_params)
-        flash[:notice] = "User data updated successfully"
+        flash[:success] = "User data updated successfully"
         redirect_to users_path
     end
     
@@ -24,8 +24,9 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         @user.branch = Branch.first
         if @user.save
-            flash[:notice] = "User created successfully, please login!"
-        redirect_to login_path, :layout => false
+            session[:user_id] = @user.id
+            flash[:success] = "User created successfully"
+        redirect_to pages_path, :layout => false
         else
             render 'new', :layout => false
             
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
     
     def destroy
         @user.destroy
-        flash[:notice] = "User data deleted successfully"
+        flash[:warning] = "User data deleted successfully"
         redirect_to users_path
     end
     

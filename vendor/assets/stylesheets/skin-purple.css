@@ -148,3 +148,7 @@ th {
   padding-left: 6px !important;
   padding-right: 6px !important;
 }
+.login-pages {
+  background-color: #605ca8;
+  color: white;
+}
