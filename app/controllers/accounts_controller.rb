@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-    
+    before_action :require_login
     before_action :find_account, only:[:edit, :destroy, :show, :update]
     
     def show
@@ -15,9 +15,8 @@ class AccountsController < ApplicationController
     end
     
     def create
-        @branch = session[:branch_id]
       @account = Account.new(account_params)
-      @account.branch = @branch
+      @account.branch = Branch.first
       if @account.save
          flash[:success] = "Account data created successfully!"
          redirect_to accounts_path

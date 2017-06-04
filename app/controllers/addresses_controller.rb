@@ -1,6 +1,5 @@
 class AddressesController < ApplicationController
-    
-    
+    before_action :require_login
     before_action :find_address, only:[:edit, :destroy, :show, :update]
     
     def show

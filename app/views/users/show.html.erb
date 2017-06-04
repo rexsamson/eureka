@@ -1,9 +1,46 @@
-        <section class="content">
-        <%= render 'shared/flash' %>
-        <h1>Show data</h1>
-        <p> name = <%= @user.name %></p>
-        <p> fullname = <%= @user.fullname %></p>
-        <p> email = <%= @user.email %></p>
+		<section class="content-header">
+			<h1>Profile <small></small></h1>
+			<ol class="breadcrumb">
+				<li>
+					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">User Profile</a>
+				</li>
+				<li class="active">User Profile</li>
+			</ol>
+		</section><!-- Main content -->
+		<section class="content">
+			<!-- Default box -->
+			<%= render 'shared/flash' %>
+			<div class="row col-md-6">
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h3 class="box-title">User Profile</h3>
+					</div><!--content-->
+					<div class="box-body">
+						<table>
+		        <tr>
+		        	<th style="width: 170px" rowspan="3"><i class="fa fa-fw fa-user-circle" style="font-size:80px;"></i></th>
+		          <th style="width: 120px"><p> User Name</p></th>
+		           <td><p> : </p></td>
+		          <td><p><%= @user.name %></p></td>
+		        </tr>
+		        <tr>
+		          <th><p> Full Name</p></th>
+		          <td><p> : </p></td>
+		          <td><p><%= @user.fullname %></p></td>
+		        </tr>
+		        <tr>
+		          <th><p> Email Addres</p></th>
+		          <td><p> : </p></td>
+		          <td><p><%= @user.email %></p></td>
+		        </tr>
+		      </table>
+		      <br>
+		      <%= link_to raw("<i class=\"fa fa-edit \" aria-hidden=\"true\"></i> Change Password"), edit_user_path(current_user) , :class => "btn btn-success btn-flat" %> 
+					</div><!-- /.box-body -->
+				</div><!-- /.box -->
+			</div>
+		</section>
         
-        <%= link_to raw("<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Back"), users_path , :class => "btn btn-primary btn-flat" %> 
-        </section>

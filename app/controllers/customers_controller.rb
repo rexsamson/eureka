@@ -1,6 +1,5 @@
 class CustomersController < ApplicationController
-    
-    
+    before_action :require_login
     before_action :find_customer, only:[:edit, :destroy, :show, :update]
     
     def show

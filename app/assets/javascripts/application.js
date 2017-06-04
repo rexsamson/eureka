@@ -17,6 +17,8 @@
 //= require flatpickr
 //= require pace
 //= require toastr
+//= require dataTables/jquery.dataTables
+//= require datatables-bootstrap
 //= require custom
 //= require_tree .
 

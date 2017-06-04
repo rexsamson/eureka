@@ -1,5 +1,5 @@
 class SalesmenController < ApplicationController
-
+    before_action :require_login
     before_action :find_salesman, only:[:edit, :destroy, :show, :update]
     
     def show 

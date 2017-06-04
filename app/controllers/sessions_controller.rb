@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             session[:user_branch_id] = current_user.branch_id
             
-            flash[:success] = "Login successfully. Welcome to Acura application !"
-            redirect_to user
+            flash[:success] = "You've been logged in successfully!"
+            redirect_to pages_path
         else
             flash[:danger] = "Invalid username or password information !"
             render 'new', :layout => false
