@@ -11,10 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap
+ *= require select2
+ *= require flatpickr
  *= require adminlte
  *= require skin-purple
  *= require custom
- *= require flatpickr
  *= require pace
  *= require toastr
  *= require_tree .

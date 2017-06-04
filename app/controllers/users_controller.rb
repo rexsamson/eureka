@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     
     def new
         @user = User.new
+        @branches = Branch.all
         render :layout => false
     end
     

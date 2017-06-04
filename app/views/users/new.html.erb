@@ -10,8 +10,8 @@
     <div class="register-box">
       <div class="register-box-body">
         <div class="register-logo">
-            <a><b>Acura </b>Sign-up</a>
-          </div>
+          <a><b>Acura </b>Sign-up</a>
+        </div>
           <%= render 'shared/errors', obj: @user %>
           <%= form_for @user do |f|  %>
             <div class="input-group margin-bottom-sm">
@@ -40,14 +40,11 @@
             </div>
             </br>
             <div class="input-group margin-bottom-sm">
-              <span class="input-group-addon"><i class="fa fa-user-secret fa-fw"></i></span>
-              <%= f.text_field :branch, :class => "form-control", :placeholder => "Branch" %>
+              <span class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
+              <% options = options_from_collection_for_select(@branches, 'id', 'name') %>
+              <%= f.select :branch,  options, :class => "form-control full", :placeholder => "Branch" %>
             </div>
-            </br>
-            <div class="input-group margin-bottom-sm">
-              <span class="input-group-addon"><i class="fa fa-building-o fa-fw"></i></span>
-              <%= f.text_field :branch, :class => "form-control", :placeholder => "Branch" %>
-            </div>
+
             </br>
             <div class="row">
               <!-- /.col -->
