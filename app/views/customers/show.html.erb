@@ -1,0 +1,22 @@
+        <section class="content">
+        <%= render 'shared/flash' %>
+        <h1>Show data</h1>
+        <p> code = <%= @customer.code %></p>
+        <p> label = <%= @customer.name %></p>
+        <p> dk = <%= @customer.cp %></p>
+        <p> du = <%= @customer.climit %></p>
+        <p> description = </p><%= @customer.dlimit %>
+        <p> header = <%= @customer.tclimit %></p>
+        <p> branch_id = <%= @customer.tdlimit %></p>
+        <p> updated_at = <%= @customer.updated_at %></p>
+        <p> created_at = <%= @customer.created_at %></p>
+        <% @customer.addresses.each do |addresses| %>
+        <p> nama :	<%= addresses.name %></p>
+        <p> region :	<%= addresses.region %></p>
+        <p> kota :	<%= addresses.city %></p>
+        <hr>
+        <% end %>
+
+        <%= link_to raw("<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Back"), accounts_path , :class => "btn btn-primary btn-flat" %> 
+        </section>
+        

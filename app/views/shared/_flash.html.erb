@@ -1,7 +1,6 @@
         <% flash.each do |name, msg| %>
-        <div class="alert alert-<%= name %> alert-dismissible" id="success-alert">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-check"></i> Success</h4>
-            <ul><li><%= msg %></li></ul>
-         </div>
-        <% end %>
+		<script>toastr.<%= name %>(
+			"<ul><li><%= msg %></li></ul>", 
+			"<h4><i class='icon fa fa-check'></i>&nbsp;<span> Notice <%= name %><span></h4>").css("width","350px")
+		</script>
+		<%end %>

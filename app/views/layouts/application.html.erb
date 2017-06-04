@@ -1,3 +1,16 @@
-<%= render 'layouts/mainheader' %>
-<%= yield %>
-<%= render 'layouts/mainfooter' %>
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/partials/head' %>
+<body class="hold-transition skin-purple sidebar-mini" >
+<div class="wrapper">
+    <%= render 'layouts/partials/headerbar' %>
+    <%= render 'layouts/partials/sidebar' %>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" id="content">
+    <%= yield %>
+</div><!-- /.content-wrapper -->
+	<%= render 'layouts/partials/footerbar' %>
+	<%= render 'layouts/partials/controlbar' %>
+</div><!-- ./wrapper -->
+</body>
+</html>

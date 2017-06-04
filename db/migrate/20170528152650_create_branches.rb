@@ -1,4 +1,4 @@
-class CreateBranch < ActiveRecord::Migration[5.1]
+class CreateBranches < ActiveRecord::Migration[5.1]
   def change
     create_table :branches do |t|
       t.string :code

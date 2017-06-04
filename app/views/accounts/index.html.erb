@@ -1,5 +1,5 @@
 		<section class="content-header">
-			<h1>Chart of Accounts <small>List</small></h1>
+			 <%= link_to raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Create New Account"), new_account_path, :class => "btn btn-primary btn-flat "%>
 			<ol class="breadcrumb">
 				<li>
 					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
@@ -16,11 +16,11 @@
 			<div class="box">
 				<!-- /.box-header -->
 				<div class="box-header">
-		         <%= link_to "Create a Account", new_account_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
-		        </div>
-				<div class="box-body no-padding">
-					<table class="table table-bordered">
-						<tbody>
+	            	<h3 class="box-title">Chart of Accounts (CoA)</h3>
+	            </div>
+				<div class="box-body padding-xs">
+					<table id="dttable" class="table table-bordered table-hover">
+						<thead>
 							<tr>
 								<th style="width: 100px">Code</th>
 								<th>Accounts</th>
@@ -29,8 +29,10 @@
 								<th style="width: 80px">Header</th>
 								<th>Description</th>
 								<th style="width: 170px">Update</th>
-								<th style="width: 170px">Action</th>
+								<th style="width: 130px">Action</th>
 							</tr>
+							</thead>
+							</tbody>
 							<tr><%@accounts.each do |account| %>
 								<td><%= account.code %></td>
 								<td><%= account.label %></td>
@@ -39,17 +41,14 @@
 								<td><%= account.header %></td>
 								<td><%= account.description %></td>
 								<td><%= account.updated_at %></td>
-								<td><%= link_to "Show", account_path(account), :class => "btn btn-success btn-sm btn-flat", :rel => "tabs" %>
-								<%= link_to "Edit", edit_account_path(account), :class => "btn btn-warning btn-sm btn-flat", :rel => "tabs" %> 
-								<%= link_to "Delete", account_path(account), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm btn-flat", :rel => "tabs" %></td>
+								<td><%= link_to raw("<i class=\"fa fa-eye\" aria-hidden=\"true\"></i>"), account_path(account), :class => "btn btn-success btn-sm ", :rel => "tabs" %>
+								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_account_path(account), :class => "btn btn-warning btn-sm", :rel => "tabs" %> 
+								<%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), account_path(account), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm", :rel => "tabs" %></td>
 							</tr><%end %>
 						</tbody>
 					</table>
 				</div><!-- /.box-body -->
-				<div class="box-footer no-padding">
-					<p></p>
-				</div>
-		
+				
 			</div><!-- /.box-end -->
 			<!-- ========================================== -->
 		</section>

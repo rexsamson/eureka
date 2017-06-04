@@ -12,8 +12,11 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require custom
 //= require adminlte
+//= require bootstrap
 //= require flatpickr
+//= require pace
+//= require toastr
+//= require custom
 //= require_tree .
 

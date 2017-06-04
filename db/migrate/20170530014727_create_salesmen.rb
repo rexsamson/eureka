@@ -1,4 +1,4 @@
-class CreateSalesman < ActiveRecord::Migration[5.1]
+class CreateSalesmen < ActiveRecord::Migration[5.1]
   def change
     create_table :salesmen do |t|
       t.string :name

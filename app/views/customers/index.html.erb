@@ -1,0 +1,49 @@
+		<section class="content-header">
+			<h1>Customers <small>List</small></h1>
+			<ol class="breadcrumb">
+				<li>
+					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">Customers</a>
+				</li>
+				<li class="active">Index page</li>
+			</ol>
+		</section><!-- Main content -->
+		<section class="content">
+			<%= render 'shared/flash' %>
+			<!-- ========================================== -->
+			<div class="box">
+				<!-- /.box-header -->
+				<div class="box-header">
+		         <%= link_to "Create a Customer", new_customer_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
+		        </div>
+				<div class="box-body no-padding">
+				    <%@customers.each do |f| %>
+					<b>	<%= f.code %>
+						<%= f.name %>
+						<%= f.group %>
+						<%= f.cp %>
+						<%= f.status %>
+						<%= f.climit %>
+						<%= f.dlimit %></b> <br>
+						
+        				<% f.addresses.each do |d| %>
+        				
+                        	<%= d.name %>
+                        	<%= d.address %>
+                        	<%= d.region %>
+                        	<%= d.city %><br>
+
+                        <% end %>
+                        <hr>
+                    <%end %>
+					
+				</div><!-- /.box-body -->
+				<div class="box-footer no-padding">
+					<p></p>
+				</div>
+		
+			</div><!-- /.box-end -->
+			<!-- ========================================== -->
+		</section>

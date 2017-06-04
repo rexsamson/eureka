@@ -11,4 +11,5 @@ rails generate migration create_table
 rails generate add_user_id_to_documents
 -> add_column :documents, :user_id, :integer
 
-
+//generate
+rails g controller addresses --skip-assets --no-helper 

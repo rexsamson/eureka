@@ -12,15 +12,15 @@
 
     <%= form_for(:session, :html => { role: "form"}, url: login_path) do |f| %>
     <%= render 'shared/loginflash' %>
-      <div class="form-group has-feedback">
+      <div class="input-group margin-bottom">
+        <span class="input-group-addon"><i class="fa fa-address-card-o fa-fw"></i></span>
         <%= f.text_field :name, class: "form-control", 
             placeholder: "Enter your Username", autofocus: true %>
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
+      <div class="input-group margin-bottom">
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
         <%= f.password_field :password, class: "form-control", 
             placeholder: "Enter your password", autofocus: true %>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
 

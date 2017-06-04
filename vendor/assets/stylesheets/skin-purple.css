@@ -136,8 +136,8 @@ textarea {
     resize: none;
 }
 tr td {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
   padding-left: 6px !important;
   padding-right: 6px !important;
   vertical-align: middle !important;

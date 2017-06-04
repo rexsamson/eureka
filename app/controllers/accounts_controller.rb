@@ -15,8 +15,9 @@ class AccountsController < ApplicationController
     end
     
     def create
+        @branch = session[:branch_id]
       @account = Account.new(account_params)
-      @account.branch = Branch.first
+      @account.branch = @branch
       if @account.save
          flash[:success] = "Account data created successfully!"
          redirect_to accounts_path

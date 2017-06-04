@@ -1,10 +1,6 @@
 		<%if obj.errors.any? %>
-		<div class="alert alert-danger alert-dismissible">
-			<button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
-			<h4><i class="icon fa fa-warning"></i>There <%= pluralize(obj.errors.count, "error occurred") %> </h4>
-			<ul>
-				<% obj.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li><%end %>
-			</ul>
-		</div>
+		<script>toastr.error(
+			"<ul><% obj.errors.full_messages.each do |msg| %><li><%= msg %></li><%end %></ul>", 
+			"<h4><i class='fa fa-exclamation-triangle'> </i>&nbsp;<span> There are some errors occurred !<span></h4>").css("width","300px")
+		</script>
 		<%end %>
