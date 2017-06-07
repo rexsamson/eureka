@@ -40,6 +40,7 @@ gem 'pry'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'will_paginate', '3.1.0'
 gem 'will_paginate-bootstrap'
+gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

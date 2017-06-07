@@ -1,7 +1,6 @@
         <%= render 'shared/errors', obj: @account %>
         <div class="row">
             <%= form_for @account do |f|  %>
-            
             	<div class="col-sm-12">
             		<div class="form-group">
             			<%= f.label :code %><%= f.text_field :code, :class => "form-control" %>

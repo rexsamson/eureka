@@ -1,3 +1,3 @@
 class Address < ApplicationRecord
-     belongs_to :customer, inverse_of: :addresses
+     belongs_to :customer, optional: true
 end

@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
     
     def create
       @address = Address.new(address_params)
-      @address.branch = Branch.first
+      @address.branch = Branch.find(session[:branch_id])
       if @address.save
          flash[:success] = "Address data created successfully!"
          redirect_to addresses_path

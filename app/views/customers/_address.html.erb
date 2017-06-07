@@ -1,0 +1,12 @@
+<tr>
+<td class="col-sm-3"><%= f.input :name %></td>
+<td class="col-sm-5"><%= f.input :address %></td>
+<td class="col-sm-2"><%= f.input :region %></td>
+<td class="col-sm-2"><%= f.input :city %></td>
+<td>
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= button_tag( :class => "remove_record btn btn-warning pull-right") do %>
+	    <i class="fa fa-trash" aria-hidden="true"></i> 
+	<% end %>
+</td>
+</tr>

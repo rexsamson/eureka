@@ -28,14 +28,14 @@ class UsersController < ApplicationController
     
     def create
         @user = User.new(user_params)
-        @user.branch = Branch.first
+        @branches = Branch.all
         if @user.save
             session[:user_id] = @user.id
+            session[:branch_id] = current_user.branch_id
             flash[:success] = "User created successfully"
         redirect_to pages_path, :layout => false
         else
             render 'new', :layout => false
-            
         end
         
     end

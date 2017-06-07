@@ -1,62 +1,73 @@
         <%= render 'shared/errors', obj: @customer %>
         <div class="row">
-            <%= form_for @customer do |f|  %>
-                
-            	<div class="col-sm-12">
+            
+            <%= simple_form_for @customer do |f|  %>
+            	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.label :code %><%= f.text_field :code, :class => "form-control" %>
+            			<%= f.input :code, hint: false,:readonly => true, input_html: {value: @customer.code } %>
             		</div>
             	</div>
-            	<div class="col-sm-12">
+            	<div class="col-sm-5">
             		<div class="form-group">
-            			<%= f.label :name %><%= f.text_field :name, :class => "form-control"  %>
+            			<%= f.input :name, hint: false,:error => false  %>
             		</div>
             	</div>
-            	<div class="col-sm-12">
+            	<div class="col-sm-3">
             		<div class="form-group">
-            			<%= f.label :group %><%= f.text_field :group, :class => "form-control"  %>
+            			<%= f.input :cp, hint: false,:error => false  %>
             		</div>
             	</div>
-            	<div class="col-sm-12">
+            	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.label :cp %><%= f.text_field :cp, :class => "form-control"  %>
+            			<%= f.input :telp, hint: false,:error => false  %>
             		</div>
             	</div>
-            	<div class="col-sm-12">
+            	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.label :status %><%= f.text_field :status, :class => "form-control"  %>
-            		</div>
-            	</div>
-            	<div class="col-sm-12">
-            		<div class="form-group">
-            			<%= f.label :climit %><%= f.text_area :climit, :class => "form-control" %>
-            		</div>
-            	</div>
-            	<div class="col-sm-12">
-            		<div class="form-group">
-            			<%= f.label :dlimit %><%= f.text_area :dlimit, :class => "form-control" %>
-            		</div>
-            	</div>
-            	<div class="col-sm-12">
-            		<div class="form-group">
-            			<%= f.label :tclimit %><%= f.text_area :tclimit, :class => "form-control" %>
+            		<%= f.input :group, hint: false,:error => false  %>
             		</div>
             	</div>
             	
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            			<%= f.input :status, :collection => [['Active','Active'],['Inactive','Inactive']], :selected => ['Active'], id: 'select' %>
+            		</div>
+            	</div>
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            		<%= f.input :climit, hint: false,:error => false %>
+            		</div>
+            	</div>
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            			<%= f.input :dlimit, hint: false,:error => false %>
+            		</div>
+            	</div>
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            		<%= f.input :tclimit, hint: false,:error => false %>
+            		</div>
+            	</div>
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            		<%= f.input :tdlimit, hint: false,:error => false %>
+            		</div>
+            	</div>
             	
-            	<br>
-            	<%= f.fields_for :addresses do |d| %>
-            	<%= d.text_field :name %>
-            	<%= d.text_field :address %>
-            	<%= d.text_field :region %>
-            	<%= d.text_field :city %>
-                <%= d.check_box :_destroy %>
-                <% end %>
-            	<div class="col-sm-12">
-            		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), customers_path , :class => "btn btn-danger btn-flat" %> 
-            		<%= button_tag( :class => "btn btn-success btn-flat") do %>
-        			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
-        			<% end %>
+                <div class="col-sm-12">
+                    <table  class='fields'>
+                        <hr>
+                    	<%= f.simple_fields_for :addresses do |builder| %>
+                    	    <%= render 'address', f: builder %>
+                        <% end %>
+                    </table>
+                    <div class="text-right btn-toolbar">
+                        <%= link_to_add_row(raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Address"), f, :addresses, class: 'btn btn-primary btn-flat') %>
+                		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), customers_path , :class => "btn btn-danger btn-flat pull-right" %> 
+                		<%= button_tag( :class => "btn btn-success btn-flat pull-right") do %>
+            			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
+            			<% end %>
+        			</div>
             	</div>
             <%end %>
         </div>

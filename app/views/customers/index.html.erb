@@ -13,37 +13,46 @@
 		<section class="content">
 			<%= render 'shared/flash' %>
 			<!-- ========================================== -->
-			<div class="box">
+			<div class="box box-danger">
 				<!-- /.box-header -->
 				<div class="box-header">
-		         <%= link_to "Create a Customer", new_customer_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
+		         <%= link_to "Create a Customer", new_customer_path, :class => "btn btn-primary btn-flat " %>
 		        </div>
-				<div class="box-body no-padding">
-				    <%@customers.each do |f| %>
-					<b>	<%= f.code %>
-						<%= f.name %>
-						<%= f.group %>
-						<%= f.cp %>
-						<%= f.status %>
-						<%= f.climit %>
-						<%= f.dlimit %></b> <br>
-						
-        				<% f.addresses.each do |d| %>
-        				
-                        	<%= d.name %>
-                        	<%= d.address %>
-                        	<%= d.region %>
-                        	<%= d.city %><br>
+				<div class="box-body padding-xs">
+					<table class="table table-bordered table-hover" >
+						<thead>
+							<tr>
+								<th style="width: 50px">Code</th>
+								<th>Customer Name</th>
+								<th>Contact Person</th>
+								<th style="width: 140px">Group</th>
+								<th style="width: 80px">Telp</th>
+								<th style="width: 90px">Limit Credit</th>
+								<th style="width: 80px">Limit Days</th>
+								<th style="width: 125px">Action</th>
 
-                        <% end %>
-                        <hr>
-                    <%end %>
-					
+							</tr>
+						</thead>
+						<tbody>
+							<tr><%@customers.each do |customer| %>
+								<td><%= customer.code %></td>
+								<td><%= customer.name %></td>
+								<td><%= customer.cp %></td>
+								<td><%= customer.group %></td>
+								<td><%= customer.telp %></td>
+								<td><%= customer.climit %></td>
+								<td><%= customer.dlimit %></td>
+								<td><%= link_to raw("<i class=\"fa fa-eye\" aria-hidden=\"true\"></i>"), customer_path(customer), :class => "btn btn-success btn-sm " %>
+								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_customer_path(customer), :class => "btn btn-warning btn-sm" %> 
+								<%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), customer_path(customer), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
+							</tr><%end %>
+						</tbody>
+					</table>
 				</div><!-- /.box-body -->
 				<div class="box-footer no-padding">
 					<p></p>
 				</div>
-		
 			</div><!-- /.box-end -->
 			<!-- ========================================== -->
 		</section>
+		

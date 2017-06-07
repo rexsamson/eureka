@@ -15,15 +15,15 @@ class AccountsController < ApplicationController
     end
     
     def create
-      @account = Account.new(account_params)
-      @account.branch = Branch.find(session[:branch_id])
-      
-      if @account.save
-         flash[:success] = "Account data created successfully!"
-         redirect_to accounts_path
-      else
-         render 'new'
-      end
+    @account = Account.new(account_params)
+    @account.branch = Branch.find(session[:branch_id])
+    
+    if @account.save
+        flash[:success] = "Account data created successfully!"
+        redirect_to accounts_path
+    else
+        render 'new'
+    end
     end
     
     def destroy
