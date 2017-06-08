@@ -60,7 +60,7 @@ class CustomersController < ApplicationController
     end
     
     def index
-        @customers= Customer.all
+        @customers= Customer.paginate(page: params[:page], per_page: 20)
     end
     
     private
@@ -70,7 +70,10 @@ class CustomersController < ApplicationController
     end
     
     def customer_params
-        params.require(:customer).permit(:code, :name, :group, :cp, :status, :climit, :dlimit, :tclimit, :tdlimit, :telp, :branch_id, addresses_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy))
+        params.require(:customer).permit(
+            :code, :name, :group, :cp, :status, :climit, :dlimit, :tclimit, :tdlimit, :telp, :branch_id, 
+            addresses_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy)
+        )
         #params.require(:todo_list).permit(:name, tasks_attributes: Task.attribute_names.map(&:to_sym).push(:_destroy))
     end
    

@@ -24,31 +24,29 @@
 							<tr>
 								<th style="width: 100px">Code</th>
 								<th>Name</th>
-								<th style="width: 100px">Birthdate</th>
-								<th style="width: 120px">Identity</th>
-								<th style="width: 120px">Status</th>
-								<th style="width: 120px">Branch</th>
-								<th style="width: 170px">Update</th>
-								<th style="width: 170px">Action</th>
+								<th style="width: 120px">Birthdate</th>
+								<th>Identity</th>
+								<th>Status</th>
+								<th style="width: 120px">Update</th>
+								<th style="width: 120px">Action</th>
 							</tr>
 							<tr><%@salesmen.each do |salesman| %>
 								<td><%= salesman.code %></td>
 								<td><%= salesman.name %></td>
-								<td><%= salesman.dbirth %></td>
+								<td><%= salesman.dbirth.strftime("%d %b %Y") %></td>
 								<td><%= salesman.identity %></td>
 								<td><%= salesman.status %></td>
-								<td><%= salesman.branch.name %></td>
-								<td><%= salesman.updated_at %></td>
-								<td><%= link_to "Show", salesman_path(salesman), :class => "btn btn-success btn-sm btn-flat", :rel => "tabs" %>
-								<%= link_to "Edit", edit_salesman_path(salesman), :class => "btn btn-warning btn-sm btn-flat", :rel => "tabs" %> 
-								<%= link_to "Delete",salesman_path(salesman), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm btn-flat", :rel => "tabs" %></td>
+								<td><%= salesman.updated_at.strftime("%d %b %Y") %></td>
+								<td><%= link_to raw("<i class=\"fa fa-print\" aria-hidden=\"true\"></i>"), salesman_path(salesman), :class => "btn btn-success btn-sm " %>
+	                                <%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_salesman_path(salesman), :class => "btn btn-warning btn-sm" %> 
+	                                <%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), salesman_path(salesman), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
 							</tr><%end %>
 						</tbody>
 					</table>
 					
 				</div><!-- /.box-body -->
 				<div class="box-footer ">
-					<%= will_paginate @salesmmen, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-sm no-margin pull-right' %>
+					<center><%= will_paginate @salesmmen, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-md no-margin pull-right' %></center>
 				</div>
 			</div><!-- /.box-end -->
 			<!-- ========================================== -->

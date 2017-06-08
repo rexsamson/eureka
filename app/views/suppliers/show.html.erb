@@ -4,12 +4,12 @@
         <script>window.onload = function() { window.print(); }</script>
     <%= render 'shared/flash' %>
       <h1>
-        Customer
-        <small><%= @customer.code %></small>
+        Supplier
+        <small><%= @supplier.code %></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Customers</a></li>
+        <li><a href="#">Suppliers</a></li>
         <li class="active">View</li>
       </ol>
     </section>
@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-home"></i> <%= @customer.name %>
+            <i class="fa fa-building"></i> <%= @supplier.name %>
             <small class="pull-right"></small>
           </h2>
         </div>
@@ -30,28 +30,24 @@
       <div class="row invoice-info">
         <div class="col-sm-4 invoice-col">
           <address>
-            <%= @customer.code %><br>
-            <strong><%= @customer.name %></strong><br>
-            <strong>Contact : </strong><%= @customer.cp %><br>
-           <strong> Phone : </strong><%= @customer.telp %>
+            <%= @supplier.code %><br>
+            <strong><%= @supplier.name %></strong><br>
+            <strong>Contact : </strong><%= @supplier.cp %><br>
+           <strong> Phone : </strong><%= @supplier.telp %>
           </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           <address>
-            <strong>Limit Customer</strong><br>
-            <strong>Credit Limit :</strong> <%= number_to_currency( @customer.climit, precision: 0, unit: "")  %><br>
-            <strong>Credit Limit :</strong> <%= number_to_currency( @customer.dlimit, precision: 0, unit: "")  %><br>
-            <strong>Credit Limit (tolerance) : </strong> 
-                    <%= number_to_currency( @customer.tclimit, precision: 0, unit: "")  %><br>
-            <strong>Credit Limit (tolerance) :</strong> 
-                    <%= number_to_currency( @customer.tdlimit, precision: 0, unit: "")  %><br>
+            <strong>Limit Supplier</strong><br>
+            <strong>Credit Limit :</strong> <%= number_to_currency( @supplier.climit, precision: 0, unit: "")  %><br>
+            <strong>Credit Limit :</strong> <%= number_to_currency( @supplier.dlimit, precision: 0, unit: "")  %><br>
           </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           <b>Status : </b>
-          <%= @customer.status %>
+          <%= @supplier.status %>
           </br>
           
         </div>
@@ -73,7 +69,7 @@
             </tr>
             </thead>
             <tbody>
-            <% @customer.addresses.each do |addresses| %>   
+            <% @supplier.addresses.each do |addresses| %>   
             <tr>
               <td><%= addresses.name %></td>
               <td><%= addresses.address %></td>
@@ -93,7 +89,7 @@
       <div class="row no-print">
         <div class="col-xs-12">
           <a href="#" target="_blank" class="btn btn-primary btn-flat"><i class="fa fa-print"></i> Print</a>
-          <%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), customers_path , :class => "btn btn-danger btn-flat pull-right" %> 
+          <%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), suppliers_path , :class => "btn btn-danger btn-flat pull-right" %> 
         </div>
       </div>
     </section>

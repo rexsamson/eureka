@@ -1,5 +1,5 @@
 		<section class="content-header">
-			<h1>Customers <small>List</small></h1>
+			<%= link_to raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Create New Customer"), new_customer_path, :class => "btn btn-primary btn-flat "%>
 			<ol class="breadcrumb">
 				<li>
 					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
@@ -16,11 +16,11 @@
 			<div class="box box-danger">
 				<!-- /.box-header -->
 				<div class="box-header">
-		         <%= link_to "Create a Customer", new_customer_path, :class => "btn btn-primary btn-flat " %>
+		         <h3  class="box-title">Customers <small>List</small></h3>
 		        </div>
-				<div class="box-body padding-xs">
+				<div class="box-body">
 					<table class="table table-bordered table-hover" >
-						<thead>
+						<thead class="thead"
 							<tr>
 								<th style="width: 50px">Code</th>
 								<th>Customer Name</th>
@@ -34,23 +34,25 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr><%@customers.each do |customer| %>
+							<%@customers.each do |customer| %>
+							<tr>
 								<td><%= customer.code %></td>
 								<td><%= customer.name %></td>
 								<td><%= customer.cp %></td>
 								<td><%= customer.group %></td>
 								<td><%= customer.telp %></td>
-								<td><%= customer.climit %></td>
-								<td><%= customer.dlimit %></td>
-								<td><%= link_to raw("<i class=\"fa fa-eye\" aria-hidden=\"true\"></i>"), customer_path(customer), :class => "btn btn-success btn-sm " %>
+								<td><%= number_to_currency(customer.climit, precision: 0, unit: "")  %></td>
+								<td><%= number_to_currency(customer.dlimit, precision: 0, unit: "") %></td>
+								<td><%= link_to raw("<i class=\"fa fa-print\" aria-hidden=\"true\"></i>"), customer_path(customer), :class => "btn btn-success btn-sm " %>
 								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_customer_path(customer), :class => "btn btn-warning btn-sm" %> 
 								<%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), customer_path(customer), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
-							</tr><%end %>
+							</tr>	
+							<%end %>
 						</tbody>
 					</table>
 				</div><!-- /.box-body -->
-				<div class="box-footer no-padding">
-					<p></p>
+				<div class="box-footer ">
+					<center><%= will_paginate @customers, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-md no-margin' %></center>
 				</div>
 			</div><!-- /.box-end -->
 			<!-- ========================================== -->

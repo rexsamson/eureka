@@ -89,18 +89,12 @@
 									<!-- The user image in the menu -->
 									<li class="user-header">
 										<h1><i class="fa fa-fw fa-user-circle" style="font-size:80px;color:white;"></i></h1>
-										<p><%= render html: current_user.fullname.titleize  %> <small>Web Developer</small></p>
+										<p><%= render html: current_user.fullname.titleize  %> <small>Programmer</small></p>
 									</li><!-- Menu Body -->
 									<li class="user-body">
 										<div class="row">
-											<div class="col-xs-4 text-center">
-												<a href="#">Followers</a>
-											</div>
-											<div class="col-xs-4 text-center">
-												<a href="#">Sales</a>
-											</div>
-											<div class="col-xs-4 text-center">
-												<a href="#">Friends</a>
+											<div class="col-xs-12 text-center">
+												<a href="#"><%= render html: current_user.branch.name.titleize  %></a>
 											</div>
 										</div><!-- /.row -->
 									</li><!-- Menu Footer-->

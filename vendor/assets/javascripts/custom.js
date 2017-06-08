@@ -24,12 +24,18 @@ var AdminLTEOptions = {
 //datatables
 $(function () {
   $("#dttable").DataTable({
-    "iDisplayLength": 50,
-    "bLengthChange": false
+    "iDisplayLength": 25,
+    "bLengthChange": false,
+    "bSort" : false,
+    "bInfo" : false,
+    drawCallback: function(settings) {
+    var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
+    pagination.toggle(this.api().page.info().pages > 1);
+  }
     });
   $('.dataTables_filter').addClass('pull-right');
   
-  $('#dttable2').DataTable( {
+  $('#dttablefull').DataTable( {
 
   } );
 });
@@ -59,5 +65,4 @@ $(document).ready(function() {
     return event.preventDefault();
   });
 });
-
 

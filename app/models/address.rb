@@ -1,3 +1,5 @@
 class Address < ApplicationRecord
-     belongs_to :customer, optional: true
+    validates :name, presence: true, uniqueness: true
+    belongs_to :customer, optional: true
+    belongs_to :supplier, optional: true
 end
