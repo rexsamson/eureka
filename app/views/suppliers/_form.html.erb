@@ -9,7 +9,7 @@
             	</div>
             	<div class="col-sm-5">
             		<div class="form-group">
-            			<%= f.input :name, hint: false,:error => false  %>
+            			<%= f.input :name, hint: false,:error => false %>
             		</div>
             	</div>
             	<div class="col-sm-3">
@@ -30,7 +30,7 @@
             	
             	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.input :status, :collection => [['Active','Active'],['Inactive','Inactive']], :selected => ['Active','Active'], id: 'select' %>
+            			<%= f.input :status, :collection => [['Active','Active'],['Inactive','Inactive']], id: 'select' %>
             		</div>
             	</div>
             	<div class="col-sm-2">

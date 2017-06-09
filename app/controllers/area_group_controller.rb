@@ -50,10 +50,10 @@ class AreaController < ApplicationController
     private
     
     def find_area
-        @area = Area.find(params[:id])
+        @area = Area.friendly.find(params[:id])
     end
     
     def area_params
-      params.require(:area).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id)
+      params.require(:area).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id, :slug)
     end
 end

@@ -13,20 +13,21 @@
 		<section class="content">
 			<%= render 'shared/flash' %>
 			<!-- ========================================== -->
-			<div class="box box-danger">
+			<div class="box box-success">
 				<!-- /.box-header -->
 				<div class="box-header">
 		         <h3  class="box-title">Suppliers <small>List</small></h3>
 		        </div>
 				<div class="box-body">
 					<table class="table table-bordered table-hover" >
-						<thead class="thead"
+						<thead class="thead">
 							<tr>
-								<th style="width: 50px">Code</th>
+								<th style="width: 60px">Code</th>
 								<th>Supplier Name</th>
 								<th>Contact Person</th>
+								<th style="width: 80px">Status</th>
 								<th style="width: 80px">Group</th>
-								<th style="width: 100px">Telp</th>
+								<th style="width: 120px">Telp</th>
 								<th style="width: 90px">Limit Credit</th>
 								<th style="width: 80px">Limit Days</th>
 								<th style="width: 125px">Action</th>
@@ -39,13 +40,19 @@
 								<td><%= supplier.code %></td>
 								<td><%= supplier.name %></td>
 								<td><%= supplier.cp %></td>
+								<td><span class="label <%= supplier.status %>"><%= supplier.status %></span></td>
 								<td><%= supplier.group %></td>
 								<td><%= supplier.telp %></td>
 								<td><%= number_to_currency(supplier.climit, precision: 0, unit: "")  %></td>
 								<td><%= number_to_currency(supplier.dlimit, precision: 0, unit: "") %></td>
-								<td><%= link_to raw("<i class=\"fa fa-print\" aria-hidden=\"true\"></i>"), supplier_path(supplier), :class => "btn btn-success btn-sm " %>
-								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_supplier_path(supplier), :class => "btn btn-warning btn-sm" %> 
-								<%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), supplier_path(supplier), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
+								<td>
+									<table>
+									<tr><td><%= link_to raw("<i class=\"fa fa-print\" aria-hidden=\"true\"></i>"), supplier_path(supplier), :class => "btn btn-success btn-sm " %></td>
+	                                <td><%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_supplier_path(supplier), :class => "btn btn-warning btn-sm" %> </td>
+	                                <td><%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), supplier_path(supplier), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
+	                                </tr>
+	                                </table>
+								</td>
 							</tr>
 							<%end %>
 						</tbody>

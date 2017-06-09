@@ -5,22 +5,26 @@ $(document).ready (function(){
     $("#success-alert").fadeOut(500);
   });   
 });
+
 //uppercase all input
 $(function() {
     $('#upper').keyup(function() {
         this.value = this.value.toUpperCase();
     });
 });
+
 //datepicker
 $(document).ready(function(){
-	flatpickr('#fdate');
+	flatpickr('.fdate');
 });
+
 //adminlte
 var AdminLTEOptions = {
   enableBSToppltip: true,
   animationSpeed: 200,
   sidebarSlimScroll: true
 };
+
 //datatables
 $(function () {
   $("#dttable").DataTable({
@@ -39,6 +43,7 @@ $(function () {
 
   } );
 });
+
 //select2
 $(document).ready(function() {
   $("#select").select2({ 
@@ -46,9 +51,9 @@ $(document).ready(function() {
       allowClear: true,
       placeholder: "Please select an option"
   });
-  
   $("select").select2({ 
       width: '100%', 
+      placeholder: "Please select an option"
   });
 });
 
@@ -59,9 +64,9 @@ $(document).ready(function() {
     $(this).closest('tr').hide();
     return event.preventDefault();
   });
-
   $('form').on('click', '.add_fields', function(event) {
     $('.fields').append($(this).data('fields'));
+    flatpickr('.fdate');
     return event.preventDefault();
   });
 });

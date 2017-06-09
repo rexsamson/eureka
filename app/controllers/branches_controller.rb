@@ -1,5 +1,5 @@
 class BranchesController < ApplicationController
-    before_action :require_login
+    #before_action :require_login
     before_action :find_branch, only:[:edit, :destroy, :show, :update]
     
     def show
@@ -46,11 +46,11 @@ class BranchesController < ApplicationController
     private
     
     def find_branch
-        @branch = Branch.find(params[:id])
+        @branch = Branch.friendly.find(params[:id])
     end
     
     def branch_params
-      params.require(:branch).permit(:code, :name, :region, :city, :address, :telp, :cp, :description )
+      params.require(:branch).permit(:code, :name, :region, :city, :address, :telp, :cp, :description, :slug )
     end
    
 end

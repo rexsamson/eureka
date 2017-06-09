@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    extend FriendlyId
+    friendly_id :name, use: :slugged
     before_save { self.email = email.downcase}
     validates :name, presence: true, length: { maximum: 30}, uniqueness: { case_sensitive: false}
     validates :fullname, presence: true, length: { maximum: 50}, uniqueness: { case_sensitive: false}

@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
         redirect_to pages_path
         else 
         render :layout => false
+        session[:user_id] = nil
+        session[:branch_id] = nil
         end
     end
     

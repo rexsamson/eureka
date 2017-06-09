@@ -66,12 +66,12 @@ class SuppliersController < ApplicationController
     private
     
     def find_supplier
-        @supplier = Supplier.find(params[:id])
+        @supplier = Supplier.friendly.find(params[:id])
     end
     
     def supplier_params
         params.require(:supplier).permit(
-            :code, :name, :group, :cp, :status, :climit, :dlimit, :telp, :branch_id, 
+            :code, :name, :group, :cp, :status, :climit, :dlimit, :telp, :branch_id, :slug,
             addresses_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy)
         )
     end

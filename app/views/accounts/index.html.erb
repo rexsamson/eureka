@@ -24,26 +24,30 @@
 							<tr>
 								<th style="width: 100px">Code</th>
 								<th>Accounts</th>
-								<th style="width: 10px">D/K</th>
-								<th style="width: 80px">D/U</th>
-								<th style="width: 80px">Header</th>
+								<th style="width: 10px">D/U</th>
+								<th style="width: 80px">D/K</th>
+								<th style="width: 100px">Header</th>
 								<th>Description</th>
-								<th style="width: 170px">Update</th>
-								<th style="width: 125px">Action</th>
+								<th style="width: 110px">Update</th>
+								<th style="width: 80px">Action</th>
 							</tr>
 							</thead>
 							</tbody>
 							<tr><%@accounts.each do |account| %>
 								<td><%= account.code %></td>
 								<td><%= account.label %></td>
-								<td><%= account.dk %></td>
-								<td><%= account.du %></td>
+								<td><span class="label <%= account.du %>"><%= account.du %></span></td>
+								<td><span class="label <%= account.dk %>"><%= account.dk %></span></td>
 								<td><%= account.header %></td>
 								<td><%= account.description %></td>
-								<td><%= account.updated_at %></td>
-								<td><%= link_to raw("<i class=\"fa fa-eye\" aria-hidden=\"true\"></i>"), account_path(account), :class => "btn btn-success btn-sm ", :rel => "tabs" %>
-								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_account_path(account), :class => "btn btn-warning btn-sm", :rel => "tabs" %> 
-								<%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), account_path(account), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm", :rel => "tabs" %></td>
+								<td><%= account.updated_at.strftime("%d %b %Y") %></td>
+								<td>
+								<table>
+								<tr><td>
+								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_account_path(account), :class => "btn btn-warning btn-sm", :rel => "tabs" %> </td>
+								<td><%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), account_path(account), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm", :rel => "tabs" %>
+								</td></tr>
+								</table>
 							</tr><%end %>
 						</tbody>
 					</table>

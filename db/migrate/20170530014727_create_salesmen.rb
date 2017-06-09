@@ -6,6 +6,7 @@ class CreateSalesmen < ActiveRecord::Migration[5.1]
       t.date :dbirth
       t.string :identity
       t.string :status
+      t.string :slug, unique: true
       t.timestamps
     end
   end

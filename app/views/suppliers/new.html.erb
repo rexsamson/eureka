@@ -12,15 +12,8 @@
 		</section><!-- Main content -->
 		<section class="content">
 			<!-- Default box -->
-			<%flash.each do |name, msg| %>
-			<div class="alert alert-success alert-dismissible" id="success-alert">
-				<button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
-				<h4><i class="icon fa fa-check"></i> Success</h4>
-				<ul>
-					<li><%= msg %></li>
-				</ul>
-			</div><%end %>
-			<div class="box">
+			
+			<div class="box box-success">
 				<div class="box-header with-border">
 					<h3 class="box-title">New Supplier</h3>
 				</div><!--content-->

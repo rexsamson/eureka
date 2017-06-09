@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607085555) do
+ActiveRecord::Schema.define(version: 20170608155612) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "code"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170607085555) do
     t.string "dk"
     t.string "header"
     t.string "description"
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "branch_id"
@@ -36,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170607085555) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "telp"
-    t.string "supplier_id"
+    t.integer "supplier_id"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170607085555) do
     t.string "telp"
     t.string "cp"
     t.string "description"
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,14 +65,42 @@ ActiveRecord::Schema.define(version: 20170607085555) do
     t.string "group"
     t.string "cp"
     t.string "status"
-    t.float "climit"
-    t.float "dlimit"
-    t.float "tclimit"
-    t.float "tdlimit"
+    t.decimal "climit", precision: 15, scale: 2
+    t.decimal "dlimit", precision: 15, scale: 2
+    t.decimal "tclimit", precision: 15, scale: 2
+    t.decimal "tdlimit", precision: 15, scale: 2
     t.integer "branch_id"
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "telp"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "branch_id"
+  end
+
+  create_table "pricelists", force: :cascade do |t|
+    t.string "name"
+    t.integer "inventory_id"
+    t.decimal "price", precision: 15, scale: 2
+    t.decimal "cogs", precision: 15, scale: 2
+    t.string "startfrom"
+    t.integer "group_id"
   end
 
   create_table "salesmen", force: :cascade do |t|
@@ -79,6 +109,7 @@ ActiveRecord::Schema.define(version: 20170607085555) do
     t.date "dbirth"
     t.string "identity"
     t.string "status"
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "branch_id"
@@ -89,13 +120,23 @@ ActiveRecord::Schema.define(version: 20170607085555) do
     t.string "name"
     t.string "cp"
     t.string "telp"
-    t.float "climit"
-    t.float "dlimit"
+    t.decimal "climit", precision: 15, scale: 2
+    t.decimal "dlimit", precision: 15, scale: 2
     t.string "status"
     t.string "group"
     t.integer "branch_id"
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "targets", force: :cascade do |t|
+    t.date "startfrom"
+    t.date "finishdate"
+    t.integer "targetbox"
+    t.decimal "targetsales", precision: 15, scale: 2
+    t.string "note"
+    t.integer "salesman_id"
   end
 
   create_table "transaction_logs", force: :cascade do |t|
@@ -115,6 +156,7 @@ ActiveRecord::Schema.define(version: 20170607085555) do
     t.string "password"
     t.string "password_digest"
     t.integer "branch_id"
+    t.string "slug"
   end
 
 end

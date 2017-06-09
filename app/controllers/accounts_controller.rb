@@ -2,9 +2,6 @@ class AccountsController < ApplicationController
     before_action :require_login
     before_action :find_account, only:[:edit, :destroy, :show, :update]
     
-    def show
-       
-    end
     
     def edit
        
@@ -50,11 +47,11 @@ class AccountsController < ApplicationController
     private
     
     def find_account
-        @account = Account.find(params[:id])
+        @account = Account.friendly.find(params[:id])
     end
     
     def account_params
-      params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id)
+      params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id, :slug)
     end
    
 end

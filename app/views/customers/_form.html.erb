@@ -4,7 +4,7 @@
             <%= simple_form_for @customer do |f|  %>
             	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.input :code, hint: false,:readonly => true, input_html: {value: @customer.code } %>
+            			<%= f.input :code, hint: false,:error => false,:readonly => true, input_html: {value: @customer.code } %>
             		</div>
             	</div>
             	<div class="col-sm-5">
@@ -30,7 +30,7 @@
             	
             	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.input :status, :collection => [['Active','Active'],['Inactive','Inactive']], :selected => ['Active','Active'], id: 'select' %>
+            			<%= f.input :status, :collection => [['Active','Active'],['Inactive','Inactive']], id: 'select' %>
             		</div>
             	</div>
             	<div class="col-sm-2">
@@ -61,12 +61,14 @@
                     	    <%= render 'address', f: builder %>
                         <% end %>
                     </table>
+                    <div class="col-sm-12">
                     <div class="text-right btn-toolbar">
                         <%= link_to_add_row(raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Address"), f, :addresses, class: 'btn btn-primary btn-flat') %>
                 		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), customers_path , :class => "btn btn-danger btn-flat pull-right" %> 
                 		<%= button_tag( :class => "btn btn-success btn-flat pull-right") do %>
             			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
             			<% end %>
+        			</div>
         			</div>
             	</div>
             <%end %>

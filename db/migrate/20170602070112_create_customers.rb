@@ -6,11 +6,12 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.string :group
       t.string :cp
       t.string :status
-      t.float :climit
-      t.float :dlimit
-      t.float :tclimit
-      t.float :tdlimit
+      t.decimal :climit, precision: 15, scale:2
+      t.decimal :dlimit, precision: 15, scale:2
+      t.decimal :tclimit, precision: 15, scale:2
+      t.decimal :tdlimit, precision: 15, scale:2
       t.integer :branch_id
+      t.string :slug, unique: true
       t.timestamps
     end
   end

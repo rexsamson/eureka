@@ -41,6 +41,8 @@ gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'will_paginate', '3.1.0'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'
+gem 'rails_real_favicon'
+gem 'friendly_id', :require => "friendly_id"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

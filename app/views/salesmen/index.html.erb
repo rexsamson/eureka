@@ -1,8 +1,8 @@
 		<section class="content-header">
-			<h1>Salesmen <small>List</small></h1>
+			<%= link_to raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Create New Salesman"), new_salesman_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
 			<ol class="breadcrumb">
 				<li>
-					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+						<a href="#"><i class="fa fa-dashboard"></i> Home</a>
 				</li>
 				<li>
 					<a href="#">Salesmen</a>
@@ -16,37 +16,41 @@
 			<div class="box box-danger">
 				<!-- /.box-header -->
 				<div class="box-header">
-		         <%= link_to "Create a Salesman", new_salesman_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
+		         
 		        </div>
-				<div class="box-body no-padding">
-					<table class="table table-bordered">
-						<tbody>
+				<div class="box-body padding-sm">
+					<table class="table table-bordered table-hover " id="dttable">
+						<thead>
 							<tr>
 								<th style="width: 100px">Code</th>
 								<th>Name</th>
 								<th style="width: 120px">Birthdate</th>
 								<th>Identity</th>
-								<th>Status</th>
+								<th style="width: 80px">Status</th>
 								<th style="width: 120px">Update</th>
 								<th style="width: 120px">Action</th>
 							</tr>
+						</thead>
+						<tbody>
 							<tr><%@salesmen.each do |salesman| %>
 								<td><%= salesman.code %></td>
 								<td><%= salesman.name %></td>
 								<td><%= salesman.dbirth.strftime("%d %b %Y") %></td>
 								<td><%= salesman.identity %></td>
-								<td><%= salesman.status %></td>
+								<td><span class="label <%= salesman.status %>"><%= salesman.status %></span></td>
 								<td><%= salesman.updated_at.strftime("%d %b %Y") %></td>
-								<td><%= link_to raw("<i class=\"fa fa-print\" aria-hidden=\"true\"></i>"), salesman_path(salesman), :class => "btn btn-success btn-sm " %>
-	                                <%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_salesman_path(salesman), :class => "btn btn-warning btn-sm" %> 
-	                                <%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), salesman_path(salesman), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
+								<td>
+									<table>
+									<tr><td><%= link_to raw("<i class=\"fa fa-print\" aria-hidden=\"true\"></i>"), salesman_path(salesman), :class => "btn btn-success btn-sm " %></td>
+	                                <td><%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_salesman_path(salesman), :class => "btn btn-warning btn-sm" %> </td>
+	                                <td><%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), salesman_path(salesman), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
+	                                </tr>
+	                                </table>
+	                            </td>
 							</tr><%end %>
 						</tbody>
 					</table>
 					
-				</div><!-- /.box-body -->
-				<div class="box-footer ">
-					<center><%= will_paginate @salesmmen, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-md no-margin pull-right' %></center>
 				</div>
 			</div><!-- /.box-end -->
 			<!-- ========================================== -->

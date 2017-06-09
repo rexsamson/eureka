@@ -1,39 +1,49 @@
-<%= render 'shared/errors', obj: @salesman %>
-<div class="row">
-    <%= form_for @salesman do |f|  %>
-        <div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :code, "kode" %><%= f.text_field :code, :class => "form-control" %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :name %><%= f.text_field :name, :class => "form-control" %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :dbirth %><%= f.text_field :dbirth, :id => "fdate", :class => "form-control"  %>
-    		</div>
-    	</div>
-    	
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :identity %><%= f.text_field :identity, :class => "form-control"  %>
-    		</div>
-    	</div>
-    	<div class="col-sm-12">
-    		<div class="form-group">
-    			<%= f.label :status %><%= f.text_field :status, :class => "form-control"  %>
-    		</div>
-    	</div>
-    	
-    	<br>
-    	<div class="col-sm-12">
-    		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), salesmen_path , :class => "btn btn-danger btn-flat" %> 
-    		<%= button_tag( :class => "btn btn-success btn-flat") do %>
-			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
-			<% end %>
-    	</div>
-    <% end %>
-</div>
+        <%= render 'shared/errors', obj: @salesman %>
+        <div class="row">
+            
+            <%= simple_form_for @salesman do |f|  %>
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :code, hint: false, :error => false, :readonly => true, input_html: {value: @salesman.code } %>
+            		</div>
+            	</div>
+            	<div class="col-sm-6">
+            		<div class="form-group">
+            			<%= f.input :name, hint: false,:error => false %>
+            		</div>
+            	</div>
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :dbirth, hint: false,:error => false, :as => :string, :input_html => { :class => 'fdate' }   %>
+            		</div>
+            	</div>
+            	<div class="col-sm-8">
+            		<div class="form-group">
+            			<%= f.input :identity, hint: false,:error => false  %>
+            		</div>
+            	</div>
+
+            	<div class="col-sm-4">
+            		<div class="form-group">
+            			<%= f.input :status, :collection => [['Active','Active'],['Inactive','Inactive']], id: 'select' %>
+            		</div>
+            	</div>
+
+
+                <div class="col-sm-12">
+                    <table  class='fields'>
+                        <hr>
+                    	<%= f.simple_fields_for :targets do |builder| %>
+                    	    <%= render 'target', f: builder %>
+                        <% end %>
+                    </table>
+                    <div class="text-right btn-toolbar">
+                        <%= link_to_add_row(raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Target"), f, :targets, class: 'btn btn-primary btn-flat') %>
+                		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), salesmen_path , :class => "btn btn-danger btn-flat pull-right" %> 
+                		<%= button_tag( :class => "btn btn-success btn-flat pull-right") do %>
+            			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
+            			<% end %>
+        			</div>
+            	</div>
+            <%end %>
+        </div>

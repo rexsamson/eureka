@@ -41,7 +41,7 @@
             </br>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
-              <%= f.select :branch_id, options_from_collection_for_select(@branches, :id, :name), {:include_blank => true}, id: 'select' %>
+              <%= f.select :branch_id, options_from_collection_for_select(@branches, :id, :name), {:include_blank => true}, :placeholder => 'Cabang', id: 'select' %>
             </div>
 
             </br>

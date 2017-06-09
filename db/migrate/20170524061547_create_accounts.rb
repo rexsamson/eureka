@@ -7,6 +7,7 @@ class CreateAccounts < ActiveRecord::Migration[5.1]
       t.string :dk
       t.string :header
       t.string :description
+      t.string :slug, unique: true
       t.timestamps
     end
   end

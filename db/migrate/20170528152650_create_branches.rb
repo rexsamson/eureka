@@ -9,6 +9,7 @@ class CreateBranches < ActiveRecord::Migration[5.1]
       t.string :telp
       t.string :cp
       t.string :description
+      t.string :slug, unique: true
       t.timestamps
     end
   end

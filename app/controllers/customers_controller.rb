@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     end
     
     def edit
-        #@customer.addresses.build
+        
     end
     
     def new
@@ -66,12 +66,12 @@ class CustomersController < ApplicationController
     private
     
     def find_customer
-        @customer = Customer.find(params[:id])
+        @customer = Customer.friendly.find(params[:id])
     end
     
     def customer_params
         params.require(:customer).permit(
-            :code, :name, :group, :cp, :status, :climit, :dlimit, :tclimit, :tdlimit, :telp, :branch_id, 
+            :code, :name, :group, :cp, :status, :climit, :dlimit, :tclimit, :tdlimit, :telp, :branch_id, :slug,
             addresses_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy)
         )
         #params.require(:todo_list).permit(:name, tasks_attributes: Task.attribute_names.map(&:to_sym).push(:_destroy))

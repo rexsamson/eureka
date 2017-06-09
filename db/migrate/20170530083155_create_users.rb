@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :password, :password_digest
       t.integer :branch_id
+      t.string :slug, unique: true
     end
   end
 end

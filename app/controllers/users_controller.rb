@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     before_action :require_same_user, only:[:show, :edit, :destroy, :update]
     
     def show 
-        @user = User.find(params[:id])
+        @user = User.friendly.find(params[:id])
     end
     
     def edit
@@ -53,15 +53,15 @@ class UsersController < ApplicationController
     private
     
     def find_user
-        @user = User.find(params[:id])
+        @user = User.friendly.find(params[:id])
     end
     
     def user_params
-        params.require(:user).permit(:name, :fullname, :email, :password, :password_digest, :branch_id )
+        params.require(:user).permit(:name, :fullname, :email, :password, :password_digest, :branch_id, :slug )
     end
     
     def require_same_user
-        if current_user != User.find(params[:id])
+        if current_user != User.friendly.find(params[:id])
             flash[:error]  = "You dont have permision for this action!"
             redirect_to pages_path
         end

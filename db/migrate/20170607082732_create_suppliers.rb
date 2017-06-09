@@ -5,11 +5,12 @@ class CreateSuppliers < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :cp
       t.string :telp
-      t.float :climit
-      t.float :dlimit
+      t.decimal :climit, precision: 15, scale:2
+      t.decimal :dlimit, precision: 15, scale:2
       t.string :status
       t.string :group
       t.integer :branch_id
+      t.string :slug, unique: true
       t.timestamps
     end
   end

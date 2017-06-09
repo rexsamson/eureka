@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Branch.create(code:'HO', name: 'Head office', region: 'Jakarta')
