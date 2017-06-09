@@ -4,6 +4,7 @@
  */
 .skin-purple .main-header .navbar {
   background-color: #605ca8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .skin-purple .main-header .navbar .nav > li > a {
   color: #ffffff;
@@ -180,5 +181,5 @@ thead {
     background-color: #3c8dbc !important;
 }
 .Detail {
-    background-color: #00a65a !important;
+    background-color: #9f9f9f !important;
 }

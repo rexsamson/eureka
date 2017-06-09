@@ -49,11 +49,11 @@ $(document).ready(function() {
   $("#select").select2({ 
       width: '100%', 
       allowClear: true,
-      placeholder: "Please select an option"
+      placeholder: "Select an option"
   });
   $("select").select2({ 
       width: '100%', 
-      placeholder: "Please select an option"
+      placeholder: "Select an option"
   });
 });
 
@@ -71,3 +71,20 @@ $(document).ready(function() {
   });
 });
 
+/*
+//Ajax Load Container Contents
+$(document).ready(function(){
+	$("a[rel='tab']").click(function(e){
+		e.preventDefault();
+		$("#content").load($(this).attr('href'));
+	});
+});
+//current page ajax
+$(document).ready(function() {
+    $('#menu li').click(function(){
+        $('#menu li').each(function(){
+            $(this).removeClass('active'); 
+        });
+        $(this).addClass('active');
+    });
+});*/
