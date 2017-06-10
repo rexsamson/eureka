@@ -3,7 +3,7 @@ class Salesman < ApplicationRecord
     friendly_id :name, use: :slugged
     default_scope -> { order(name: :desc)}
     
-    belongs_to :branch
+    belongs_to :branch, inverse_of: :salesmen
     has_many :targets, inverse_of: :salesman, dependent: :destroy
     accepts_nested_attributes_for :targets, allow_destroy: true, reject_if: proc { |att| att['startfrom'].blank? }
     

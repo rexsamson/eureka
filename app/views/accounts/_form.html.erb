@@ -18,12 +18,12 @@
             	</div>
             	<div class="col-sm-6">
             		<div class="form-group">
-            			<%= f.input :dk, :collection => [['Debet','Debet'],['Kredit','Kredit']], id: 'select' %>
+            			<%= f.input :dk, :collection => [['Debet','Debet'],['Kredit','Kredit']], as: :radio_buttons %>
             		</div>
             	</div>
             	<div class="col-sm-6">
             		<div class="form-group">
-            			<%= f.input :du, :collection => [['Master','Master'],['Detail','Detail']], id: 'select' %>
+            			<%= f.input :du, :collection => [['Master','Master'],['Detail','Detail']], as: :radio_buttons, :class => 'radio-inline' %>
             		</div>
             	</div>
             	

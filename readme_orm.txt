@@ -13,3 +13,7 @@ rails generate add_user_id_to_documents
 
 //generate
 rails g controller addresses --skip-assets --no-helper 
+
+
+//heroku clean pg
+heroku pg:reset DATABASE --confirm newacura

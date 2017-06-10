@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608155612) do
+ActiveRecord::Schema.define(version: 20170610032332) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "code"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170608155612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "telp"
-    t.integer "supplier_id"
+    t.string "supplier_id"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(version: 20170608155612) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "note"
+    t.string "slug"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -94,6 +100,15 @@ ActiveRecord::Schema.define(version: 20170608155612) do
     t.string "branch_id"
   end
 
+  create_table "inventories", force: :cascade do |t|
+    t.string "name"
+    t.integer "product_id"
+    t.integer "warehouse_id"
+    t.integer "quantity"
+    t.string "category_id"
+    t.integer "branch_id"
+  end
+
   create_table "pricelists", force: :cascade do |t|
     t.string "name"
     t.integer "inventory_id"
@@ -101,6 +116,21 @@ ActiveRecord::Schema.define(version: 20170608155612) do
     t.decimal "cogs", precision: 15, scale: 2
     t.string "startfrom"
     t.integer "group_id"
+  end
+
+  create_table "product_settings", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "type"
+    t.integer "branch_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "kw"
+    t.string "category_id"
+    t.integer "branch_id"
   end
 
   create_table "salesmen", force: :cascade do |t|

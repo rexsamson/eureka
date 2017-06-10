@@ -8,5 +8,5 @@ class Account < ApplicationRecord
     validates :header, presence: true
     validates :description, presence: true
     validates :branch_id, presence: true
-    belongs_to :branch
+    belongs_to :branch, inverse_of: :accounts
 end
