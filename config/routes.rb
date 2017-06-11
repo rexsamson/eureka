@@ -3,14 +3,17 @@ Rails.application.routes.draw do
   root "pages#home"
   get '/main', to: 'pages#main', as: :pages
   get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  resources :profiles, except: [:delete, :index, :new]
   resources :accounts
   resources :branches
   resources :salesmen
   resources :users, except: [:new]
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
   resources :customers
   resources :addresses
   resources :suppliers
+  
 end

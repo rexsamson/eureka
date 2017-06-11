@@ -1,8 +1,8 @@
 //notif bootstrap autohide
 $(document).ready (function(){
     $("#success-alert").hide();
-    $("#success-alert").fadeTo(2000, 500).fadeIn(500, function(){
-    $("#success-alert").fadeOut(500);
+    $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+    $("#success-alert").slideUp(500);
   });   
 });
 
@@ -57,12 +57,12 @@ $(document).ready(function() {
   });
 });
 
-//add detail
+//add and remove detail
 $(document).ready(function() {
  $('form').on('click', '.remove_record', function(event) {
-    $(this).prev('input[type=hidden]').val('1');
-    $(this).closest('tr').hide();
-    return event.preventDefault();
+      $(this).prev('input[type=hidden]').val('1');
+      $(this).closest('tr').hide();
+      return event.preventDefault();
   });
   $('form').on('click', '.add_fields', function(event) {
     $('.fields').append($(this).data('fields'));
@@ -88,3 +88,9 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
 });*/
+$('#password, #confirm_password').on('keyup', function () {
+  if ($('#password').val() == $('#confirm_password').val()) {
+    $('#message').html('Matching').css('color', 'green');
+  } else 
+    $('#message').html('Not Matching').css('color', 'red');
+});

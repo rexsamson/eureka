@@ -1,4 +1,4 @@
-class AreaController < ApplicationController
+class AreasController < ApplicationController
     before_action :require_login
     before_action :find_area, only:[:edit, :destroy, :show, :update]
     

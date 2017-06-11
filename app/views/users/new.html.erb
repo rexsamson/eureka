@@ -3,17 +3,15 @@
   <%= render 'layouts/partials/head' %>
   <body class="hold-transition register-pages" >
     <style>
-      .login-page, .register-pages {
-        background-color: #605ca8;
-      }
+      
     </style>
     <div class="register-box">
       <div class="register-box-body">
         <div class="register-logo">
           <a><b>Acura </b>Sign-up</a>
         </div>
-          <%= render 'shared/errors', obj: @user %>
-          <%= form_for @user do |f|  %>
+          <%= render 'shared/errors', obj: @profile%>
+          <%= form_for @profile do |f|  %>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-address-book-o fa-fw"></i></span>
               <%= f.text_field :fullname, :class => "form-control", :placeholder => "Fullname" %>
@@ -31,30 +29,30 @@
             </br>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-              <%= f.password_field :password, :class => "form-control", :placeholder => "Type Password" %>
+              <%= f.password_field :password, :class => "form-control", :id => "password", :placeholder => "Type Password" %>
             </div>
             </br>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
-              <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %>
+              <%= f.password_field :password_confirmation, :class => "form-control", :id => "password_confirmation", :placeholder => "Confirm Password" %>
             </div>
             </br>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
               <%= f.select :branch_id, options_from_collection_for_select(@branches, :id, :name), {:include_blank => true}, :placeholder => 'Cabang', id: 'select' %>
             </div>
-
+          
             </br>
             <div class="row">
               <!-- /.col -->
               <div class="col-xs-12">
-                <button type="submit" class="btn btn-primary btn-block btn-flat center">Register User</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat center"  >Register User</button>
               </div>
               <!-- /.col -->
             </div>
           <% end %>
         </br>
-        <center><a href="login.html" class="btn btn-success btn-block btn-flat center" >Login Acura</a></center>
+        <center><a href="login" class="btn btn-success btn-block btn-flat center">Login Acura</a></center>
       </div>
       <!-- /.form-box -->
     </div>

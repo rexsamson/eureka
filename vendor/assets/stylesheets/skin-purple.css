@@ -183,6 +183,12 @@ thead {
 .Detail {
     background-color: #9f9f9f !important;
 }
-input .radio_buttons .inline label.radio{
+input .radio_buttons .inline label .radio{
   display: inline-block;
+}
+.pagination {
+  margin: 0px !important;
+}
+.login-page, .register-pages {
+  background-color: #605ca8;
 }

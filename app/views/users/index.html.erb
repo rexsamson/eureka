@@ -12,34 +12,39 @@
 		</section><!-- Main content -->
 		<section class="content">
 			<%= render 'shared/flash' %>
-			<!-- ========================================== -->
 			<div class="box box-danger">
 				<!-- /.box-header -->
 				<div class="box-header">
-		         <%= link_to "Create a User", signup_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
 		        </div>
-				<div class="box-body no-padding">
-					<table class="table table-bordered">
-						<tbody>
+				<div class="box-body padding-xs">
+					<table class="table table-bordered table-hover" id="dttable">
+						<thead>
 							<tr>
-								<th style="width: 300px">Name</th>
+								<th>Name</th>
 								<th>Fullname</th>
-								<th style="width: 170px">Email</th>
-								<th style="width: 170px">Action</th>
+								<th>Email</th>
+								<th>Branch</th>
+								<th style="width: 100px">Action</th>
 							</tr>
-							<tr><%@users.each do |user| %>
+						</thead>
+						<tbody>
+							<%@users.each do |user| %>
+							<tr>
 								<td><%= user.name %></td>
 								<td><%= user.fullname %></td>
 								<td><%= user.email %></td>
+								<td><%= user.branch.name %></td>
 								<td>
-								<%= link_to "Delete",user_path(user), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm btn-flat", :rel => "tabs" %></td>
+									<table>
+									<tr>
+										<td><%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_user_path(user), :class => "btn btn-warning btn-sm" %> </td>
+			                            <td><%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), user_path(user), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm" %></td>
+	                                </tr>
+	                                </table>
+                                </td>
 							</tr><%end %>
 						</tbody>
 					</table>
-				</div><!-- /.box-body -->
-				<div class="box-footer no-padding">
-					<p></p>
 				</div>
 			</div><!-- /.box-end -->
-			<!-- ========================================== -->
 		</section>

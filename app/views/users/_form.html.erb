@@ -1,32 +1,42 @@
         <%= render 'shared/errors', obj: @user %>
         <div class="row">
             <%= form_for @user do |f|  %>
-            
-            	<div class="col-sm-12">
+                <div class="col-sm-12">
             		<div class="form-group">
-            			<%= f.label :fullname %><%= f.text_field :fullname, :class => "form-control" %>
+            			<%= f.label :name %><%= f.text_field :name, :class => "form-control", :placeholder => 'Username' %>
             		</div>
             	</div>
             	<div class="col-sm-12">
             		<div class="form-group">
-            			<%= f.label :email %><%= f.text_field :email, :class => "form-control"  %>
+            			<%= f.label :fullname %><%= f.text_field :fullname, :class => "form-control", :placeholder => 'Fullname' %>
             		</div>
             	</div>
             	<div class="col-sm-12">
             		<div class="form-group">
-            			<%= f.label :password %><%= f.password_field :password, :class => "form-control"  %>
+            			<%= f.label :email %><%= f.text_field :email, :class => "form-control", :placeholder => 'email' %>
             		</div>
             	</div>
             	<div class="col-sm-12">
             		<div class="form-group">
-            			<%= f.label :password_confirmation, "Password Confirmation" %><%= f.password_field :password_confirmation, :class => "form-control"  %>
+            		    <%= f.label :password_confirmation, "Branch" %>
+                        <%= f.select :branch_id,  options_from_collection_for_select(@branches, :id, :name,@branch), {selected: :branch_id}, :class => "form-control" %>
+                    </div>
+                </div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :password %><%= f.password_field :password, :class => "form-control", :placeholder => '*************' %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.label :password_confirmation, "Password Confirmation" %><%= f.password_field :password_confirmation, :class => "form-control", :placeholder => '*************' %>
             		</div>
             	</div>
             	
             	<br>
             	<div class="col-sm-12">
-            		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), user_path , :class => "btn btn-danger btn-flat" %> 
-            		<%= button_tag( :class => "btn btn-success btn-flat ") do %>
+            		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), users_path , :class => "btn btn-danger btn-flat" %> 
+            		<%= button_tag( :class => "btn btn-success btn-flat btn-block") do %>
         			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
         			<% end %>
             	</div>

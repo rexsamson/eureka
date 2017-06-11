@@ -2,7 +2,7 @@ class Supplier < ApplicationRecord
     extend FriendlyId
     friendly_id :name, use: :slugged
     has_many :addresses, inverse_of: :supplier, dependent: :destroy
-    belongs_to :branch
+    belongs_to :branch, inverse_of: :suppliers
     accepts_nested_attributes_for :addresses, allow_destroy: true, reject_if: proc { |att| att['name'].blank? }
     
     NON_VALIDATABLE_ATTRS = ["id", "created_at", "updated_at"]
