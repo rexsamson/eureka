@@ -1,6 +1,7 @@
 class SalesmenController < ApplicationController
     before_action :require_login
     before_action :find_salesman, only:[:edit, :destroy, :show, :update]
+    before_action :require_same_branch, only:[:edit, :destroy, :show, :update]
 
     def show
         @targets = @salesman.targets
@@ -60,7 +61,7 @@ class SalesmenController < ApplicationController
     end
     
     def index
-        @salesmen= Salesman.all
+        @salesmen= Salesman.where(branch_id: current_branch)
     end
     
     private
@@ -75,5 +76,13 @@ class SalesmenController < ApplicationController
             targets_attributes: Target.attribute_names.map(&:to_sym).push(:_destroy)
         )
     end
+    
+    def require_same_branch
+        if current_user.branch_id != @salesman.branch_id
+            flash[:error]  = "You dont have permision for this action!"
+            redirect_to accounts_path
+        end
+    end
+    
 end
     

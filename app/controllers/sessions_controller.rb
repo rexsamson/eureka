@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         user = User.find_by(name: params[:session][:name].downcase)
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
-            session[:branch_id] = current_user.branch_id
+            session[:branch_id] = user.branch_id
             
             flash[:success] = "You've been logged in successfully!"
             redirect_to pages_path

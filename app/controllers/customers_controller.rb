@@ -1,7 +1,8 @@
 class CustomersController < ApplicationController
     before_action :require_login
     before_action :find_customer, only:[:edit, :destroy, :show, :update]
-
+    before_action :require_same_branch, only:[:edit, :destroy, :show, :update]
+    
     def show
         @addresses = @customer.addresses
     end
@@ -60,7 +61,7 @@ class CustomersController < ApplicationController
     end
     
     def index
-        @customers= Customer.paginate(page: params[:page], per_page: 20)
+        @customers= Customer.where(branch_id: current_branch).paginate(page: params[:page], per_page: 20)
     end
     
     private
@@ -75,6 +76,13 @@ class CustomersController < ApplicationController
             addresses_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy)
         )
         #params.require(:todo_list).permit(:name, tasks_attributes: Task.attribute_names.map(&:to_sym).push(:_destroy))
+    end
+    
+    def require_same_branch
+        if current_user.branch_id != @customer.branch_id
+            flash[:error]  = "You dont have permision for this action!"
+            redirect_to accounts_path
+        end
     end
    
 end

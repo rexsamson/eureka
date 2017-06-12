@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :fullname, presence: true
     
     has_secure_password
-    validates :password, presence: true, length: {minimum: 5}, allow_nil: true
+    validates :password, presence: true, length: {minimum: 5}, allow_nil: true, on: :create
 
     belongs_to :branch, inverse_of: :users, dependent: :destroy
 end

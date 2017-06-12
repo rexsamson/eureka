@@ -26,6 +26,8 @@
 							<%= link_to "<i class='fa fa-building-o text-white'></i> <span>Suppliers</span>".html_safe, suppliers_path, :rel => "tab" %></li>
 						<li class="<%= 'active' if params[:controller] == 'inventories' %>">
 							<%= link_to "<i class='fa fa-cubes text-white'></i> <span>Inventories</span>".html_safe, suppliers_path, :rel => "tab" %></li>
+						<li class="<%= 'active' if params[:controller] == 'users' %>">
+							<%= link_to "<i class='fa fa-user text-white'></i> <span>User Records</span>".html_safe, users_path, :rel => "tab" %></li>
 					
 						
 						<li class="treeview">

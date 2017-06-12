@@ -35,8 +35,8 @@ $(function () {
     drawCallback: function(settings) {
     var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
     pagination.toggle(this.api().page.info().pages > 1);
-  }
-    });
+    }
+  });
   $('.dataTables_filter').addClass('pull-right');
   
   $('#dttablefull').DataTable( {
@@ -55,6 +55,7 @@ $(document).ready(function() {
       width: '100%', 
       placeholder: "Select an option"
   });
+  
 });
 
 //add and remove detail
@@ -88,9 +89,3 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
 });*/
-$('#password, #confirm_password').on('keyup', function () {
-  if ($('#password').val() == $('#confirm_password').val()) {
-    $('#message').html('Matching').css('color', 'green');
-  } else 
-    $('#message').html('Not Matching').css('color', 'red');
-});

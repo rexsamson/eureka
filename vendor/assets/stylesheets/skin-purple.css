@@ -192,3 +192,6 @@ input .radio_buttons .inline label .radio{
 .login-page, .register-pages {
   background-color: #605ca8;
 }
+.adminheader {
+  margin-bottom: -35px;
+}

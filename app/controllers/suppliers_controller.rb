@@ -1,7 +1,8 @@
 class SuppliersController < ApplicationController
     before_action :require_login
     before_action :find_supplier, only:[:edit, :destroy, :show, :update]
-
+    before_action :require_same_branch, only:[:edit, :destroy, :show, :update]
+    
     def show
         @addresses = @supplier.addresses
     end
@@ -60,7 +61,7 @@ class SuppliersController < ApplicationController
     end
     
     def index
-        @suppliers= Supplier.paginate(page: params[:page], per_page: 20)
+        @suppliers= Supplier.paginate(page: params[:page], per_page: 20).where(branch_id: current_branch)
     end
     
     private
@@ -74,6 +75,13 @@ class SuppliersController < ApplicationController
             :code, :name, :group, :cp, :status, :climit, :dlimit, :telp, :branch_id, :slug,
             addresses_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy)
         )
+    end
+    
+    def require_same_branch
+        if current_user.branch_id != @supplier.branch_id
+            flash[:error]  = "You dont have permision for this action!"
+            redirect_to accounts_path
+        end
     end
 end
     

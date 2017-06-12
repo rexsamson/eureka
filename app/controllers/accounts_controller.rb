@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
     before_action :require_login
     before_action :find_account, only:[:edit, :destroy, :show, :update]
-    
+    before_action :require_same_branch, only:[:edit, :destroy, :show, :update]
     
     def edit
        
@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
     
     def create
     @account = Account.new(account_params)
-    @account.branch = Branch.find(session[:branch_id])
+    @account.branch = current_branch
     
     if @account.save
         flash[:success] = "Account data created successfully!"
@@ -41,7 +41,7 @@ class AccountsController < ApplicationController
     end
     
     def index
-        @accounts= Account.all
+        @accounts= Account.where(branch_id: current_branch)
     end
     
     private
@@ -52,6 +52,13 @@ class AccountsController < ApplicationController
     
     def account_params
       params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id, :slug)
+    end
+    
+    def require_same_branch
+        if current_user.branch_id != @account.branch_id
+            flash[:error]  = "You dont have permision for this action!"
+            redirect_to accounts_path
+        end
     end
    
 end
