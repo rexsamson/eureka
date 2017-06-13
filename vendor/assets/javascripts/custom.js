@@ -30,7 +30,7 @@ $(function () {
   $("#dttable").DataTable({
     "iDisplayLength": 25,
     "bLengthChange": false,
-    "bSort" : false,
+    "bSort" : true,
     "bInfo" : false,
     drawCallback: function(settings) {
     var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
@@ -89,3 +89,4 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
 });*/
+

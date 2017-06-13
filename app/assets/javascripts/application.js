@@ -19,6 +19,7 @@
 //= require toastr
 //= require dataTables/jquery.dataTables
 //= require datatables-bootstrap
+//= require select2
 //= require custom
 //= require_tree .
 

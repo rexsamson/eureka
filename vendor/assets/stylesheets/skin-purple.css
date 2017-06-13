@@ -135,6 +135,10 @@
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 0;
 }
+.form-control {
+  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
 textarea {
     resize: none;
 }
@@ -156,6 +160,7 @@ th {
   color: white;
 }
 thead {
+  color: #666;
   background-color: #fafafa;
 }
 .gray {
@@ -181,7 +186,7 @@ thead {
     background-color: #3c8dbc !important;
 }
 .Detail {
-    background-color: #9f9f9f !important;
+    background-color: #708090 !important;
 }
 input .radio_buttons .inline label .radio{
   display: inline-block;
@@ -194,4 +199,31 @@ input .radio_buttons .inline label .radio{
 }
 .adminheader {
   margin-bottom: -35px;
+}
+.btn {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important
+}
+.small-box {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important
+}
+.Brand {
+  background-color: #00a65a !important;
+}
+.Motif {
+  background-color: #B8860B !important;
+}
+.Type {
+  background-color: #3c8dbc !important;
+}
+.Color {
+  background-color: #A0522D !important;
+}
+.Density {
+  background-color: #663399 !important;
+}
+.Quality {
+  background-color:	#708090 !important;
+}
+.Size {
+  background-color:	#20B2AA !important;
 }

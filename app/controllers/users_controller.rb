@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only:[:edit, :destroy, :update]
+    before_action :require_login
     
     def new
         @profile = User.new

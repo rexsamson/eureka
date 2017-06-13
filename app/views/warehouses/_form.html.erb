@@ -1,0 +1,38 @@
+        <%= render 'shared/errors', obj: @warehouse %>
+        <div class="row">
+            
+            <%= simple_form_for @warehouse do |f|  %>
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :code, hint: false, :error => false, :readonly => true, input_html: {value: @warehouse.code } %>
+            		</div>
+            	</div>
+            	<div class="col-sm-6">
+            		<div class="form-group">
+            			<%= f.input :name, hint: false,:error => false %>
+            		</div>
+            	</div>
+
+            	<div class="col-sm-8">
+            		<div class="form-group">
+            			<%= f.input :description, hint: false,:error => false  %>
+            		</div>
+            	</div>
+
+                <div class="col-sm-12">
+                    <table  class='fields'>
+                        <hr>
+                    	<%= f.simple_fields_for :products do |builder| %>
+                    	    <%= render 'product', f: builder %>
+                        <% end %>
+                    </table>
+                    <div class="text-right btn-toolbar">
+                        <%= link_to_add_row(raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Products"), f, :products, class: 'btn btn-primary btn-flat') %>
+                		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), warehouses_path , :class => "btn btn-danger btn-flat pull-right" %> 
+                		<%= button_tag( :class => "btn btn-success btn-flat pull-right") do %>
+            			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
+            			<% end %>
+        			</div>
+            	</div>
+            <%end %>
+        </div>

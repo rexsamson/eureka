@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611091720) do
+ActiveRecord::Schema.define(version: 20170613022748) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "code"
@@ -124,8 +124,9 @@ ActiveRecord::Schema.define(version: 20170611091720) do
   create_table "product_settings", force: :cascade do |t|
     t.string "code"
     t.string "name"
-    t.string "type"
     t.integer "branch_id"
+    t.string "slug"
+    t.string "product_type"
   end
 
   create_table "products", force: :cascade do |t|
@@ -134,6 +135,8 @@ ActiveRecord::Schema.define(version: 20170611091720) do
     t.string "kw"
     t.string "category_id"
     t.integer "branch_id"
+    t.integer "warehouse_id"
+    t.integer "slug"
   end
 
   create_table "salesmen", force: :cascade do |t|
@@ -187,6 +190,14 @@ ActiveRecord::Schema.define(version: 20170611091720) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.integer "branch_id"
+    t.string "slug"
+  end
+
+  create_table "warehouses", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "description"
     t.integer "branch_id"
     t.string "slug"
   end

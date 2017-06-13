@@ -1,0 +1,51 @@
+		<section class="content-header">
+			 <%= link_to raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Create New Product Setting"), new_product_setting_path, :class => "btn btn-primary btn-flat "%>
+			<ol class="breadcrumb">
+				<li>
+					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">Product Settings</a>
+				</li>
+				<li class="active">Index page</li>
+			</ol>
+		</section><!-- Main content -->
+		<section class="content">
+			<%= render 'shared/flash' %>
+			<!-- ========================================== -->
+			<div class="box">
+				<!-- /.box-header -->
+				<div class="box-header adminheader">
+	            	<h3 class="box-title">Product Settings </h3> <small>List</small>
+	            </div>
+				<div class="box-body padding-xs">
+					<table id="dttable" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>Code</th>
+								<th>Name</th>
+								<th>Type</th>
+								<th style="width: 80px">Action</th>
+							</tr>
+							</thead>
+							</tbody>
+							<tr><%@product_settings.each do |product_setting| %>
+								<td><%= product_setting.code %></td>
+								<td><%= product_setting.name %></td>
+								<td><span class="label <%= product_setting.product_type %>"><%= product_setting.product_type %></span></td>
+								
+								<td>
+								<table>
+								<tr><td>
+								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_product_setting_path(product_setting), :class => "btn btn-warning btn-sm", :rel => "tabs" %> </td>
+								<td><%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), product_setting_path(product_setting), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm", :rel => "tabs" %>
+								</td></tr>
+								</table>
+							</tr><%end %>
+						</tbody>
+					</table>
+				</div><!-- /.box-body -->
+				
+			</div><!-- /.box-end -->
+			<!-- ========================================== -->
+		</section>

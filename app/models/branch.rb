@@ -11,6 +11,7 @@ class Branch < ApplicationRecord
     has_many :product_settings, inverse_of: :branch
     has_many :products, inverse_of: :branch
     has_many :transaction_logs, inverse_of: :branch
+    has_many :warehouses, inverse_of: :branch
     validates :code, uniqueness: true
     validates :name, uniqueness: true
     

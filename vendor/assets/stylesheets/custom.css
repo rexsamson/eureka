@@ -11,8 +11,5 @@ a:hover {
   text-decoration: none !important;
 }
 a:active {
-   text-decoration: none !important;
-}
-.form-control {
-  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  text-decoration: none !important;
 }

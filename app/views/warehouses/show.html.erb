@@ -1,0 +1,19 @@
+        <section class="content">
+        <% flash.each do |name, msg| %>
+            <div class="alert alert-success alert-dismissible" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Success</h4>
+                <ul><li><%= msg %></li></ul>
+             </div>
+            <% end %>
+        <h1>Show data</h1>
+        <p> code = <%= @salesman.code %></p>
+        <p> name = <%= @salesman.name %></p>
+        <p> birth date = <%= @salesman.dbirth %></p>
+        <p> identity number = <%= @salesman.identity %></p>
+        <p> status = <%= @salesman.status %></p> 
+        <p> branch = <%= @salesman.branch.name %></p>
+        <p> updated_at = <%= @salesman.updated_at %></p>
+        <p> created_at = <%= @salesman.created_at %></p>
+        <%= link_to raw("<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i> Back"), salesmen_path , :class => "btn btn-primary btn-flat" %> 
+        </section>

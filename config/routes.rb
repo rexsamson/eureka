@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :customers
   resources :addresses
   resources :suppliers
-  
+  resources :warehouses
+  resources :product_settings
 end
