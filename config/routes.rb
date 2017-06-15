@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :profiles, except: [:delete, :index, :new]
-  resources :accounts
+  resources :accounts, except: [:show]
   resources :branches
   resources :salesmen
   resources :users, except: [:new]
@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   resources :addresses
   resources :suppliers
   resources :warehouses
-  resources :product_settings
+  resources :product_settings, except: [:show]
+  resources :products, except: [:show]
 end

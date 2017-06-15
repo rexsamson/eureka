@@ -1,0 +1,48 @@
+<html>
+<head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<input type="text" name="product_data[product]" id="product_description_product" value="" />
+
+<select id="product_description_product_1">
+    <optgroup label="Box size">
+        <option value="Extra">Extra small</option>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="Extra Large">Extra Large</option>
+    </optgroup>
+</select>
+<select id="product_description_product_2">
+    <optgroup label="Speciality">
+        <option value="organic">organic</option>
+        <option value="seasonal">seasonal</option>
+        <option value="locally grown">locally grown</option>
+        <option value="exotic">exotic</option>
+        <option value="gourmet">gourmet</option>
+    </optgroup>
+</select>
+<select id="product_description_product_3">
+    <optgroup label="Type of box">
+        <option value="veg box">veg box</option>
+        <option value="fruit box">fruit box</option>
+        <option value="fruit &amp; veg box">fruit &amp; veg box</option>
+    </optgroup>
+</select>
+
+<div id="temp_display"></div>
+
+<script>
+$(document).ready(function(){
+    $("#product_description_product_1, #product_description_product_2, #product_description_product_3").change(function(){
+        concatenated_string = $("#product_description_product_1 option:selected").text() + $("#product_description_product_2 option:selected").text() + $("#product_description_product_3 option:selected").text();
+        $("#product_description_product").val(concatenated_string);
+        $("#temp_display").text(concatenated_string)
+    })
+})
+
+</script>
+
+</body>
+</html>

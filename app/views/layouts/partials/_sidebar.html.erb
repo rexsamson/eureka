@@ -14,33 +14,47 @@
 					<br>
 					<!-- Sidebar Menu -->
 					<ul class="sidebar-menu" id="menu" style="font-size:14px !important">
+						
 						<li class="<%= 'active' if current_page?(pages_path) %>">
 							<%= link_to "<i class='fa fa-dashboard text-white'></i> <span>Dashboard</span>".html_safe, pages_path , :rel => "tab" %></li>
-						<li class="<%= 'active' if params[:controller] == 'accounts' %>">
-							<%= link_to "<i class='fa fa-pie-chart text-white'></i> <span>Chart of Accounts</span>".html_safe, accounts_path, :rel => "tab" %></li>
-						<li class="<%= 'active' if params[:controller] == 'customers' %>">
-							<%= link_to "<i class='fa fa-smile-o'></i> <span>Customers</span>".html_safe, customers_path, :rel => "tab" %></li>
-						<li class="<%= 'active' if params[:controller] == 'salesmen' %>">
-							<%= link_to "<i class='fa fa-user-o text-white'></i> <span>Salesmen</span>".html_safe, salesmen_path, :rel => "tab" %></li>
-						<li class="<%= 'active' if params[:controller] == 'suppliers' %>">
-							<%= link_to "<i class='fa fa-building-o text-white'></i> <span>Suppliers</span>".html_safe, suppliers_path, :rel => "tab" %></li>
-						<li class="treeview <%= 'active' if params[:controller] == 'product_settings' %>">
-							<%= link_to "<i class='fa fa-cubes text-white'></i> <span>Inventories</span><span class='pull-right-container'><i class='fa fa-angle-left pull-right'></i></span>".html_safe, suppliers_path, :rel => "tab" %>
+						
+						<li class="treeview <%= 'active' if params[:controller] == 'accounts' %>">
+							<%= link_to "<i class='fa fa-book text-white'></i> <span>General Ledger</span><span class='pull-right-container'><i class='fa fa-angle-left pull-right'></i></span>".html_safe, suppliers_path, :rel => "tab" %>
 							<ul class="treeview-menu" style="font-size:14px !important">
-								<li>
-									<%= link_to "<i class='fa fa-cube text-white'></i> <span>Products</span>".html_safe, product_settings_path, :rel => "tab" %>
-								</li>
-								<li class="<%= 'active' if params[:controller] == 'product_settings' %>">
-									<%= link_to "<i class='fa fa-th text-white'></i> <span>Product Settings</span>".html_safe, product_settings_path, :rel => "tab" %>
+								<li class="<%= 'active' if current_page?(accounts_path) %>">
+									<%= link_to "<i class='fa fa-angle-right '></i><i class='fa fa-pie-chart text-white'></i> <span>Chart of Accounts</span>".html_safe, accounts_path, :rel => "tab" %>
 								</li>
 							</ul>
 						</li>
+					
+						<li class="<%= 'active' if params[:controller] == 'customers' %>">
+							<%= link_to "<i class='fa fa-smile-o'></i> <span>Customers</span>".html_safe, customers_path, :rel => "tab" %></li>
+						
+						<li class="<%= 'active' if params[:controller] == 'salesmen' %>">
+							<%= link_to "<i class='fa fa-user-o text-white'></i> <span>Salesmen</span>".html_safe, salesmen_path, :rel => "tab" %></li>
+						
+						<li class="<%= 'active' if params[:controller] == 'suppliers' %>">
+							<%= link_to "<i class='fa fa-building-o text-white'></i> <span>Suppliers</span>".html_safe, suppliers_path, :rel => "tab" %></li>
+						
+						<li class="treeview <%= 'active' if params[:controller] == 'product_settings' %><%= 'active' if params[:controller] == 'products' %>">
+							<%= link_to "<i class='fa fa-cubes text-white'></i> <span>Inventories</span><span class='pull-right-container'><i class='fa fa-angle-left pull-right'></i></span>".html_safe, suppliers_path, :rel => "tab" %>
+							<ul class="treeview-menu" style="font-size:14px !important">
+								<li class="<%= 'active' if params[:controller] == 'products' %>">
+									<%= link_to "<i class='fa fa-angle-right '></i><i class='fa fa-cube text-white'></i> <span>Products</span>".html_safe, products_path, :rel => "tab" %>
+								</li>
+								<li class="<%= 'active' if params[:controller] == 'product_settings' %>">
+									<%= link_to "<i class='fa fa-angle-right '></i><i class='fa fa-th text-white'></i> <span>Product Settings</span>".html_safe, product_settings_path, :rel => "tab" %>
+								</li>
+							</ul>
+						</li>
+						
+						
 						<li class="<%= 'active' if params[:controller] == 'users' %>">
 							<%= link_to "<i class='fa fa-user text-white'></i> <span>Users</span>".html_safe, users_path, :rel => "tab" %></li>
 					
 						
 						<li class="treeview">
-							<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+							<a href="#"><i class="fa fa-link"></i> <span>Reports</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
 							<ul class="treeview-menu" style="font-size:14px !important">
 								<li>
 									<a href="#">Link in level 2</a>
@@ -50,6 +64,7 @@
 								</li>
 							</ul>
 						</li>
+						
 					</ul><!-- /.sidebar-menu -->
 				</section><!-- /.sidebar -->
 			</aside>

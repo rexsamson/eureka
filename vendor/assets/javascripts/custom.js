@@ -49,11 +49,11 @@ $(document).ready(function() {
   $("#select").select2({ 
       width: '100%', 
       allowClear: true,
-      placeholder: "Select an option"
+      placeholder: "--Select--"
   });
   $("select").select2({ 
       width: '100%', 
-      placeholder: "Select an option"
+      placeholder: "--Select--"
   });
   
 });
