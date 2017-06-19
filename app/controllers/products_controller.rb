@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
     before_action :require_login
-    before_action :find_product, only:[:edit, :destroy, :show, :update]
+    before_action :find_product, only:[:edit, :destroy, :update]
     before_action :require_same_branch, only:[:edit, :destroy, :show, :update]
     
     def edit
@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
     
     def new
         @product = Product.new
-        
         @product_setting_quality = ProductSetting.where(product_type: "Quality")
         @product_setting_size = ProductSetting.where(product_type: "Size")
         @product_setting_type = ProductSetting.where(product_type: "Type")
@@ -46,24 +45,22 @@ class ProductsController < ApplicationController
     end
     
     def destroy
-        
         @product.destroy
         flash[:warning] = "Product data deleted successfully!"
         redirect_to products_path
     end
     
     def update
-     
-      if @product.update(product_params)
-         flash[:success] = "Product data updated successfully!"
-         redirect_to products_path
-      else
-         render 'edit'
-      end
+        if @product.update(product_params)
+            flash[:success] = "Product data updated successfully!"
+            redirect_to products_path
+        else
+            render 'edit'
+        end
     end
     
     def index
-        @products= Product.where(branch_id: current_branch)
+        @products= Product.where(branch_id: current_branch).paginate(page: params[:page], per_page: 30)
     end
     
     private
@@ -74,18 +71,19 @@ class ProductsController < ApplicationController
     
     def product_params
         params.require(:product).permit(
-          :code, 
-          :name, 
-          :products_brand, 
-          :products_size, 
-          :products_motif, 
-          :products_type, 
-          :products_density, 
-          :products_color, 
-          :products_quality, 
-          :branch_id, 
-          current_user.branch_id, 
-          :slug
+            :code, 
+            :name, 
+            :kw, 
+            :products_brand, 
+            :products_size, 
+            :products_motif, 
+            :products_type, 
+            :products_density, 
+            :products_color, 
+            :products_quality, 
+            :branch_id, 
+            current_user.branch_id, 
+            :slug
         )
     end
     

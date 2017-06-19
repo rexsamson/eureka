@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
     before_action :require_same_branch, only:[:edit, :destroy, :show, :update]
     
     def edit
-       
+    
     end
     
     def new
@@ -12,32 +12,30 @@ class AccountsController < ApplicationController
     end
     
     def create
-    @account = Account.new(account_params)
-    @account.branch = current_branch
-    
-    if @account.save
-        flash[:success] = "Account data created successfully!"
-        redirect_to accounts_path
-    else
-        render 'new'
-    end
+        @account = Account.new(account_params)
+        @account.branch = current_branch
+        if @account.save
+            flash[:success] = "Account data created successfully!"
+            redirect_to accounts_path
+        else
+            render 'new'
+        end
     end
     
     def destroy
-        
-        @account.destroy
+    
+    @account.destroy
         flash[:warning] = "Account data deleted successfully!"
         redirect_to accounts_path
     end
     
     def update
-     
-      if @account.update(account_params)
-         flash[:success] = "Account data updated successfully!"
-         redirect_to accounts_path
-      else
-         render 'edit'
-      end
+        if @account.update(account_params)
+            flash[:success] = "Account data updated successfully!"
+            redirect_to accounts_path
+        else
+            render 'edit'
+        end
     end
     
     def index
@@ -51,7 +49,7 @@ class AccountsController < ApplicationController
     end
     
     def account_params
-      params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id, :slug)
+        params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id, :slug)
     end
     
     def require_same_branch
@@ -60,5 +58,5 @@ class AccountsController < ApplicationController
             redirect_to accounts_path
         end
     end
-   
+
 end

@@ -1,5 +1,8 @@
 		<section class="content-header">
-			 <%= link_to raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Create New Product"), new_product_path, :class => "btn btn-primary btn-flat "%>
+			 <%= link_to raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Create New Product"), 
+			 	new_product_path,
+			 	:class => "btn btn-primary btn-flat " %>
+			 
 			<ol class="breadcrumb">
 				<li>
 					<a href="#"><i class="fa fa-dashboard"></i> Home</a>
@@ -15,36 +18,49 @@
 			<!-- ========================================== -->
 			<div class="box">
 				<!-- /.box-header -->
-				<div class="box-header adminheader">
+				<div class="box-header ">
 	            	<h3 class="box-title">Products</h3> <small>List</small>
 	            </div>
 				<div class="box-body padding-xs">
-					<table id="dttable" class="table table-bordered table-hover">
+					<table class="table table-bordered table-hover" >
 						<thead>
 							<tr>
 								<th>Code</th>
 								<th>Products</th>
-
+								<th>Quality</th>
 								<th style="width: 80px">Action</th>
 							</tr>
-							</thead>
-							</tbody>
+						</thead>
+						</tbody>
 							<tr><%@products.each do |product| %>
 								<td><%= product.code %></td>
 								<td><%= product.name %></td>
-
+								<td><%= product.kw %></td>
 								<td>
 								<table>
-								<tr><td>
-								<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_product_path(product), :class => "btn btn-warning btn-sm", :rel => "tabs" %> </td>
-								<td><%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), product_path(product), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm", :rel => "tabs" %>
-								</td></tr>
+								<tr>
+									<td>
+									<%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), 
+										edit_product_path(product), 
+										:class => "btn btn-warning btn-sm", 
+										:rel => "tabs" %> 
+									</td>
+									<td>
+									<%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"),
+										product_path(product), method: :delete, 
+										data: {confirm: "Are you sure?"}, 
+										:class => "btn btn-danger btn-sm", 
+										:rel => "tabs" %>
+									</td>
+								</tr>
 								</table>
 							</tr><%end %>
 						</tbody>
 					</table>
 				</div><!-- /.box-body -->
-				
+				<div class="box-footer ">
+					<center><%= will_paginate @products, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-md no-margin' %></center>
+				</div>
 			</div><!-- /.box-end -->
 			<!-- ========================================== -->
 		</section>

@@ -17,10 +17,10 @@ class BranchesController < ApplicationController
     def create
         @branch = Branch.new(branch_params)
         if @branch.save
-         flash[:success] = "Branch data created successfully!"
-         redirect_to branches_path
+            flash[:success] = "Branch data created successfully!"
+            redirect_to branches_path
         else
-         render 'new'
+            render 'new'
         end
     end
     
@@ -31,12 +31,12 @@ class BranchesController < ApplicationController
     end
     
     def update
-      if @branch.update(branch_params)
-         flash[:success] = "Branch data updated successfully!"
-         redirect_to branches_path
-      else
-         render 'edit'
-      end
+        if @branch.update(branch_params)
+            flash[:success] = "Branch data updated successfully!"
+            redirect_to branches_path
+        else
+            render 'edit'
+        end
     end
     
     def index
@@ -50,7 +50,7 @@ class BranchesController < ApplicationController
     end
     
     def branch_params
-      params.require(:branch).permit(:code, :name, :region, :city, :address, :telp, :cp, :description, :slug )
+        params.require(:branch).permit(:code, :name, :region, :city, :address, :telp, :cp, :description, :slug )
     end
    
 end

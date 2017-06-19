@@ -12,32 +12,30 @@ class ProductSettingsController < ApplicationController
     end
     
     def create
-    @product_setting = ProductSetting.new(product_setting_params)
-    @product_setting.branch = current_branch
+        @product_setting = ProductSetting.new(product_setting_params)
+        @product_setting.branch = current_branch
     
-    if @product_setting.save
-        flash[:success] = "Product Setting data created successfully!"
-        redirect_to product_settings_path
-    else
-        render 'new'
-    end
+        if @product_setting.save
+            flash[:success] = "Product Setting data created successfully!"
+            redirect_to product_settings_path
+        else
+            render 'new'
+        end
     end
     
     def destroy
-        
         @product_setting.destroy
         flash[:warning] = "Product Setting data deleted successfully!"
         redirect_to product_settings_path
     end
     
     def update
-     
-      if @product_setting.update(product_setting_params)
-         flash[:success] = "Product Setting data updated successfully!"
-         redirect_to product_settings_path
-      else
-         render 'edit'
-      end
+        if @product_setting.update(product_setting_params)
+            flash[:success] = "Product Setting data updated successfully!"
+            redirect_to product_settings_path
+        else
+            render 'edit'
+        end
     end
     
     def index
@@ -51,7 +49,7 @@ class ProductSettingsController < ApplicationController
     end
     
     def product_setting_params
-      params.require(:product_setting).permit(:code, :name, :product_type, :branch_id, current_user.branch_id, :slug)
+        params.require(:product_setting).permit(:code, :name, :product_type, :branch_id, current_user.branch_id, :slug)
     end
     
     def require_same_branch

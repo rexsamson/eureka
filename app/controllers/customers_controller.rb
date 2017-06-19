@@ -61,7 +61,7 @@ class CustomersController < ApplicationController
     end
     
     def index
-        @customers= Customer.where(branch_id: current_branch).paginate(page: params[:page], per_page: 20)
+        @customers= Customer.where(branch_id: current_branch).paginate(page: params[:page], per_page: 30)
     end
     
     private

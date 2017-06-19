@@ -10,18 +10,26 @@
                     $("#product_5 option:selected").text() +
                     $("#product_6 option:selected").text() +
                     $("#product_7").val() +
-                    $("#product_8 option:selected").text() 
-                ;
+                    $("#product_8 option:selected").text();
                 $("#product_code").val(concatenated_string);
             })
+            
+            $("#product_8").change(function(){
+                concatenated_string = $("#product_8 option:selected").text();
+                $("#product_kw").val(concatenated_string);
+            })
         })
-        
         </script>
         <div class="row">
             <%= simple_form_for @product do |f|  %>
-            	<div class="col-sm-12">
+            	<div class="col-sm-9">
             		<div class="form-group">
             			<%= f.input :code, hint: false,:error => false, readonly: true %>
+            		</div>
+            	</div>
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :kw, hint: false,:error => false, readonly: true %>
             		</div>
             	</div>
             	<div class="col-sm-6">
@@ -42,9 +50,6 @@
             		    <%= f.select :products_motif, options_from_collection_for_select(@product_setting_motif, :name, :code), {:include_blank => true}, id: 'product_3' %>
         			</div>
             	</div>
-
-            	
-            	
             	<div class="col-sm-6">
             		<div class="form-group">
             		    <%= f.label :products_type %>
@@ -65,7 +70,7 @@
             	</div>
                 <div class="col-sm-6">
             		<div class="form-group">
-            			<%= f.input :products_custom, hint: false,:error => false, :input_html => { :id => 'product_7' } %>
+            			<%= f.input :products_custom, hint: false,:error => false, :input_html => { :id => 'product_7', maxlength: 2, minlength: 2 } %>
             		</div>
             	</div>
             	<div class="col-sm-6">

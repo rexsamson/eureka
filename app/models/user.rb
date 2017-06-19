@@ -13,5 +13,5 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: {minimum: 5}, allow_nil: true, on: :create
 
-    belongs_to :branch, inverse_of: :users, dependent: :destroy
+    belongs_to :branch, inverse_of: :users
 end

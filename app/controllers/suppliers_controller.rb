@@ -8,7 +8,7 @@ class SuppliersController < ApplicationController
     end
     
     def edit
-        #@supplier.addresses.build
+       
     end
     
     def new
@@ -51,17 +51,16 @@ class SuppliersController < ApplicationController
     end
     
     def update
-    if @supplier.update(supplier_params)
-        flash[:success] = "Supplier data updated successfully!"
-        redirect_to suppliers_path
-    else
-        render 'edit'
-    end
-    
+        if @supplier.update(supplier_params)
+            flash[:success] = "Supplier data updated successfully!"
+            redirect_to suppliers_path
+        else
+            render 'edit'
+        end
     end
     
     def index
-        @suppliers= Supplier.paginate(page: params[:page], per_page: 20).where(branch_id: current_branch)
+        @suppliers= Supplier.paginate(page: params[:page], per_page: 30).where(branch_id: current_branch)
     end
     
     private
@@ -84,4 +83,3 @@ class SuppliersController < ApplicationController
         end
     end
 end
-    
