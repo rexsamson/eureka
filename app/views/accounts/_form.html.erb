@@ -3,7 +3,7 @@
             <%= simple_form_for @account do |f|  %>
             	<div class="col-sm-12">
             		<div class="form-group">
-            			<%= f.input :code, hint: false,:error => false %>
+            			<%= f.input :code, class: "form-control", :required => true%>
             		</div>
             	</div>
             	<div class="col-sm-12">
@@ -18,12 +18,12 @@
             	</div>
             	<div class="col-sm-6">
             		<div class="form-group">
-            			<%= f.input :dk, :collection => [['Debet','Debet'],['Kredit','Kredit']], as: :radio_buttons %>
+            			<%= f.input :dk, :collection => [['Debet','Debet'],['Kredit','Kredit']], as: :radio_buttons, hint: false,:error => false %>
             		</div>
             	</div>
             	<div class="col-sm-6">
             		<div class="form-group">
-            			<%= f.input :du, :collection => [['Master','Master'],['Detail','Detail']], as: :radio_buttons, :class => 'radio-inline' %>
+            			<%= f.input :du, :collection => [['Master','Master'],['Detail','Detail']], as: :radio_buttons, :class => 'radio-inline', hint: false,:error => false %>
             		</div>
             	</div>
             	

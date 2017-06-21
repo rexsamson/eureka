@@ -20,6 +20,7 @@
 //= require dataTables/jquery.dataTables
 //= require datatables-bootstrap
 //= require select2
+//= require mask
 //= require custom
 //= require_tree .
 

@@ -39,7 +39,7 @@ class ProductSettingsController < ApplicationController
     end
     
     def index
-        @product_settings= ProductSetting.where(branch_id: current_branch)
+        @product_settings= ProductSetting.all
     end
     
     private

@@ -8,7 +8,7 @@
     <div class="register-box">
       <div class="register-box-body">
         <div class="register-logo">
-          <a><b>Acura </b>Sign-up</a>
+          <%= link_to raw("<b>Acura </b>"), login_path %></td>Sign-up
         </div>
           <%= render 'shared/errors', obj: @profile%>
           <%= form_for @profile do |f|  %>

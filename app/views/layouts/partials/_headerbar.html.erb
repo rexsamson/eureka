@@ -100,10 +100,10 @@
 									</li><!-- Menu Footer-->
 									<li class="user-footer">
 										<div class="pull-left">
-											<%= link_to "Profile ", profile_path(current_user), class: "btn btn-primary btn-flat" %>
+											<%= link_to raw("<i class=\"fa fa-user-o\" aria-hidden=\"true\"></i>&nbsp;&nbsp; Profile "), profile_path(current_user), class: "btn btn-primary btn-flat" %>
 										</div>
 										<div class="pull-right">
-											<%= link_to "Sign out", logout_path, method: :delete, :class => "btn btn-primary btn-flat" %>
+											<%= link_to raw("<i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i> Sign out"), logout_path, method: :delete, :class => "btn btn-primary btn-flat" %>
 										</div>
 									</li>
 								</ul>

@@ -24,7 +24,7 @@
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.input :telp, hint: false,:error => false  %>
+            			<%= f.input :telp, hint: false,:error => false, :input_html => {:class=> 'phone'} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
@@ -45,22 +45,22 @@
                 </div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            		<%= f.input :climit, hint: false,:error => false %>
+            		<%= f.input :climit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.input :dlimit, hint: false,:error => false %>
+            			<%= f.input :dlimit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            		<%= f.input :tclimit, hint: false,:error => false %>
+            		<%= f.input :tclimit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            		<%= f.input :tdlimit, hint: false,:error => false %>
+            		<%= f.input :tdlimit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
             		</div>
             	</div>
                 <div class="col-sm-12">

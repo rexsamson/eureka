@@ -68,6 +68,8 @@ $(document).ready(function() {
   $('form').on('click', '.add_fields', function(event) {
     $('.fields').append($(this).data('fields'));
     flatpickr('.fdate');
+    $('.phone').mask('0000-0000-0000');
+    $('.currency').mask('000.000.000.000.000', {reverse: true});
     return event.preventDefault();
   });
 });
@@ -90,3 +92,10 @@ $(document).ready(function() {
     });
 });*/
 
+$(document).ready(function(){
+    $('.currency').mask('000.000.000.000.000', {reverse: true});
+    $(".simple_form").submit(function(){
+        $('.currency').unmask();
+    });
+    $('.phone').mask('000-0000-00000');
+});
