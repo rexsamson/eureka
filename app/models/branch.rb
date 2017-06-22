@@ -3,6 +3,7 @@ class Branch < ApplicationRecord
     friendly_id :name, use: :slugged
     has_many :accounts, inverse_of: :branch
     has_many :salesmen, inverse_of: :branch
+    has_many :assetms, inverse_of: :branch
     has_many :suppliers, inverse_of: :branch
     has_many :customers, inverse_of: :branch
     has_many :users, inverse_of: :branch

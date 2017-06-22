@@ -1,0 +1,58 @@
+		<section class="content-header">
+			<%= link_to raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Create New Asset"), new_assetm_path, :class => "btn btn-primary btn-flat ", :rel => "tabs" %>
+			<ol class="breadcrumb">
+				<li>
+						<a href="#"><i class="fa fa-dashboard"></i> Home</a>
+				</li>
+				<li>
+					<a href="#">Assets</a>
+				</li>
+				<li class="active">Index page</li>
+			</ol>
+		</section><!-- Main content -->
+		<section class="content">
+			<%= render 'shared/flash' %>
+			<div class="box box-primary">
+				<!-- /.box-header -->
+				<div class="box-header adminheader">
+		        <h3 class="box-title">Assets</h3> <small>List</small>
+		        </div>
+				<div class="box-body padding-sm">
+					<table class="table table-bordered table-hover " id="dttable">
+						<thead>
+							<tr>
+								<th style="width: 100px">Code</th>
+								<th>Name</th>
+								
+								<th>Location</th>
+								<th>Value</th>
+								<th style="width: 120px">Category</th>
+								<th style="width: 80px">Status</th>
+								<th style="width: 120px">Date</th>
+								<th style="width: 120px">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><% @assetms.each do |assetm| %>
+								<td><%= assetm.code %></td>
+								<td><%= assetm.name %></td>
+								<td><%= assetm.location %></td>
+								<td><%= number_to_currency(assetm.value, precision: 0, unit: "") %></td>
+								<td><%= assetm.category %></td>
+								<td><span class="label <%= assetm.status %>"><%= assetm.status %></span></td>
+								<td><%= assetm.date.strftime("%d %b %Y") %></td>
+								<td>
+									<table>
+									<tr><td><%= link_to raw("<i class=\"fa fa-print\" aria-hidden=\"true\"></i>"), assetm_path(assetm), :class => "btn btn-success btn-sm " %></td>
+	                                <td><%= link_to raw("<i class=\"fa fa-edit\" aria-hidden=\"true\"></i>"), edit_assetm_path(assetm), :class => "btn btn-warning btn-sm" %> </td>
+	                                <td><%= link_to raw("<i class=\"fa fa-gavel\" aria-hidden=\"true\"> </i>"), assetm_path(assetm), method: :delete, data: {confirm: "Are you sure?"}, :class => "btn btn-danger btn-sm btn-flat", :rel => "tabs" %></td>
+	                                </tr>
+	                                </table>
+	                            </td>
+							</tr><%end %>
+						</tbody>
+					</table>
+					
+				</div>
+			</div><!-- /.box-end -->
+		</section>

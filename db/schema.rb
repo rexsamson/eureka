@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614185637) do
+ActiveRecord::Schema.define(version: 20170621082313) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "code"
@@ -43,6 +43,32 @@ ActiveRecord::Schema.define(version: 20170614185637) do
   create_table "areas", force: :cascade do |t|
     t.string "name"
     t.string "description"
+  end
+
+  create_table "asset_details", force: :cascade do |t|
+    t.string "category"
+    t.date "date"
+    t.string "note"
+    t.decimal "value", precision: 15, scale: 2
+    t.integer "assetm_id"
+  end
+
+  create_table "assetms", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "category"
+    t.string "location"
+    t.string "unit"
+    t.decimal "value", precision: 15, scale: 2
+    t.date "date"
+    t.string "warranty"
+    t.string "status"
+    t.string "serial"
+    t.string "description"
+    t.string "slug"
+    t.integer "branch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "branches", force: :cascade do |t|

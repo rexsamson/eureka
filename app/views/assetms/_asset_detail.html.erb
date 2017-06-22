@@ -1,0 +1,23 @@
+<tr>
+<td class="col-sm-3"><%= f.input :category, :collection => [
+        ['Depreciation','Depreciation'],
+        ['Maintenance','Maintenance'], 
+        ['Repair','Repair'], 
+        ['Sold','Sold'], 
+        ['Other','Other']
+    ], id: 'select' %>
+</td>
+<td class="col-sm-3"><%= f.input :value, as: :string, :input_html => {:class=> 'currency'}  %></td>
+<td class="col-sm-2"><%= f.input :date, as: :string, :input_html => { :class => 'fdate' }   %></td>
+<td class="col-sm-3"><%= f.input :note %></td>
+<td>
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= button_tag( :class => "btn btn-warning pull-right", 
+        'data-toggle' => 'confirmation', 
+        'data-placement' => 'top', 
+        'data-singleton' => 'true'
+    ) do %>
+	    <i class="fa fa-trash-o" aria-hidden="true"></i> 
+	<% end %>
+</td>
+</tr>

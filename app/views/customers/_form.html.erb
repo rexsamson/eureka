@@ -36,6 +36,8 @@
                 <div class="col-sm-2">
                 	<div class="form-group">
                         <%= f.input :status, 
+                            hint: false,
+                            :error => false,
                             :collection => [
                                 ['Active','Active'],
                                 ['Inactive','Inactive']], 
@@ -87,3 +89,5 @@
             	</div>
             <%end %>
         </div>
+        
+        

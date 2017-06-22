@@ -1,0 +1,86 @@
+        <%= render 'shared/errors', obj: @assetm %>
+        <div class="row">
+            
+            <%= simple_form_for @assetm do |f|  %>
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            			<%= f.input :code, hint: false, :error => false, :readonly => true, input_html: {value: @assetm.code } %>
+            		</div>
+            	</div>
+            	<div class="col-sm-7">
+            		<div class="form-group">
+            			<%= f.input :name, hint: false,:error => false %>
+            		</div>
+            	</div>
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :date, hint: false,:error => false, :as => :string, :input_html => { :class => 'fdate' }   %>
+            		</div>
+            	</div>
+            	<div class="col-sm-4">
+            		<div class="form-group">
+            			<%= f.input :location, hint: false,:error => false  %>
+            		</div>
+            	</div>
+            	
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            			<%= f.input :unit, :collection => [['Unit','Unit'],['Box','Box']], id: 'select' %>
+            		</div>
+            	</div>
+            	
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :category, :collection => [
+            			    ['Building','Building'],
+            			    ['Vehicle','Vehicle'],
+            			    ['Machine','Machine'],
+            			    ['Equipment','Equipment'],
+            			    ['Furniture','Furniture'],
+            			    ['Land','Land']
+        			      ], id: 'select' %>
+            		</div>
+            	</div>
+
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :status, :collection => [['Active','Active'],['Inactive','Inactive']], id: 'select' %>
+            		</div>
+            	</div>
+            	<div class="col-sm-4">
+            		<div class="form-group">
+            			<%= f.input :value, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'}  %>
+            		</div>
+            	</div>
+                <div class="col-sm-4">
+            		<div class="form-group">
+            			<%= f.input :warranty, hint: false,:error => false  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-4">
+            		<div class="form-group">
+            			<%= f.input :serial, hint: false,:error => false  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.input :description, as: :text, hint: false,:error => false  %>
+            		</div>
+            	</div>
+                <div class="col-sm-12">
+                    <table  class='fields'>
+                        <hr>
+                    	<%= f.simple_fields_for :asset_details do |builder| %>
+                    	    <%= render 'asset_detail', f: builder %>
+                        <% end %>
+                    </table>
+                    <div class="text-right btn-toolbar">
+                        <%= link_to_add_row(raw("<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Asset Detail"), f, :asset_details, class: 'btn btn-primary btn-flat') %>
+                		<%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), assetms_path , :class => "btn btn-danger btn-flat pull-right" %> 
+                		<%= button_tag( :class => "btn btn-success btn-flat pull-right") do %>
+            			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
+            			<% end %>
+        			</div>
+            	</div>
+            <%end %>
+        </div>

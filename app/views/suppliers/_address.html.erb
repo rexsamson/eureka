@@ -6,7 +6,11 @@
 <td class="col-sm-2"><%= f.input :telp, :input_html => {:class=> 'phone'}  %></td>
 <td>
     <%= f.input_field :_destroy, as: :hidden %>
-    <%= button_tag( :class => "remove_record btn btn-warning pull-right") do %>
+    <%= button_tag( :class => "btn btn-warning pull-right", 
+        'data-toggle' => 'confirmation', 
+        'data-placement' => 'top', 
+        'data-singleton' => 'true'
+    ) do %>
 	    <i class="fa fa-trash-o" aria-hidden="true"></i> 
 	<% end %>
 </td>

@@ -21,6 +21,7 @@
 //= require datatables-bootstrap
 //= require select2
 //= require mask
+//= require confirmation
 //= require custom
 //= require_tree .
 

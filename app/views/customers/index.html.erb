@@ -12,8 +12,8 @@
 		</section><!-- Main content -->
 		<section class="content">
 			<%= render 'shared/flash' %>
-			<!-- ========================================== -->
-			<div class="box box-danger">
+			
+			<div class="box box-primary">
 				<!-- /.box-header -->
 				<div class="box-header">
 		         <h3  class="box-title">Customers <small>List</small></h3>
@@ -61,6 +61,6 @@
 					<center><%= will_paginate @customers, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-md no-margin' %></center>
 				</div>
 			</div><!-- /.box-end -->
-			<!-- ========================================== -->
+			
 		</section>
 		

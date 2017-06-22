@@ -53,25 +53,33 @@ $(document).ready(function() {
   });
   $("select").select2({ 
       width: '100%', 
-      placeholder: "--Select--"
+      placeholder: "--Select--",
+      minimumResultsForSearch: -1
   });
   
 });
 
 //add and remove detail
 $(document).ready(function() {
- $('form').on('click', '.remove_record', function(event) {
-      $(this).prev('input[type=hidden]').val('1');
-      $(this).closest('tr').hide();
-      return event.preventDefault();
-  });
-  $('form').on('click', '.add_fields', function(event) {
-    $('.fields').append($(this).data('fields'));
-    flatpickr('.fdate');
-    $('.phone').mask('0000-0000-0000');
-    $('.currency').mask('000.000.000.000.000', {reverse: true});
-    return event.preventDefault();
-  });
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+    });
+    $('form').on('click', '[data-apply~="confirmation"]', function(event) {
+        $(this).prev('input[type=hidden]').val('1');
+        $(this).closest('tr').hide();
+        return event.preventDefault();
+    });
+    
+    $('form').on('click', '.add_fields', function(event) {
+        $('.fields').append($(this).data('fields'));
+            flatpickr('.fdate');
+        $('.phone').mask('0000-0000-0000');
+        $('.currency').mask('000.000.000.000.000', {reverse: true});
+        $('[data-toggle=confirmation]').confirmation({
+            rootSelector: '[data-toggle=confirmation]',
+        });
+        return event.preventDefault();
+    });
 });
 
 /*
@@ -94,6 +102,7 @@ $(document).ready(function() {
 
 $(document).ready(function(){
     $('.currency').mask('000.000.000.000.000', {reverse: true});
+    $('.phone').mask('000-0000-00000');
     $(".simple_form").submit(function(){
         $('.currency').unmask();
     });

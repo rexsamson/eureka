@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :warehouses
   resources :product_settings, except: [:show]
   resources :products, except: [:show]
+  resources :assetms
+  resources :asset_details
 end

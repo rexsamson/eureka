@@ -7,6 +7,7 @@ class CreatePricelists < ActiveRecord::Migration[5.1]
       t.decimal :cogs, precision: 15, scale:2
       t.string :startfrom
       t.integer :group_id
+      t.timestamps
     end
   end
 end
