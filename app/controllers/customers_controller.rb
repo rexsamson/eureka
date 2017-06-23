@@ -61,7 +61,12 @@ class CustomersController < ApplicationController
     end
     
     def index
-        @customers= Customer.where(branch_id: current_branch).paginate(page: params[:page], per_page: 30)
+        @customers= Customer.where(branch_id: current_branch)
+        if params[:search]
+            @customers = Customer.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 30)
+        else
+            @customers = Customer.all.order('created_at DESC').paginate(page: params[:page], per_page: 30)
+        end
     end
     
     private

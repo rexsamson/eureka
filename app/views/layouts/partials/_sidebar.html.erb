@@ -46,7 +46,10 @@
 									<%= link_to "<i class='fa fa-caret-right '></i><i class='fa fa-cube text-white'></i> <span>Products</span>".html_safe, products_path, :rel => "tab" %>
 								</li>
 								<li class="<%= 'active' if params[:controller] == 'product_settings' %>">
-									<%= link_to "<i class='fa fa-caret-right '></i><i class='fa fa-th text-white'></i> <span>Product Settings</span>".html_safe, product_settings_path, :rel => "tab" %>
+									<%= link_to "<i class='fa fa-caret-right '></i><i class='fa fa-th text-white'></i> <span>Product Settings</span>
+										<span class='pull-right-container'>
+						              		<small class='label pull-right bg-red'>admin</small>
+						            	</span>".html_safe, product_settings_path, :rel => "tab" %>
 								</li>
 							</ul>
 						</li>

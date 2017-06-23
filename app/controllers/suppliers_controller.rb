@@ -60,7 +60,12 @@ class SuppliersController < ApplicationController
     end
     
     def index
-        @suppliers= Supplier.paginate(page: params[:page], per_page: 30).where(branch_id: current_branch)
+        @suppliers= Supplier.where(branch_id: current_branch)
+        if params[:search]
+            @suppliers = Supplier.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 30)
+        else
+            @suppliers = Supplier.all.order('created_at DESC').paginate(page: params[:page], per_page: 30)
+        end
     end
     
     private

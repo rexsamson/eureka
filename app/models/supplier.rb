@@ -1,6 +1,12 @@
 class Supplier < ApplicationRecord
+    
+    def self.search(search)
+      where("name LIKE ?", "%#{search}%")
+    end
+    
     extend FriendlyId
     friendly_id :name, use: :slugged
+    
     has_many :addresses, inverse_of: :supplier, dependent: :destroy
     belongs_to :branch, inverse_of: :suppliers
     accepts_nested_attributes_for :addresses, allow_destroy: true, reject_if: proc { |att| att['name'].blank? }

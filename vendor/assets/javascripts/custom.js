@@ -37,6 +37,7 @@ $(function () {
     pagination.toggle(this.api().page.info().pages > 1);
     }
   });
+  
   $('.dataTables_filter').addClass('pull-right');
   
   $('#dttablefull').DataTable( {
@@ -44,6 +45,9 @@ $(function () {
   } );
 });
 
+$(document).ready(function() {
+      $('.dataTable').dataTable().fnFilterOnReturn();
+  } );
 //select2
 $(document).ready(function() {
   $("#select").select2({ 

@@ -229,8 +229,20 @@ input .radio_buttons .inline label .radio{
   background-color:	#20B2AA !important;
 }
 #dttable_filter {
-  margin-top: -35px;
+  margin-top: -38px;
 }
 .popover {
   width:	180px !important;
+}
+.table-search {
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+.search-field{
+  width:180px;
+  font-weight: bold;
+}
+.td-search{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }

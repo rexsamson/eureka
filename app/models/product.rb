@@ -1,6 +1,12 @@
 class Product < ApplicationRecord
+    
+    def self.search(search)
+      where("code LIKE ?", "%#{search}%")
+    end
+    
     extend FriendlyId
     friendly_id :code, use: :slugged
+    
     belongs_to :branch, inverse_of: :products, optional: true
     belongs_to :warehouse, inverse_of: :products, optional: true
     

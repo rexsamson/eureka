@@ -16,9 +16,22 @@
 			<div class="box box-primary">
 				<!-- /.box-header -->
 				<div class="box-header">
-		         <h3  class="box-title">Customers <small>List</small></h3>
+					
+		        <h3  class="box-title">Customers <small>List</small></h3>
+		        <div class="pull-right">
+					<%= form_tag(customers_path, :method => "get", id: "search-form") do %>
+						<table class="table-search">
+							<tr>
+								<td class="td-search"><b class="pull-right">Search:</b></td>
+								<td class="td-search"><%= text_field_tag :search, params[:search], class: "form-control input-sm search-field" %></td>
+							</tr>
+						</table>
+						<%= submit_tag "search", :style => "display: none;" %>
+					<% end %>
+				</div>
 		        </div>
-				<div class="box-body">
+				<div class="box-body" id="dttable_filter">
+				
 					<table class="table table-bordered table-hover" >
 						<thead class="thead"
 							<tr>
@@ -56,10 +69,13 @@
 							<%end %>
 						</tbody>
 					</table>
+				
+
 				</div><!-- /.box-body -->
 				<div class="box-footer ">
-					<center><%= will_paginate @customers, renderer: BootstrapPagination::Rails, :class => 'pagination pagination-md no-margin' %></center>
+				
 				</div>
+
 			</div><!-- /.box-end -->
 			
 		</section>

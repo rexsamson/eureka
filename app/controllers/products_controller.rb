@@ -60,7 +60,12 @@ class ProductsController < ApplicationController
     end
     
     def index
-        @products= Product.where(branch_id: current_branch).paginate(page: params[:page], per_page: 30)
+        @products= Product.where(branch_id: current_branch)
+        if params[:search]
+            @products = Product.search(params[:search]).order("code").paginate(page: params[:page], per_page: 30)
+        else
+            @products = Product.all.order('code').paginate(page: params[:page], per_page: 30)
+        end
     end
     
     private
