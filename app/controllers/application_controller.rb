@@ -4,11 +4,23 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
     
     def current_user
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        begin
+            @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        rescue
+            session[:user_id] = nil
+            session[:branch_id] = nil
+            flash[:error] = "Warning: Your account has been revoked !"
+        end
     end
     
     def current_branch
-        Branch.find(session[:branch_id])
+        begin
+            Branch.find(session[:branch_id])
+        rescue
+            session[:user_id] = nil
+            session[:branch_id] = nil
+            flash[:error] = "Warning: Your account has been revoked !"
+        end
     end
     
     def logged_in?

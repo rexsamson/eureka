@@ -84,23 +84,23 @@
 								<!-- Menu Toggle Button -->
 								 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><!-- The user image in the navbar-->
 								 <i class="fa fa-fw fa-user"></i> <!-- hidden-xs hides the username on small devices so only the image appears. -->
-								 <span class="hidden-xs"><%= render html: current_user.fullname.titleize  %></span></a>
+								 <span class="hidden-xs"><%= render html: current_user.fullname.titleize rescue '-' %></span></a>
 								<ul class="dropdown-menu">
 									<!-- The user image in the menu -->	
 									<li class="user-header">
 										<h1><i class="fa fa-fw fa-user-circle" style="font-size:80px;color:white;"></i></h1>	
-										<p><%= render html: current_user.fullname.titleize  %> <small>Programmer</small></p>
+										<p><%= render html: current_user.fullname.titleize rescue '-' %> <small>Programmer</small></p>
 									</li><!-- Menu Body -->
 									<li class="user-body padding-xs">
 										<div class="row ">
 											<div class="col-xs-12 text-center ">
-												<a style="font-weight: 600"><%= render html: current_user.branch.name.upcase  %></a>
+												<a style="font-weight: 600"><%= render html: current_user.branch.name.upcase rescue '-' %></a>
 											</div>
 										</div><!-- /.row -->
 									</li><!-- Menu Footer-->
 									<li class="user-footer">
 										<div class="pull-left">
-											<%= link_to raw("<i class=\"fa fa-user-o\" aria-hidden=\"true\"></i>&nbsp;&nbsp; Profile "), profile_path(current_user), class: "btn btn-primary btn-flat" %>
+											<%= link_to raw("<i class=\"fa fa-user-o\" aria-hidden=\"true\"></i>&nbsp;&nbsp; Profile "), profile_path(current_user), class: "btn btn-primary btn-flat" rescue '-' %>
 										</div>
 										<div class="pull-right">
 											<%= link_to raw("<i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i> Sign out"), logout_path, method: :delete, :class => "btn btn-primary btn-flat" %>
