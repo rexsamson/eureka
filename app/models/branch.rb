@@ -6,6 +6,7 @@ class Branch < ApplicationRecord
     has_many :assetms, inverse_of: :branch
     has_many :suppliers, inverse_of: :branch
     has_many :customers, inverse_of: :branch
+    has_many :journals, inverse_of: :branch
     has_many :users, inverse_of: :branch
     has_many :groups, inverse_of: :branch
     has_many :inventories, inverse_of: :branch

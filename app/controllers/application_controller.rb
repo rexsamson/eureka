@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-
+    protect_from_forgery with: :null_session
     helper_method :current_user, :logged_in?
     
     def current_user
@@ -31,6 +31,15 @@ class ApplicationController < ActionController::Base
         if !logged_in?
             flash[:danger] = "You must be logged in to perform that action"
             redirect_to login_path
+        end
+    end
+    
+    def execute_statement(sql)
+        results = ActiveRecord::Base.connection.execute(sql)
+        if results.present?
+            return results
+        else
+            return nil
         end
     end
 

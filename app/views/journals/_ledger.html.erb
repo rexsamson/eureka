@@ -1,0 +1,23 @@
+<tr class="ledger">
+<td class="col-sm-5">
+    <div class="form-group">
+        <%= f.label :coa %>
+        <%= f.select :coa, options_from_collection_for_select(@accounts, :code, :code_with_label, :selected => f.object.coa), {:include_blank => true}, id: 'select' %>
+    </div>
+</td>
+<td class="col-sm-3"><%= f.input :note %></td>
+
+<td class="col-sm-2"><%= f.input :debit, as: :string, :input_html => {:class=> 'currency price', :rel => 'price'} %></td>
+<td class="col-sm-2"><%= f.input :credit, as: :string, :input_html => {:class=> 'currency pricec', :rel => 'pricec'} %></td>
+
+<td>
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= button_tag( :class => "btn btn-warning pull-right", 
+        'data-toggle' => 'confirmation', 
+        'data-placement' => 'top', 
+        'data-singleton' => 'true'
+    ) do %>
+	    <i class="fa fa-trash-o" aria-hidden="true"></i> 
+	<% end %>
+</td>
+</div>

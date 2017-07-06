@@ -65,7 +65,7 @@ class CustomersController < ApplicationController
         if params[:search]
             @customers = Customer.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 30)
         else
-            @customers = Customer.all.order('created_at DESC').paginate(page: params[:page], per_page: 30)
+            @customers = Customer.where(branch_id: current_branch).order('created_at DESC').paginate(page: params[:page], per_page: 30)
         end
     end
     
@@ -86,7 +86,7 @@ class CustomersController < ApplicationController
     def require_same_branch
         if current_user.branch_id != @customer.branch_id
             flash[:error]  = "You dont have permision for this action!"
-            redirect_to accounts_path
+            redirect_to customers_path
         end
     end
    

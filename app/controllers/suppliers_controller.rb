@@ -64,7 +64,7 @@ class SuppliersController < ApplicationController
         if params[:search]
             @suppliers = Supplier.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 30)
         else
-            @suppliers = Supplier.all.order('created_at DESC').paginate(page: params[:page], per_page: 30)
+            @suppliers = Supplier.where(branch_id: current_branch).order('created_at DESC').paginate(page: params[:page], per_page: 30)
         end
     end
     

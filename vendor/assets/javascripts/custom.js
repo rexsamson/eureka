@@ -53,12 +53,12 @@ $(document).ready(function() {
   $("#select").select2({ 
       width: '100%', 
       allowClear: true,
-      placeholder: "--Select--"
+      placeholder: "--Select--",
+      minimumResultsForSearch: -1
   });
   $("select").select2({ 
       width: '100%', 
       placeholder: "--Select--",
-      minimumResultsForSearch: -1
   });
   
 });
@@ -75,10 +75,15 @@ $(document).ready(function() {
     });
     
     $('form').on('click', '.add_fields', function(event) {
+        
         $('.fields').append($(this).data('fields'));
             flatpickr('.fdate');
         $('.phone').mask('0000-0000-0000');
         $('.currency').mask('000.000.000.000.000', {reverse: true});
+        $("select").select2({ 
+            width: '100%', 
+            placeholder: "--Select--",
+        });
         $('[data-toggle=confirmation]').confirmation({
             rootSelector: '[data-toggle=confirmation]',
         });
@@ -112,3 +117,4 @@ $(document).ready(function(){
     });
     $('.phone').mask('000-0000-00000');
 });
+

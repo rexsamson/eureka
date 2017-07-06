@@ -13,11 +13,10 @@ Rails.application.routes.draw do
   resources :salesmen
   resources :users, except: [:new]
   resources :customers
-  resources :addresses
   resources :suppliers
   resources :warehouses
   resources :product_settings, except: [:show]
   resources :products, except: [:show]
   resources :assetms
-  resources :asset_details
+  resources :journals
 end

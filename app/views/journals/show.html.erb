@@ -1,0 +1,100 @@
+  <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+    <section class="content-header"  onload="window.print();" >
+        <script>window.onload = function() { window.print(); }</script>
+      <h1>
+        Customer
+        <small><%= @customer.code %></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Customers</a></li>
+        <li class="active">View</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-home"></i> <%= @customer.name %>
+            <small class="pull-right"></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          <address>
+            <%= @customer.code %><br>
+            <strong><%= @customer.name %></strong><br>
+            <strong>Contact : </strong><%= @customer.cp %><br>
+           <strong> Phone : </strong><%= @customer.telp %>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <address>
+            <strong>Limit Customer</strong><br>
+            <strong>Credit Limit :</strong> <%= number_to_currency( @customer.climit, precision: 0, unit: "")  %><br>
+            <strong>Credit Limit :</strong> <%= number_to_currency( @customer.dlimit, precision: 0, unit: "")  %><br>
+            <strong>Credit Limit (tolerance) : </strong> 
+                    <%= number_to_currency( @customer.tclimit, precision: 0, unit: "")  %><br>
+            <strong>Credit Limit (tolerance) :</strong> 
+                    <%= number_to_currency( @customer.tdlimit, precision: 0, unit: "")  %><br>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <b>Status : </b>
+          <%= @customer.status %>
+          </br>
+          
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Region</th>
+              <th>City</th>
+              <th>Telp</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @customer.addresses.each do |addresses| %>   
+            <tr>
+              <td><%= addresses.name %></td>
+              <td><%= addresses.address %></td>
+              <td><%= addresses.region %></td>
+              <td><%= addresses.city %></td>
+              <td><%= addresses.telp %></td>
+            </tr>
+            <% end %>
+            </tbody>
+          </table>
+          
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <a href="#" target="_blank" class="btn btn-primary btn-flat"><i class="fa fa-print"></i> Print</a>
+          <%= link_to raw("<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), customers_path , :class => "btn btn-danger btn-flat pull-right" %> 
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>

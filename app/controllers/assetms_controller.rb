@@ -61,7 +61,7 @@ class AssetmsController < ApplicationController
     end
     
     def index
-        @assetms= Assetm.all
+        @assetms= Assetm.where(branch_id: current_branch)
     end
     
     private
