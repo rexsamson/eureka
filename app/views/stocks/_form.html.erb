@@ -1,0 +1,76 @@
+        <%= render 'shared/errors', obj: @stock %>
+        <div class="row">
+            
+            <%= simple_form_for @stock do |f|  %>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <%= f.input :code, 
+                            hint: false,
+                            :error => false,
+                            :readonly => true, 
+                            input_html: {value: @stock.code}
+                        %>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                	<div class="form-group">
+                        <%= f.input :menu, 
+                            hint: false,
+                            :error => false,
+                            :collection => [
+                                ['Repacking','Repacking'],
+                                ['Musnah','Musnah']
+                            ], id: 'select' 
+                        %>
+                    </div>
+                </div>
+            	<div class="col-sm-3">
+                	<div class="form-group">
+                        <%= f.input :status, 
+                            hint: false,
+                            :error => false,
+                            :collection => [
+                                ['Active','Active'],
+                                ['Inactive','Inactive']
+                            ], id: 'select' 
+                        %>
+                    </div>
+                </div>
+                
+            	<div class="col-sm-3">
+            		<div class="form-group">
+            			<%= f.input :date, as: :string, hint: false, :error => false, :input_html => { :class => 'fdate' }  %>
+            		</div>
+            	</div>
+            	
+            
+            	<div class="col-sm-12">
+            		<div class="form-group">
+            			<%= f.input :description, as: :text, hint: false,:error => false, :input_html => {:class=> ''} %>
+            		</div>
+            	</div>
+                
+                <div class="col-sm-12">
+                    <table  class='fields'>
+                        <hr>
+                    	<%= f.simple_fields_for :inventories do |builder| %>
+                    	    <%= render 'inventory', f: builder %>
+                        <% end %>
+                    </table>
+                    
+                    <div class="text-right btn-toolbar">
+                        <%= link_to_add_row(raw(
+                            "<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Journal"), 
+                            f, :inventories, class: 'btn btn-primary btn-flat', :disabled => :true) %>
+                        <%= link_to raw(
+                            "<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), 
+                            stocks_path , :class => "btn btn-danger btn-flat pull-right" 
+                         %> 
+                		<%= button_tag( :class => "btn btn-success btn-flat pull-right inventorybutton")  do %>
+            			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
+            			<% end %>
+        			</div>
+            	</div>
+            <%end %>
+        </div>
+        

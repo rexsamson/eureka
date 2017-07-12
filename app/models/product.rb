@@ -18,5 +18,9 @@ class Product < ApplicationRecord
         :products_color,
         :products_custom,
         :products_quality
+        
+    def code_with_name
+        "#{code} | #{name}"
+    end
 end
 

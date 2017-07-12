@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :products, except: [:show]
   resources :assetms
   resources :journals
+  resources :stocks
 end

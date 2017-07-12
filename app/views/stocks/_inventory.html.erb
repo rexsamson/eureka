@@ -1,0 +1,20 @@
+<tr class="inventory">
+<td class="col-sm-10">
+    <div class="form-group">
+        <%= f.label :code %>
+        <%= f.select :code, options_from_collection_for_select(@products, :code, :code_with_name, :selected => f.object.code), {:include_blank => true}, id: 'select' %>
+    </div>
+</td>
+<td class="col-sm-2"><%= f.input :quantity %></td>
+
+<td>
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= button_tag( :class => "btn btn-warning pull-right", 
+        'data-toggle' => 'confirmation', 
+        'data-placement' => 'top', 
+        'data-singleton' => 'true'
+    ) do %>
+	    <i class="fa fa-trash-o" aria-hidden="true"></i> 
+	<% end %>
+</td>
+</div>
