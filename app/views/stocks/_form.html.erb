@@ -1,3 +1,4 @@
+
         <%= render 'shared/errors', obj: @stock %>
         <div class="row">
             
@@ -18,9 +19,10 @@
                             hint: false,
                             :error => false,
                             :collection => [
-                                ['Repacking','Repacking'],
-                                ['Musnah','Musnah']
-                            ], id: 'select' 
+                                ['Stock Opname','Stock Opname'],
+                                ['Mutasi Depo','Mutasi Depo'],
+                                ['Selisih Terima','Selisih Terima']
+                            ], id: 'select', rel: '' 
                         %>
                     </div>
                 </div>
@@ -60,13 +62,13 @@
                     
                     <div class="text-right btn-toolbar">
                         <%= link_to_add_row(raw(
-                            "<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Journal"), 
-                            f, :inventories, class: 'btn btn-primary btn-flat', :disabled => :true) %>
+                            "<i class=\"fa fa-plus\" aria-hidden=\"true\"> </i> Add Item"), 
+                            f, :inventories, class: 'btn btn-primary btn-flat') %>
                         <%= link_to raw(
                             "<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Cancel"), 
                             stocks_path , :class => "btn btn-danger btn-flat pull-right" 
                          %> 
-                		<%= button_tag( :class => "btn btn-success btn-flat pull-right inventorybutton")  do %>
+                		<%= button_tag( :class => "btn btn-success btn-flat pull-right")  do %>
             			  <i class="fa fa-check" aria-hidden="true"></i> Submit 
             			<% end %>
         			</div>

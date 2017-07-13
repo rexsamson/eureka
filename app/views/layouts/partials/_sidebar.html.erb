@@ -42,14 +42,17 @@
 						<li class="<%= 'active' if params[:controller] == 'suppliers' %>">
 							<%= link_to "<i class='fa fa-industry text-white'></i> <span>Suppliers</span>".html_safe, suppliers_path, :rel => "tab" %></li>
 						
-						<li class="treeview <%= 'active' if params[:controller] == 'product_settings' %><%= 'active' if params[:controller] == 'products' %>">
+						<li class="treeview <%= 'active' if params[:controller] == 'product_settings' %><%= 'active' if params[:controller] == 'products' %><%= 'active' if params[:controller] == 'stocks' %>">
 							<%= link_to "<i class='fa fa-cubes text-white'></i> <span>Inventories</span><span class='pull-right-container'><i class='fa fa-angle-left pull-right'></i></span>".html_safe, suppliers_path, :rel => "tab" %>
 							<ul class="treeview-menu" style="font-size:14px !important">
+								<li class="<%= 'active' if params[:controller] == 'stocks' %>">
+									<%= link_to "<i class='fa fa-caret-right '></i><i class='fa fa-th text-white'></i> <span>Product Stocks</span>".html_safe, stocks_path, :rel => "tab" %>
+								</li>
 								<li class="<%= 'active' if params[:controller] == 'products' %>">
 									<%= link_to "<i class='fa fa-caret-right '></i><i class='fa fa-cube text-white'></i> <span>Products</span>".html_safe, products_path, :rel => "tab" %>
 								</li>
 								<li class="<%= 'active' if params[:controller] == 'product_settings' %>">
-									<%= link_to "<i class='fa fa-caret-right '></i><i class='fa fa-th text-white'></i> <span>Product Settings</span>
+									<%= link_to "<i class='fa fa-caret-right '></i><i class='fa fa-qrcode text-white'></i> <span>Product Settings</span>
 										<span class='pull-right-container'>
 						              		<small class='label pull-right bg-red'>admin</small>
 						            	</span>".html_safe, product_settings_path, :rel => "tab" %>

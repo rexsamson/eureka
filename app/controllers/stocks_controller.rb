@@ -20,7 +20,7 @@ class StocksController < ApplicationController
         end
         @stock = Stock.new
         @products = Product.where(branch_id: Branch.find(session[:branch_id]))
-        2.times { @stock.inventories.build }
+        @stock.inventories.build
         @stock.code= "#{"INV"}#{sprintf("%05d", new_code_number)}"
         @stock.branch = Branch.find(session[:branch_id])
     end

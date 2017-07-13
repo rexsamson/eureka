@@ -1,9 +1,19 @@
 <tr class="inventory">
-<td class="col-sm-10">
+<td class="col-sm-9">
     <div class="form-group">
         <%= f.label :code %>
         <%= f.select :code, options_from_collection_for_select(@products, :code, :code_with_name, :selected => f.object.code), {:include_blank => true}, id: 'select' %>
     </div>
+</td>
+<td class="col-sm-1">
+    <%= f.input :category, 
+        hint: false,
+        :error => false,
+        :collection => [
+            ['IN','IN'],
+            ['OUT','OUT']
+        ], id: 'select' 
+    %>
 </td>
 <td class="col-sm-2"><%= f.input :quantity %></td>
 
