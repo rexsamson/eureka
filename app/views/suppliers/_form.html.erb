@@ -35,12 +35,14 @@
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            		<%= f.input :climit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
+            		<%= f.input :climit, as: :string, hint: false,:error => false,
+            		:input_html => {:class=> 'currency', value: number_with_precision(f.object.climit, precision: 0)} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.input :dlimit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
+            			<%= f.input :dlimit, as: :string, hint: false,:error => false,
+            			:input_html => {:class=> 'currency', value: number_with_precision(f.object.dlimit, precision: 0)} %>
             		</div>
             	</div>
                 <div class="col-sm-4">

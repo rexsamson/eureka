@@ -7,7 +7,10 @@
         ['Other','Other']
     ], id: 'select' %>
 </td>
-<td class="col-sm-3"><%= f.input :value, as: :string, :input_html => {:class=> 'currency'}  %></td>
+<td class="col-sm-3">
+<%= f.input :value, as: :string,
+    :input_html => {:class=> 'currency', value: number_with_precision(f.object.value, precision: 0)} %>
+</td>
 <td class="col-sm-2"><%= f.input :date, as: :string, :input_html => { :class => 'fdate' }   %></td>
 <td class="col-sm-3"><%= f.input :note %></td>
 <td>

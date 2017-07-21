@@ -7,8 +7,14 @@
 </td>
 <td class="col-sm-3"><%= f.input :note %></td>
 
-<td class="col-sm-2"><%= f.input :debit, as: :string, :input_html => {:class=> 'currency price', :rel => 'price'} %></td>
-<td class="col-sm-2"><%= f.input :credit, as: :string, :input_html => {:class=> 'currency pricec', :rel => 'pricec'} %></td>
+<td class="col-sm-2">
+<%= f.input :debit, as: :string, 
+    :input_html => {:class=> 'currency price', :rel => 'price', value: number_with_precision(f.object.debit, precision: 0)} %>
+</td>
+<td class="col-sm-2">
+<%= f.input :credit, as: :string, 
+    :input_html => {:class=> 'currency pricec', :rel => 'pricec', value: number_with_precision(f.object.credit, precision: 0)} %>
+</td>
 
 <td>
     <%= f.input_field :_destroy, as: :hidden %>

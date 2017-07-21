@@ -2,12 +2,12 @@
         <div class="row">
             
             <%= simple_form_for @assetm do |f|  %>
-            	<div class="col-sm-2">
+            	<div class="col-sm-3">
             		<div class="form-group">
             			<%= f.input :code, hint: false, :error => false, :readonly => true, input_html: {value: @assetm.code } %>
             		</div>
             	</div>
-            	<div class="col-sm-7">
+            	<div class="col-sm-6">
             		<div class="form-group">
             			<%= f.input :name, hint: false,:error => false %>
             		</div>
@@ -49,7 +49,8 @@
             	</div>
             	<div class="col-sm-4">
             		<div class="form-group">
-            			<%= f.input :value, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'}  %>
+            			<%= f.input :value, as: :string, hint: false,:error => false,
+            			:input_html => {:class=> 'currency', value: number_with_precision(f.object.value, precision: 0)} %>
             		</div>
             	</div>
                 <div class="col-sm-4">

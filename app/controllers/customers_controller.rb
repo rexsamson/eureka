@@ -78,6 +78,7 @@ class CustomersController < ApplicationController
     def customer_params
         params.require(:customer).permit(
             :code, :name, :group, :cp, :status, :climit, :dlimit, :tclimit, :tdlimit, :telp, :branch_id, :slug,
+            :owner, :dob,
             addresses_attributes: Address.attribute_names.map(&:to_sym).push(:_destroy)
         )
         #params.require(:todo_list).permit(:name, tasks_attributes: Task.attribute_names.map(&:to_sym).push(:_destroy))

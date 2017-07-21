@@ -12,14 +12,9 @@
                     %>
                 </div>
                 </div>
-            	<div class="col-sm-5">
+            	<div class="col-sm-8">
             		<div class="form-group">
             			<%= f.input :name, hint: false,:error => false  %>
-            		</div>
-            	</div>
-            	<div class="col-sm-3">
-            		<div class="form-group">
-            			<%= f.input :cp, hint: false,:error => false  %>
             		</div>
             	</div>
             	<div class="col-sm-2">
@@ -27,6 +22,22 @@
             			<%= f.input :telp, hint: false,:error => false, :input_html => {:class=> 'phone'} %>
             		</div>
             	</div>
+            	<div class="col-sm-5">
+            		<div class="form-group">
+            			<%= f.input :cp, hint: false,:error => false  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-5">
+            		<div class="form-group">
+            			<%= f.input :owner, hint: false,:error => false  %>
+            		</div>
+            	</div>
+            	<div class="col-sm-2">
+            		<div class="form-group">
+            			<%= f.input :dob, as: :string, hint: false, :error => false, :input_html => { :class => 'fdate' }  %>
+            		</div>
+            	</div>
+            	
             	<div class="col-sm-2">
             		<div class="form-group">
             		<%= f.input :group, hint: false,:error => false  %>
@@ -47,24 +58,32 @@
                 </div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            		<%= f.input :climit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
+            		    
+            		<%= f.input :climit, as: :string, hint: false,:error => false, 
+            		:input_html => {:class=> 'currency', value: number_with_precision(f.object.climit, precision: 0)} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            			<%= f.input :dlimit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
+            			<%= f.input :dlimit, as: :string, hint: false,:error => false,
+            			:input_html => {:class=> 'currency', value: number_with_precision(f.object.dlimit, precision: 0)} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            		<%= f.input :tclimit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
+            		<%= f.input :tclimit, as: :string, hint: false,:error => false, 
+            		:input_html => {:class=> 'currency', value: number_with_precision(f.object.tclimit, precision: 0)} %>
             		</div>
             	</div>
             	<div class="col-sm-2">
             		<div class="form-group">
-            		<%= f.input :tdlimit, as: :string, hint: false,:error => false, :input_html => {:class=> 'currency'} %>
+            		<%= f.input :tdlimit, as: :string, hint: false,:error => false,
+            		:input_html => {:class=> 'currency', value: number_with_precision(f.object.tdlimit, precision: 0)} %>
             		</div>
             	</div>
+            	
+            	
+            	
                 <div class="col-sm-12">
                     <table  class='fields'>
                         <hr>

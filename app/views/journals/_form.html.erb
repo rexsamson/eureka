@@ -32,7 +32,8 @@
             	
             	<div class="col-sm-3">
             		<div class="form-group">
-            		<%= f.input :total, hint: false,:error => false, as: :string, :input_html => {:class=> 'currency', :readonly => true, :id => 'total'} %>
+            		<%= f.input :total, hint: false,:error => false, as: :string, 
+            		    :input_html => {:class=> 'currency', :readonly => true, :id => 'total', value: number_with_precision(f.object.total, precision: 0)} %>
             		</div>
             	</div>
             	<div class="col-sm-12">

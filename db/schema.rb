@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713065104) do
+ActiveRecord::Schema.define(version: 20170714022148) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "code"
@@ -106,6 +106,8 @@ ActiveRecord::Schema.define(version: 20170713065104) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "telp"
+    t.string "owner"
+    t.date "dob"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
