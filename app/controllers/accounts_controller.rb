@@ -49,7 +49,8 @@ class AccountsController < ApplicationController
     end
     
     def account_params
-        params.require(:account).permit(:code, :label, :du, :dk, :header, :description, :branch_id, current_user.branch_id, :slug)
+        params.require(:account).permit(:code, :label, :du, :dk, :header, 
+            :description, :branch_id, current_user.branch_id, :slug)
     end
     
     def require_same_branch

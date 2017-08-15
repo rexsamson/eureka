@@ -58,5 +58,4 @@ class ProductSettingsController < ApplicationController
             redirect_to product_settings_path
         end
     end
-   
 end

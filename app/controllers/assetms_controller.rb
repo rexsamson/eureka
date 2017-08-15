@@ -12,7 +12,9 @@ class AssetmsController < ApplicationController
     end
     
     def new
-        if last_assetm = Assetm.where(:branch_id => Branch.find(session[:branch_id])).last
+        if last_assetm = Assetm.where(
+            :branch_id => Branch.find(session[:branch_id])
+        ).last
             last_code_number = last_assetm.code.scan(/\d+$/).first.to_i
             new_code_number = last_code_number + 1
         else
@@ -26,7 +28,9 @@ class AssetmsController < ApplicationController
     end
     
     def create
-        if last_assetm = Assetm.where(:branch_id => Branch.find(session[:branch_id])).last
+        if last_assetm = Assetm.where(
+            :branch_id => Branch.find(session[:branch_id])
+        ).last
             last_code_number = last_assetm.code.scan(/\d+$/).first.to_i
             new_code_number = last_code_number + 1
         else
@@ -85,7 +89,8 @@ class AssetmsController < ApplicationController
             :description, 
             :slug,
             :branch_id,
-            asset_details_attributes: AssetDetail.attribute_names.map(&:to_sym).push(:_destroy)
+            asset_details_attributes: 
+                AssetDetail.attribute_names.map(&:to_sym).push(:_destroy)
         )
     end
     

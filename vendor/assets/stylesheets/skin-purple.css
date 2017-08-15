@@ -246,3 +246,12 @@ input .radio_buttons .inline label .radio{
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
+
+.btn.btns-flat {
+    border-radius: 0 ;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;;
+    border-width: 1px;
+}
+

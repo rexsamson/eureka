@@ -18,10 +18,11 @@ class JournalsController < ApplicationController
         else
             new_code_number = 1
         end
+        t = Time.now()
         @journal = Journal.new
         @accounts = Account.where(branch_id: Branch.find(session[:branch_id]))
         2.times { @journal.ledgers.build }
-        @journal.code= "#{"AJP"}#{sprintf("%05d", new_code_number)}"
+        @journal.code= "#{"AJP-"}#{t.strftime("%y/%m")}#{sprintf("-%04d", new_code_number)}"
         @journal.branch = Branch.find(session[:branch_id])
     end
     
